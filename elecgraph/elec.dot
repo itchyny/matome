@@ -1,0 +1,262 @@
+// dot2tex -tmath --usepdflatex --autosize elec.dot > elec.tex
+// pdflatex elec.tex -o elec.pdf
+// convert -density 250 elec.pdf elec.jpg
+// open ./elec.jpg
+// http://www.fauskes.net/code/dot2tex/documentation/
+
+
+digraph elec {
+  d2ttikzedgelabels = true;
+  d2tstyleonly = true;
+  d2tdocpreamble = "\setlength{\paperwidth}{1200mm}    \
+                    \setlength{\paperheight}{550mm}    \
+                    \setlength{\pdfpagewidth}{\paperwidth}    \
+                    \setlength{\pdfpageheight}{\paperheight}    \
+                    \def\cells#1#2{\begin{tabular}{c}#1\\$\displaystyle#2$\end{tabular}}    \
+                    \def\cell#1{\begin{tabular}{c}#1\end{tabular}}    \
+                    \def\cellss#1#2#3{\begin{tabular}{c}#1\\$\displaystyle#2$\\$\displaystyle#3$\end{tabular}}    \
+                    \def\cellsss#1#2#3#4{\begin{tabular}{c}#1\\$\displaystyle#2$\\$\displaystyle#3$\\$\displaystyle#4$\end{tabular}}    \
+                    \def\cellssss#1#2#3#4#5{\begin{tabular}{c}#1\\$\displaystyle#2$\\$\displaystyle#3$\\$\displaystyle#4$\\$\displaystyle#5$\end{tabular}}    \
+                    \def\dd{\mathrm{d}}    \
+                    \def\abs#1{\left|#1\right|}    \
+                    \def\curl{\mathop{\mathrm{curl}}}    \
+                    \def\grad{\mathop{\mathrm{grad}}}    \
+                    \def\diver{\mathop{\mathrm{div}}}";
+  graph [
+    concentrate = true
+    ];
+  node [
+    shape=box,
+    labelfloat = false
+      ];
+  edge [
+    ];
+  coulombs_law [ shape = octagon,
+               texlbl = "\cells{ Coulomb's law }\
+               { \mathbf F = \frac 1 {4\pi\varepsilon_0} \frac{\mathbf r_0 - \mathbf r_1}{{\abs{\mathbf r_0 - \mathbf r_1}}^3}  Q_0Q_1 }" ];
+  coulombs_law_mult [ texlbl = "\cells{ Coulomb's law (multiple point charges)}\
+  { \mathbf F = \frac {Q_0} {4\pi\varepsilon_0} \sum_i \frac{\mathbf r_0 - \mathbf r_i}{{\abs{\mathbf r_0 - \mathbf r_i}}^3} Q_i }" ];
+  coulombs_low2 [ texlbl = "\cells{ Coulomb's law in dielectric }\
+  { \mathbf F = \frac 1 {4\pi\varepsilon} \frac{\mathbf r_0 - \mathbf r_1}{{\abs{\mathbf r_0 - \mathbf r_1}}^3}  Q_0Q_1 }" ];
+  elec_field [ texlbl = "\cells{Electric field}\
+  { \mathbf E = \frac {Q_1} {4\pi\varepsilon_0} \frac{\mathbf r_0 - \mathbf r_1}{{\abs{\mathbf r_0 - \mathbf r_1}}^3}  } "];
+  elec_field_point [ texlbl = "\cells{Electric field (a point charge)}\
+  { \mathbf E = \frac {Q} {4\pi\varepsilon_0} \frac{1}{{r}^2}  } "];
+  elec_field_mult [ texlbl = "\cells{Electric field (multiple point charges)}\
+  { \mathbf E = \frac {1} {4\pi\varepsilon_0} \sum_i \frac{\mathbf r_0 - \mathbf r_i}{{\abs{\mathbf r_0 - \mathbf r_i}}^3} Q_i }" ];
+  elec_field_def [ shape=octagon,
+                 texlbl = "\cells{ Electric field }\
+                 { \mathbf {E} = \frac {\mathbf F} {Q}}" ];
+  line_of_force [ texlbl = "\cells { Line of force }\
+  {Q/\varepsilon_0\text{ lines from charge }Q}" ];
+  gauss_law [ texlbl = "\cellss{ Gauss's law }\
+  { \text {Electric flux } \mathrm {\Phi}_E = \oint_S \mathbf E \cdot \dd \mathbf {S}= \frac Q {\varepsilon_0} }\
+  { \diver \mathbf E = \frac {\rho} {\varepsilon_0}} " ];
+  poissons_equation [ texlbl = "\cells{ Poisson's equation }\
+  { \nabla ^ 2 V = - \frac {\rho}{\varepsilon_0}}" ];
+  laplaces_equation [ texlbl = "\cells{ Laplace's equation }\
+  { \nabla ^ 2 V = 0 }" ];
+  electric_potential [ shape = octagon,
+                     texlbl = "\cellss { Electric potential }\
+                     { V_{p_2p_1} = - \int_{p_1}^{p_2} \mathbf E \cdot \dd \mathbf S }\
+  { V = - \int _{\infty} ^{p} \mathbf E \cdot \dd \mathbf S} " ];
+  potential_diff [ texlbl = "\cellss { Electric field is conservative }\
+  { \curl \mathbf E = 0 \text{ Kirchhoff's voltage law} }\
+  { \mathbf E = -\grad V }" ];
+  potential_Q [ texlbl = "\cells{ Electric potential due to a point charge }\
+  { V = \frac {Q} {4\pi\varepsilon_0 r}} "];
+  electric_potential_easy [ texlbl = "\cell{$E = \frac {V} {d}$}" ];
+  coefficients [ texlbl = "\cellss{Coefficients of potential}\
+  {\begin{pmatrix}V_1\\\vdots\\ V_n\end{pmatrix} = \
+    \begin{pmatrix} p_{11} & \cdots & p_{1n} \\\
+      \vdots &        & \vdots \\\
+      p_{n1} & \cdots & p_{nn} \end{pmatrix}\
+      \begin{pmatrix}Q_1 \\ \vdots \\ Q_n \end{pmatrix}}\
+      {p_{ij} = p_{ji}}" ];
+    coefficients2 [ texlbl = "\cellss{Coefficients of capacity}\
+    {\begin{pmatrix}Q_1\\\vdots\\ Q_n\end{pmatrix} = \
+      \begin{pmatrix} q_{11} & \cdots & q_{1n} \\\
+        \vdots &        & \vdots \\\
+        q_{n1} & \cdots & q_{nn} \end{pmatrix}\
+        \begin{pmatrix}V_1 \\ \vdots \\ V_n \end{pmatrix}}\
+        {q_{ij} = q_{ji}}" ];
+      greens_relation [ texlbl = "\cells{Green's reciprocal relations}\
+      {\sum Q_iV_i' = \sum Q_i'V_i}" ];
+      potential_energy [ texlbl = "\cells{Potential energy}\
+      {W = \frac 12 \sum_i\sum_j p_{ij} Q_i Q_j = \frac 12 \sum_i Q_i V_i = \frac 12 \sum_i\sum_j q_{ij} V_i V_j } " ];
+      energy [ texlbl = "\cells {Energy per unit volume}\
+      {\frac 1 2 \mathbf E \cdot \mathbf D}" ];
+      force [ texlbl = "\cells {Force per unit area}\
+      {f = \frac 1 2 \mathbf E \cdot \mathbf D}" ];
+
+      polarization [ shape = octagon, texlbl = "\cells{Polarization density $\mathbf P$}\
+      {\mathbf P=\rho_0 \delta \mathbf r \quad \rho_p=-\mathrm{div} \mathbf P \quad Q_p = -\int_S \mathbf P \cdot \dd \mathbf S}" ];
+      gauss_law2 [ texlbl = "\cellsss{ Gauss's law in dielectric }\
+      { \oint_S \mathbf E \cdot \dd \mathbf S = Q + Q_p = Q - \int_S \mathbf P \cdot \dd \mathbf S}\
+      {\oint_S \mathbf D \cdot \dd \mathbf {S} = Q \quad \mathbf D = \varepsilon_0 \mathbf E + \mathbf P }\
+      { \diver \mathbf D = \rho } " ];
+      displacement_field [ shape = octagon, texlbl = "\cells {Electric displacement field $\mathbf D$}\
+      {\mathbf D = \varepsilon_0 \mathbf E + \mathbf P} "];
+      isotropic_dielectric [ texlbl = "\cellss{Isotropic dielectric}\
+      {\mathbf P = \chi \mathbf E = \chi_s \varepsilon_0 \mathbf E}\
+      {\mathbf D = \varepsilon \mathbf E = \varepsilon_0 \varepsilon_s \mathbf E}" ];
+      capacitance [ shape = octagon, texlbl = "\cells{Capacitance}{ C = \frac Q V }" ];
+      capacitor [ texlbl = "\cellss{Capacitor}\
+      {V=Ed \quad D = \sigma \quad E = \frac D \varepsilon }\
+      {V = \frac{Qd}{\varepsilon S} \quad C = \frac Q V = \frac {\varepsilon S} {d}}" ];
+
+      current [ shape = octagon, texlbl = "\cells{Current}\
+      {I = \frac{\dd Q} {\dd t} = \int_S \mathbf J \cdot \dd \mathbf S}"];
+      //                             {\diver \mathbf J + \frac{\partial \rho}{\partial t}}" ];
+      biot_savart [ shape = octagon, texlbl = "\cellss{Biot-Savart law}\
+      {\delta \mathbf B = \frac {\mu_0}{4 \pi} \frac {I \dd \mathbf s \times \mathbf r}{r^3}}\
+      {\mathbf B = \frac {\mu_0 I}{4 \pi} \int_C\frac{\dd \mathbf s \times \mathbf r}{r^3}} " ];
+      amperes_law [ shape = octagon, texlbl = "\cellss{Ampere's circuital law}\
+      {\oint_C \mathbf B \cdot \dd \mathbf s = \mu_0 I}\
+      {\curl \mathbf B = \mu_0 \mathbf J}" ];
+      magnetic_flux [ shape = octagon, texlbl = "\cells{Magnetic flux }\
+      {\Phi = \int_S \mathbf B \cdot \dd \mathbf S}" ];
+      gauss_law_magnetism [ texlbl = "\cellss{Gauss's law for magnetism}\
+      {\diver \mathbf B = 0}\
+      { \Phi = \oint_S \mathbf B \cdot \dd \mathbf S = 0} " ];
+      vector_potential [ texlbl = "\cellss{Magnetic vector potential}\
+      {\mathbf B = \curl \mathbf A \quad \diver \mathbf A = 0}\
+      {\mathbf E = - \grad \mathbf V - \frac {\partial \mathbf A} {\partial t}}" ];
+      amperes_law2 [ texlbl = "\cellss{Ampere's circuital law in magnetic body}\
+      {\oint_C \mathbf H \cdot \dd \mathbf s = I_f}\
+      {\curl \mathbf H = \mathbf {J_f}}" ];
+      magnetic_body [ texlbl = "\cellss{Magnetic body}\
+      {\mathbf M = \chi \mathbf H}\
+      {\mathbf B = \mu \mathbf H = \mu_s \mu_0 \mathbf H}" ];
+      magnetization [ shape = octagon, texlbl = "\cellss { Magnetization}\
+      { \mathbf M = \Delta \mathbf m / \Delta v }\
+      {\mathbf J_m = \curl \mathbf M \quad I_m = \oint_C \mathbf M \cdot \dd \mathbf s} "];
+      magnetic_field_strength [ shape = octagon, texlbl = "\cells {Magnetic field strength}\
+      {\mathbf H = \frac {\mathbf B} {\mu_0} - \mathbf M} " ];
+      magnetic_energy [ texlbl = "\cellss{Energy stored in magnetic field}\
+      {\omega_m = \frac 1 2 \mathbf H \cdot \mathbf B}\
+      {\dd\omega_m = \mathbf H \cdot \dd \mathbf B} "];
+      divj [ texlbl = "\cells{Kirchhoff's current law}\
+      {\diver \mathbf J_f = 0}" ];
+
+      coulombs_law -> coulombs_low2;
+      coulombs_law -> coulombs_law_mult -> elec_field_mult;
+      coulombs_law -> elec_field;
+      electric_potential -> potential_diff -> electric_potential_easy;
+      elec_field_def -> elec_field;
+      elec_field_point -> potential_Q;
+      elec_field_def -> elec_field_mult;
+      potential_diff -> poissons_equation;
+      electric_potential -> potential_Q;
+      //  gauss_law -> gauss_law2;
+      elec_field -> elec_field_point -> line_of_force -> gauss_law -> poissons_equation -> laplaces_equation -> greens_relation -> coefficients2 -> potential_energy;
+      greens_relation -> coefficients -> potential_energy -> energy -> force;
+
+      polarization -> gauss_law2;
+      polarization -> displacement_field;
+      displacement_field  -> gauss_law2;
+      displacement_field -> isotropic_dielectric -> capacitor;
+      capacitance -> capacitor;
+      isotropic_dielectric -> coulombs_low2;
+      biot_savart -> amperes_law -> amperes_law2 ->divj;
+      biot_savart -> gauss_law_magnetism -> vector_potential;
+      //  magnetic_flux -> gauss_law_magnetism;
+      magnetic_field_strength -> magnetic_body -> magnetic_energy;
+      magnetization -> magnetic_field_strength -> amperes_law2;
+
+      //  gauss_law_magnetism -- gauss_law [ dir = none ];
+
+
+      electromagnetic_force [ shape = octagon, texlbl = "\cellss{Electromagnetic force}\
+      {\delta \mathbf F = I \delta \mathbf s \times \mathbf B}\
+      {\mathbf F = \int_C I \dd \mathbf s \times \mathbf B}"];
+      electromagnetic_induction [ texlbl = "\cells{Electromagnetic induction}\
+      {e = -\int_S \frac{\partial \mathbf B}{\partial t}\cdot \dd \mathbf S+ \oint_C (\mathbf v \times \mathbf B) \cdot \dd \mathbf s} "];
+      //                                               {\mathbf E = \mathbf v \times \mathbf B}" ];
+      equation_ofmotion [ texlbl = "\cells{A charge's equation of motion}\
+      {m \frac{\dd^2\mathbf r}{dt^2} = q(\mathbf E + \mathbf v \times \mathbf B)}" ];
+      lorentz_force [ shape = octagon, texlbl = "\cells{Lorentz force}\
+      {\mathbf F = q (\mathbf E + \mathbf v \times \mathbf B)} "];
+      electromagnetic_force -> lorentz_force;
+      lorentz_force -> elec_field_def;
+      lorentz_force -> electromagnetic_induction;
+      lorentz_force -> equation_ofmotion;
+      faraday -> electromagnetic_induction;
+      //  magnetic_flux -> electromagnetic_induction;
+
+
+      faraday [ shape = octagon, texlbl = "\cells{Faraday's law of induction}\
+      {e = -\frac{\dd \Phi} {\dd t} = - N \frac {\dd\phi} {\dd t}}"];
+      //                            {\curl \mathbf E = - \frac {\partial \mathbf B} {\partial t}}" ];
+
+      // Two definitions of electromotive force
+      electromotive_force1 [ shape = octagon, texlbl = "\cells{Electoromotive force I}\
+      {e = \oint_C \frac{\mathbf F}{q}\cdot \dd\mathbf s}"];
+      //  electromotive_force2 [ shape = octagon, texlbl = "\cells{Electoromotive force II}\
+      //                             {e = \oint_C \mathbf E \cdot \dd\mathbf s}"];
+
+      faraday_diff1 [ shape = octagon, texlbl = "\cells{Faraday's law (differential form I)}\
+      {\curl \mathbf E = - \frac{\partial \mathbf B}{\partial t}}" ];
+      //  faraday_diff2 [ texlbl = "\cells{Faraday's law (differential form II)}\
+      //                         {\curl \mathbf E = - \frac{\partial \mathbf B}{\partial t} + \curl (\mathbf v \times \mathbf B) }" ];
+      speed_electromotive_force [ texlbl = "\cells{Speed EMF (?)}\
+      {\mathbf E_s = \mathbf v \times \mathbf B}" ];
+      electromotive_force1 -> faraday_diff1;
+      electromotive_force1 -> speed_electromotive_force;
+      faraday -> faraday_diff1 -> potential_diff;
+
+      //  electromotive_force2 -> faraday_diff2;
+      //  faraday -> faraday_diff2;
+
+
+      self_inductance [ shape = octagon, texlbl = "\cellss{Self inductance}\
+      {\Phi = L I} {e = -\frac{\dd\Phi}{\dd t} = -L\frac{\dd I}{\dd t}} " ];
+      faraday -> self_inductance;
+
+      mutual_inductance [ shape = octagon, texlbl = "\cellss {Mutual inductance}\
+      {\Phi_{12} = M_{12} I_2 \quad \Phi_{21} = M_{21} I_1}\
+      {M = M_{12} = M_{21}}"];
+      faraday -> mutual_inductance;
+
+      inductance_neumann [ texlbl = "\cellss{Neumann formula}\
+      {M = \frac {\mu}{4\pi} \oint_{C_1} \oint_{C_2} \frac {\dd\mathbf s_1 \cdot \dd \mathbf s_2} r} \
+      {L = \frac {\mu}{4\pi} \oint_{C} \oint_{C} \frac {\dd\mathbf s \cdot \dd \mathbf {s'}} r}"];
+      vector_potential -> inductance_neumann;
+      self_inductance -> inductance_neumann ;
+      mutual_inductance -> inductance_neumann ;
+
+
+
+      maxwell [ peripheries = 2, texlbl = "\cellssss{Maxwell's equation}\
+      {\curl \mathbf H = \mathbf J + \frac {\partial \mathbf D} {\partial t}}\
+      {\curl \mathbf E = - \frac {\partial \mathbf B}{\partial t}}\
+      {\diver \mathbf D = \rho}\
+      {\diver \mathbf B = 0}" ];
+      maxwell_option [ peripheries = 2, shape = octagon, texlbl = "\cellss{Homogeneous material}\
+      {\mathbf D = \varepsilon \mathbf E}\
+      {\mathbf B = \mu \mathbf H} "];
+      amperes_law2 -> maxwell;
+      faraday_diff1 -> maxwell;
+      gauss_law2 -> maxwell;
+      gauss_law_magnetism -> maxwell;
+      maxwell_option -> maxwell;
+      //  magnetic_body -> maxwell_option ;
+      //  isotropic_dielectric -> maxwell_option ;
+
+
+      //  energy -- magnetic_energy [ style = dashed , dir = none];
+      //  magnetic_body -- isotropic_dielectric [ style = dashed , dir = none];
+      //  gauss_law_magnetism -- gauss_law2 [ style = dashed , dir = none];
+
+
+      current_continuity [ texlbl = "\cells{Current continuity}\
+      {\diver \mathbf J + \frac{\partial \rho}{\partial t} = 0} "];
+      maxwell -> current_continuity -> divj;
+
+
+
+
+
+}
+
+

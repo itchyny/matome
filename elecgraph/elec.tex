@@ -1,0 +1,529 @@
+\documentclass{article}
+\usepackage[x11names, rgb]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{snakes,arrows,shapes}
+\usepackage{amsmath}
+%
+%
+
+%
+
+\setlength{\paperwidth}{1200mm}                        \setlength{\paperheight}{550mm}                        \setlength{\pdfpagewidth}{\paperwidth}                        \setlength{\pdfpageheight}{\paperheight}                        \def\cells#1#2{\begin{tabular}{c}#1\\$\displaystyle#2$\end{tabular}}                        \def\cell#1{\begin{tabular}{c}#1\end{tabular}}                        \def\cellss#1#2#3{\begin{tabular}{c}#1\\$\displaystyle#2$\\$\displaystyle#3$\end{tabular}}                        \def\cellsss#1#2#3#4{\begin{tabular}{c}#1\\$\displaystyle#2$\\$\displaystyle#3$\\$\displaystyle#4$\end{tabular}}                        \def\cellssss#1#2#3#4#5{\begin{tabular}{c}#1\\$\displaystyle#2$\\$\displaystyle#3$\\$\displaystyle#4$\\$\displaystyle#5$\end{tabular}}                        \def\dd{\mathrm{d}}                        \def\abs#1{\left|#1\right|}                        \def\curl{\mathop{\mathrm{curl}}}                        \def\grad{\mathop{\mathrm{grad}}}                        \def\diver{\mathop{\mathrm{div}}}%
+
+\begin{document}
+\pagestyle{empty}
+%
+%
+%
+
+\enlargethispage{100cm}
+% Start of code
+% \begin{tikzpicture}[anchor=mid,>=latex',line join=bevel,]
+\begin{tikzpicture}[>=latex',line join=bevel,]
+  \pgfsetlinewidth{1bp}
+%%
+\pgfsetcolor{black}
+  % Edge: coulombs_law_mult -> elec_field_mult
+  \draw [->] (1058.9bp,937.31bp) .. controls (1038.7bp,918.73bp) and (1011.5bp,893.83bp)  .. (982.56bp,867.21bp);
+  % Edge: faraday_diff1 -> potential_diff
+  \draw [->] (1219bp,1068.3bp) .. controls (1219bp,1008.2bp) and (1219bp,849.51bp)  .. (1219bp,768.15bp);
+  % Edge: magnetic_field_strength -> magnetic_body
+  \draw [->] (2304bp,1176.3bp) .. controls (2317.6bp,1161bp) and (2335.1bp,1141.4bp)  .. (2356.7bp,1117bp);
+  % Edge: faraday -> electromagnetic_induction
+  \draw [->] (334.44bp,1177.3bp) .. controls (346.44bp,1162bp) and (362.26bp,1141.7bp)  .. (381.71bp,1116.7bp);
+  % Edge: lorentz_force -> equation_ofmotion
+  \draw [->] (595bp,1181.8bp) .. controls (595bp,1166.5bp) and (595bp,1144.7bp)  .. (595bp,1116.4bp);
+  % Edge: coefficients -> potential_energy
+  \draw [->] (1307.1bp,258.49bp) .. controls (1316.7bp,248.86bp) and (1326.7bp,238.68bp)  .. (1343.2bp,222.09bp);
+  % Edge: maxwell_option -> maxwell
+  \draw [->] (1570.5bp,1063bp) .. controls (1576.5bp,1051bp) and (1583.7bp,1036.6bp)  .. (1595.2bp,1013.5bp);
+  % Edge: coefficients2 -> potential_energy
+  \draw [->] (1432.9bp,258.49bp) .. controls (1423.3bp,248.86bp) and (1413.3bp,238.68bp)  .. (1396.8bp,222.09bp);
+  % Edge: coulombs_law -> elec_field
+  \draw [->] (1011.8bp,1066.4bp) .. controls (991.28bp,1046.3bp) and (962.58bp,1018.3bp)  .. (933.15bp,989.55bp);
+  % Edge: gauss_law_magnetism -> maxwell
+  \draw [->] (1290.1bp,1170.3bp) .. controls (1300.1bp,1159.4bp) and (1310.7bp,1146.7bp)  .. (1319bp,1134bp) .. controls (1341.4bp,1099.7bp) and (1326.3bp,1077.1bp)  .. (1357bp,1050bp) .. controls (1397.8bp,1014bp) and (1422.3bp,1030.8bp)  .. (1474bp,1014bp) .. controls (1498bp,1006.2bp) and (1524bp,997.4bp)  .. (1556.9bp,986.09bp);
+  % Edge: amperes_law2 -> maxwell
+  \draw [->] (2120bp,1061.4bp) .. controls (2107.8bp,1057.2bp) and (2095.1bp,1053.2bp)  .. (2083bp,1050bp) .. controls (1991.9bp,1025.7bp) and (1966.7bp,1031.1bp)  .. (1874bp,1014bp) .. controls (1812.9bp,1002.7bp) and (1743.7bp,989.04bp)  .. (1683.1bp,976.85bp);
+  % Edge: lorentz_force -> elec_field_def
+  \draw [->] (651.8bp,1193.1bp) .. controls (705.32bp,1184bp) and (786.67bp,1166.1bp)  .. (851bp,1134bp) .. controls (858.39bp,1130.3bp) and (865.71bp,1125.5bp)  .. (880.64bp,1113.9bp);
+  % Edge: magnetic_body -> magnetic_energy
+  \draw [->] (2379bp,1066.7bp) .. controls (2379bp,1048.6bp) and (2379bp,1024bp)  .. (2379bp,993.27bp);
+  % Edge: potential_energy -> energy
+  \draw [->] (1370bp,167.95bp) .. controls (1370bp,159.65bp) and (1370bp,150.42bp)  .. (1370bp,131.51bp);
+  % Edge: electromotive_force1 -> faraday_diff1
+  \draw [->] (1379.3bp,1180.2bp) .. controls (1348.1bp,1163.1bp) and (1303.5bp,1138.5bp)  .. (1260.3bp,1114.8bp);
+  % Edge: faraday -> self_inductance
+  \draw [->] (297.77bp,1177.3bp) .. controls (287.09bp,1163.5bp) and (273.35bp,1145.7bp)  .. (255bp,1121.8bp);
+  % Edge: amperes_law -> amperes_law2
+  \draw [->] (2136.9bp,1170.3bp) .. controls (2146.5bp,1158bp) and (2157.7bp,1143.7bp)  .. (2174bp,1122.8bp);
+  % Edge: greens_relation -> coefficients2
+  \draw [->] (1392.1bp,375.98bp) .. controls (1401.1bp,367.39bp) and (1412bp,357.07bp)  .. (1430.2bp,339.76bp);
+  % Edge: faraday -> faraday_diff1
+  \draw [->] (385.37bp,1189.4bp) .. controls (426.92bp,1182.8bp) and (480.86bp,1175bp)  .. (529bp,1170bp) .. controls (790.32bp,1143.1bp) and (863.17bp,1193.7bp)  .. (1119bp,1134bp) .. controls (1134.6bp,1130.3bp) and (1151bp,1124.5bp)  .. (1175.3bp,1114.1bp);
+  % Edge: gauss_law_magnetism -> vector_potential
+  \draw [->] (1183.6bp,1195.7bp) .. controls (1100.5bp,1188.2bp) and (963.5bp,1171bp)  .. (851bp,1134bp) .. controls (844.11bp,1131.7bp) and (837.08bp,1128.9bp)  .. (820.89bp,1121.6bp);
+  % Edge: amperes_law2 -> divj
+  \draw [->] (2175.6bp,1061.3bp) .. controls (2126.5bp,994.14bp) and (2010.1bp,834.79bp)  .. (1957bp,762.13bp);
+  % Edge: biot_savart -> gauss_law_magnetism
+  \draw [->] (1390.1bp,1278.3bp) .. controls (1369bp,1265.9bp) and (1343bp,1250.5bp)  .. (1311bp,1231.7bp);
+  % Edge: isotropic_dielectric -> capacitor
+  \draw [->] (1920.1bp,1066.7bp) .. controls (1926.2bp,1049.8bp) and (1934.3bp,1027.1bp)  .. (1944.8bp,997.96bp);
+  % Edge: elec_field_point -> potential_Q
+  \draw [->] (1461.9bp,816.78bp) .. controls (1456.8bp,804.64bp) and (1450.6bp,789.76bp)  .. (1441.2bp,767.29bp);
+  % Edge: poissons_equation -> laplaces_equation
+  \draw [->] (1370bp,529.72bp) .. controls (1370bp,521.57bp) and (1370bp,512.3bp)  .. (1370bp,493.64bp);
+  % Edge: elec_field_def -> elec_field_mult
+  \draw [->] (878.89bp,1070.9bp) .. controls (863.88bp,1056.6bp) and (846.18bp,1036.3bp)  .. (838bp,1014bp) .. controls (822.71bp,972.27bp) and (816.51bp,952.91bp)  .. (838bp,914bp) .. controls (847.5bp,896.79bp) and (862.95bp,883.09bp)  .. (888.25bp,867.12bp);
+  % Edge: displacement_field -> gauss_law2
+  \draw [->] (1828.9bp,1181.8bp) .. controls (1817.8bp,1170.5bp) and (1803.2bp,1155.8bp)  .. (1781.7bp,1134.1bp);
+  % Edge: elec_field -> elec_field_point
+  \draw [->] (935.18bp,938.27bp) .. controls (946.96bp,929.01bp) and (961.31bp,919.49bp)  .. (976bp,914bp) .. controls (1145.7bp,850.57bp) and (1206bp,920.93bp)  .. (1382bp,878bp) .. controls (1391.7bp,875.63bp) and (1401.8bp,872.37bp)  .. (1421bp,865.07bp);
+  % Edge: coulombs_law -> coulombs_law_mult
+  \draw [->] (1048bp,1066.4bp) .. controls (1055.4bp,1047.5bp) and (1065.5bp,1021.5bp)  .. (1077.5bp,990.87bp);
+  % Edge: polarization -> displacement_field
+  \draw [->] (1807.1bp,1278.3bp) .. controls (1814.9bp,1263.5bp) and (1825bp,1244.5bp)  .. (1837.9bp,1220bp);
+  % Edge: electric_potential -> potential_diff
+  \draw [->] (1278.4bp,807bp) .. controls (1269bp,796.87bp) and (1258.7bp,785.79bp)  .. (1242.5bp,768.29bp);
+  % Edge: magnetization -> magnetic_field_strength
+  \draw [->] (2282bp,1272.4bp) .. controls (2282bp,1260.9bp) and (2282bp,1247.7bp)  .. (2282bp,1225.8bp);
+  % Edge: lorentz_force -> electromagnetic_induction
+  \draw [->] (564.69bp,1184bp) .. controls (535.02bp,1167.3bp) and (489.22bp,1141.6bp)  .. (444.78bp,1116.6bp);
+  % Edge: coulombs_law -> coulombs_low2
+  \draw [->] (1077.7bp,1069.7bp) .. controls (1090.7bp,1062.9bp) and (1105.2bp,1055.7bp)  .. (1119bp,1050bp) .. controls (1179.2bp,1025bp) and (1249.4bp,1002.9bp)  .. (1313bp,984.46bp);
+  % Edge: displacement_field -> isotropic_dielectric
+  \draw [->] (1859.1bp,1181.8bp) .. controls (1868bp,1166.3bp) and (1880.8bp,1144.3bp)  .. (1896.4bp,1117.2bp);
+  % Edge: energy -> force
+  \draw [->] (1370bp,84.154bp) .. controls (1370bp,75.926bp) and (1370bp,66.548bp)  .. (1370bp,47.615bp);
+  % Edge: gauss_law2 -> maxwell
+  \draw [->] (1700.4bp,1049.7bp) .. controls (1691.8bp,1040.6bp) and (1682.6bp,1030.7bp)  .. (1666.7bp,1013.8bp);
+  % Edge: electric_potential -> potential_Q
+  \draw [->] (1347.6bp,810.53bp) .. controls (1362.1bp,798.77bp) and (1378.7bp,785.35bp)  .. (1401.1bp,767.23bp);
+  % Edge: maxwell -> current_continuity
+  \draw [->] (1645.8bp,914.33bp) .. controls (1653bp,900.62bp) and (1660.5bp,886.1bp)  .. (1671.8bp,864.53bp);
+  % Edge: potential_diff -> electric_potential_easy
+  \draw [->] (1234.8bp,717.78bp) .. controls (1243.3bp,704.2bp) and (1253.7bp,687.45bp)  .. (1267.7bp,665.08bp);
+  % Edge: elec_field_point -> line_of_force
+  \draw [->] (1509.6bp,816.78bp) .. controls (1532.8bp,801.8bp) and (1562.5bp,782.63bp)  .. (1594.5bp,762.04bp);
+  % Edge: capacitance -> capacitor
+  \draw [->] (2016.4bp,1068.2bp) .. controls (2006.6bp,1051bp) and (1993bp,1027.2bp)  .. (1976.3bp,997.78bp);
+  % Edge: electromotive_force1 -> speed_electromotive_force
+  \draw [->] (1417bp,1176.3bp) .. controls (1417bp,1159.9bp) and (1417bp,1138.5bp)  .. (1417bp,1111.2bp);
+  % Edge: elec_field_def -> elec_field
+  \draw [->] (904.58bp,1067.3bp) .. controls (905.03bp,1048.2bp) and (905.65bp,1021.5bp)  .. (906.39bp,989.92bp);
+  % Edge: laplaces_equation -> greens_relation
+  \draw [->] (1370bp,454.17bp) .. controls (1370bp,446.31bp) and (1370bp,437.09bp)  .. (1370bp,418.11bp);
+  % Edge: faraday_diff1 -> maxwell
+  \draw [->] (1267.1bp,1071.1bp) .. controls (1284.8bp,1063.8bp) and (1305.1bp,1056bp)  .. (1324bp,1050bp) .. controls (1389.3bp,1029.2bp) and (1408.2bp,1033.1bp)  .. (1474bp,1014bp) .. controls (1498.1bp,1007bp) and (1524.1bp,998.44bp)  .. (1556.8bp,987.09bp);
+  % Edge: vector_potential -> inductance_neumann
+  \draw [->] (716.6bp,1062.4bp) .. controls (706.96bp,1057.7bp) and (696.84bp,1053.4bp)  .. (687bp,1050bp) .. controls (561.28bp,1006.9bp) and (408.21bp,983.62bp)  .. (305.36bp,971.32bp);
+  % Edge: current_continuity -> divj
+  \draw [->] (1742.1bp,819.01bp) .. controls (1784.1bp,803.11bp) and (1840.7bp,781.7bp)  .. (1892.5bp,762.11bp);
+  % Edge: mutual_inductance -> inductance_neumann
+  \draw [->] (108.43bp,1066.7bp) .. controls (128.67bp,1049.9bp) and (155.78bp,1027.3bp)  .. (187.34bp,1001.1bp);
+  % Edge: magnetic_field_strength -> amperes_law2
+  \draw [->] (2262.9bp,1176.3bp) .. controls (2252.6bp,1162.9bp) and (2239.7bp,1146.1bp)  .. (2221.8bp,1122.9bp);
+  % Edge: polarization -> gauss_law2
+  \draw [->] (1779.3bp,1278.2bp) .. controls (1772.1bp,1264.9bp) and (1763.9bp,1248bp)  .. (1759bp,1232bp) .. controls (1750.4bp,1203.7bp) and (1745.6bp,1171.1bp)  .. (1742.2bp,1134.1bp);
+  % Edge: biot_savart -> amperes_law
+  \draw [->] (1491.2bp,1294.3bp) .. controls (1540.1bp,1287.2bp) and (1611.6bp,1276.8bp)  .. (1674bp,1268bp) .. controls (1790.8bp,1251.6bp) and (1820.4bp,1250.2bp)  .. (1937bp,1232bp) .. controls (1969.8bp,1226.9bp) and (2005.9bp,1220.6bp)  .. (2046.7bp,1213.3bp);
+  % Edge: gauss_law -> poissons_equation
+  \draw [->] (1465.8bp,612.26bp) .. controls (1449.6bp,602.21bp) and (1432bp,591.35bp)  .. (1407.5bp,576.18bp);
+  % Edge: isotropic_dielectric -> coulombs_low2
+  \draw [->] (1877.9bp,1066.9bp) .. controls (1867.8bp,1060.4bp) and (1856.4bp,1054.1bp)  .. (1845bp,1050bp) .. controls (1719.8bp,1005.2bp) and (1678bp,1042.1bp)  .. (1548bp,1014bp) .. controls (1522.4bp,1008.5bp) and (1495bp,1000.6bp)  .. (1460.7bp,989.62bp);
+  % Edge: line_of_force -> gauss_law
+  \draw [->] (1603.4bp,723.57bp) .. controls (1592.7bp,713.5bp) and (1579.1bp,700.78bp)  .. (1558.7bp,681.55bp);
+  % Edge: faraday -> mutual_inductance
+  \draw [->] (271.23bp,1181.6bp) .. controls (241.1bp,1168.4bp) and (200.52bp,1150.5bp)  .. (165bp,1134bp) .. controls (153.94bp,1128.9bp) and (142.15bp,1123.3bp)  .. (121.68bp,1113.4bp);
+  % Edge: greens_relation -> coefficients
+  \draw [->] (1347.9bp,375.98bp) .. controls (1338.9bp,367.39bp) and (1328bp,357.07bp)  .. (1309.8bp,339.76bp);
+  % Edge: potential_diff -> poissons_equation
+  \draw [->] (1215.9bp,717.87bp) .. controls (1213.8bp,689.31bp) and (1214.8bp,642.71bp)  .. (1238bp,612bp) .. controls (1254bp,590.87bp) and (1279.2bp,577.14bp)  .. (1312.9bp,565.02bp);
+  % Edge: self_inductance -> inductance_neumann
+  \draw [->] (232bp,1062.3bp) .. controls (232bp,1047.3bp) and (232bp,1028.6bp)  .. (232bp,1001.3bp);
+  % Edge: electromagnetic_force -> lorentz_force
+  \draw [->] (595bp,1272.4bp) .. controls (595bp,1259bp) and (595bp,1243.3bp)  .. (595bp,1220bp);
+  % Node: faraday_diff1
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1310bp,1082bp) -- (1310bp,1102bp) -- (1257bp,1116bp) -- (1181bp,1116bp) -- (1128bp,1102bp) -- (1128bp,1082bp) -- (1181bp,1069bp) -- (1257bp,1069bp) -- cycle;
+  \draw (1219bp,1092bp) node {\cells{Faraday's law (differential form I)}      {\curl \mathbf E = - \frac{\partial \mathbf B}{\partial t}}};
+\end{scope}
+  % Node: magnetization
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (2366bp,1290bp) -- (2366bp,1316bp) -- (2317bp,1334bp) -- (2247bp,1334bp) -- (2198bp,1316bp) -- (2198bp,1290bp) -- (2247bp,1273bp) -- (2317bp,1273bp) -- cycle;
+  \draw (2282bp,1303bp) node {\cellss { Magnetization}      { \mathbf M = \Delta \mathbf m / \Delta v }      {\mathbf J_m = \curl \mathbf M \quad I_m = \oint_C \mathbf M \cdot \dd \mathbf s} };
+\end{scope}
+  % Node: force
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1429bp,47bp) -- (1311bp,48bp) -- (1311bp,1bp) -- (1429bp,1bp) -- cycle;
+  \draw (1370bp,24bp) node {\cells {Force per unit area}      {f = \frac 1 2 \mathbf E \cdot \mathbf D}};
+\end{scope}
+  % Node: coulombs_low2
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1465bp,990bp) -- (1313bp,990bp) -- (1313bp,939bp) -- (1465bp,939bp) -- cycle;
+  \draw (1389bp,964bp) node {\cells{ Coulomb's law in dielectric }  { \mathbf F = \frac 1 {4\pi\varepsilon} \frac{\mathbf r_0 - \mathbf r_1}{{\abs{\mathbf r_0 - \mathbf r_1}}^3}  Q_0Q_1 }};
+\end{scope}
+  % Node: amperes_law2
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (2304bp,1123bp) -- (2092bp,1123bp) -- (2092bp,1062bp) -- (2304bp,1062bp) -- cycle;
+  \draw (2198bp,1092bp) node {\cellss{Ampere's circuital law in magnetic body}      {\oint_C \mathbf H \cdot \dd \mathbf s = I_f}      {\curl \mathbf H = \mathbf {J_f}}};
+\end{scope}
+  % Node: maxwell
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1679bp,1010bp) -- (1561bp,1010bp) -- (1561bp,919bp) -- (1679bp,919bp) -- cycle;
+  \draw (1683bp,1014bp) -- (1557bp,1014bp) -- (1557bp,915bp) -- (1683bp,915bp) -- cycle;
+  \draw (1620bp,964bp) node {\cellssss{Maxwell's equation}      {\curl \mathbf H = \mathbf J + \frac {\partial \mathbf D} {\partial t}}      {\curl \mathbf E = - \frac {\partial \mathbf B}{\partial t}}      {\diver \mathbf D = \rho}      {\diver \mathbf B = 0}};
+\end{scope}
+  % Node: energy
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1439bp,132bp) -- (1301bp,132bp) -- (1301bp,85bp) -- (1439bp,85bp) -- cycle;
+  \draw (1370bp,108bp) node {\cells {Energy per unit volume}      {\frac 1 2 \mathbf E \cdot \mathbf D}};
+\end{scope}
+  % Node: coulombs_law_mult
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1191bp,991bp) -- (985bp,991bp) -- (985bp,938bp) -- (1191bp,938bp) -- cycle;
+  \draw (1088bp,964bp) node {\cells{ Coulomb's law (multiple point charges)}  { \mathbf F = \frac {Q_0} {4\pi\varepsilon_0} \sum_i \frac{\mathbf r_0 - \mathbf r_i}{{\abs{\mathbf r_0 - \mathbf r_i}}^3} Q_i }};
+\end{scope}
+  % Node: current_continuity
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1742bp,865bp) -- (1626bp,865bp) -- (1626bp,818bp) -- (1742bp,818bp) -- cycle;
+  \draw (1684bp,841bp) node {\cells{Current continuity}      {\diver \mathbf J + \frac{\partial \rho}{\partial t} = 0} };
+\end{scope}
+  % Node: electric_potential
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1373bp,826bp) -- (1373bp,856bp) -- (1336bp,878bp) -- (1284bp,878bp) -- (1247bp,856bp) -- (1247bp,826bp) -- (1284bp,804bp) -- (1336bp,804bp) -- cycle;
+  \draw (1310bp,841bp) node {\cellss { Electric potential }                     { V_{p_2p_1} = - \int_{p_1}^{p_2} \mathbf E \cdot \dd \mathbf S }  { V = - \int _{\infty} ^{p} \mathbf E \cdot \dd \mathbf S} };
+\end{scope}
+  % Node: electromagnetic_induction
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (494bp,1117bp) -- (308bp,1117bp) -- (308bp,1068bp) -- (494bp,1068bp) -- cycle;
+  \draw (401bp,1092bp) node {\cells{Electromagnetic induction}      {e = -\int_S \frac{\partial \mathbf B}{\partial t}\cdot \dd \mathbf S+ \oint_C (\mathbf v \times \mathbf B) \cdot \dd \mathbf s} };
+\end{scope}
+  % Node: equation_ofmotion
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (678bp,1116bp) -- (512bp,1116bp) -- (512bp,1068bp) -- (678bp,1068bp) -- cycle;
+  \draw (595bp,1092bp) node {\cells{A charge's equation of motion}      {m \frac{\dd^2\mathbf r}{dt^2} = q(\mathbf E + \mathbf v \times \mathbf B)}};
+\end{scope}
+  % Node: amperes_law
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (2179bp,1188bp) -- (2179bp,1214bp) -- (2140bp,1232bp) -- (2086bp,1232bp) -- (2047bp,1214bp) -- (2047bp,1188bp) -- (2086bp,1171bp) -- (2140bp,1171bp) -- cycle;
+  \draw (2113bp,1201bp) node {\cellss{Ampere's circuital law}      {\oint_C \mathbf B \cdot \dd \mathbf s = \mu_0 I}      {\curl \mathbf B = \mu_0 \mathbf J}};
+\end{scope}
+  % Node: elec_field_def
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (948bp,1082bp) -- (948bp,1102bp) -- (922bp,1117bp) -- (886bp,1117bp) -- (860bp,1102bp) -- (860bp,1082bp) -- (886bp,1068bp) -- (922bp,1068bp) -- cycle;
+  \draw (904bp,1092bp) node {\cells{ Electric field }                 { \mathbf {E} = \frac {\mathbf F} {Q}}};
+\end{scope}
+  % Node: biot_savart
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1491bp,1289bp) -- (1491bp,1317bp) -- (1456bp,1338bp) -- (1408bp,1338bp) -- (1373bp,1317bp) -- (1373bp,1289bp) -- (1408bp,1268bp) -- (1456bp,1268bp) -- cycle;
+  \draw (1432bp,1303bp) node {\cellss{Biot-Savart law}      {\delta \mathbf B = \frac {\mu_0}{4 \pi} \frac {I \dd \mathbf s \times \mathbf r}{r^3}}      {\mathbf B = \frac {\mu_0 I}{4 \pi} \int_C\frac{\dd \mathbf s \times \mathbf r}{r^3}} };
+\end{scope}
+  % Node: faraday
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (391bp,1191bp) -- (391bp,1211bp) -- (347bp,1225bp) -- (285bp,1225bp) -- (241bp,1211bp) -- (241bp,1191bp) -- (285bp,1178bp) -- (347bp,1178bp) -- cycle;
+  \draw (316bp,1201bp) node {\cells{Faraday's law of induction}      {e = -\frac{\dd \Phi} {\dd t} = - N \frac {\dd\phi} {\dd t}}};
+\end{scope}
+  % Node: current
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (2504bp,1293bp) -- (2504bp,1313bp) -- (2469bp,1328bp) -- (2419bp,1328bp) -- (2384bp,1313bp) -- (2384bp,1293bp) -- (2419bp,1279bp) -- (2469bp,1279bp) -- cycle;
+  \draw (2444bp,1303bp) node {\cells{Current}      {I = \frac{\dd Q} {\dd t} = \int_S \mathbf J \cdot \dd \mathbf S}};
+\end{scope}
+  % Node: gauss_law2
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1836bp,1134bp) -- (1644bp,1134bp) -- (1644bp,1050bp) -- (1836bp,1050bp) -- cycle;
+  \draw (1740bp,1092bp) node {\cellsss{ Gauss's law in dielectric }      { \oint_S \mathbf E \cdot \dd \mathbf S = Q + Q_p = Q - \int_S \mathbf P \cdot \dd \mathbf S}      {\oint_S \mathbf D \cdot \dd \mathbf {S} = Q \quad \mathbf D = \varepsilon_0 \mathbf E + \mathbf P }      { \diver \mathbf D = \rho } };
+\end{scope}
+  % Node: self_inductance
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (290bp,1080bp) -- (290bp,1104bp) -- (256bp,1122bp) -- (208bp,1122bp) -- (174bp,1104bp) -- (174bp,1080bp) -- (208bp,1063bp) -- (256bp,1063bp) -- cycle;
+  \draw (232bp,1092bp) node {\cellss{Self inductance}      {\Phi = L I} {e = -\frac{\dd\Phi}{\dd t} = -L\frac{\dd I}{\dd t}} };
+\end{scope}
+  % Node: poissons_equation
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1427bp,576bp) -- (1313bp,576bp) -- (1313bp,530bp) -- (1427bp,530bp) -- cycle;
+  \draw (1370bp,553bp) node {\cells{ Poisson's equation }  { \nabla ^ 2 V = - \frac {\rho}{\varepsilon_0}}};
+\end{scope}
+  % Node: line_of_force
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1696bp,762bp) -- (1552bp,762bp) -- (1552bp,724bp) -- (1696bp,724bp) -- cycle;
+  \draw (1624bp,743bp) node {\cells { Line of force }  {Q/\varepsilon_0\text{ lines from charge }Q}};
+\end{scope}
+  % Node: polarization
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1905bp,1293bp) -- (1905bp,1313bp) -- (1840bp,1328bp) -- (1748bp,1328bp) -- (1683bp,1313bp) -- (1683bp,1293bp) -- (1748bp,1279bp) -- (1840bp,1279bp) -- cycle;
+  \draw (1794bp,1303bp) node {\cells{Polarization density $\mathbf P$}      {\mathbf P=\rho_0 \delta \mathbf r \quad \rho_p=-\mathrm{div} \mathbf P \quad Q_p = -\int_S \mathbf P \cdot \dd \mathbf S}};
+\end{scope}
+  % Node: capacitance
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (2074bp,1082bp) -- (2074bp,1102bp) -- (2048bp,1116bp) -- (2012bp,1116bp) -- (1986bp,1102bp) -- (1986bp,1082bp) -- (2012bp,1069bp) -- (2048bp,1069bp) -- cycle;
+  \draw (2030bp,1092bp) node {\cells{Capacitance}{ C = \frac Q V }};
+\end{scope}
+  % Node: potential_energy
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1509bp,222bp) -- (1231bp,222bp) -- (1231bp,168bp) -- (1509bp,168bp) -- cycle;
+  \draw (1370bp,195bp) node {\cells{Potential energy}      {W = \frac 12 \sum_i\sum_j p_{ij} Q_i Q_j = \frac 12 \sum_i Q_i V_i = \frac 12 \sum_i\sum_j q_{ij} V_i V_j } };
+\end{scope}
+  % Node: coefficients2
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1567bp,340bp) -- (1379bp,340bp) -- (1379bp,259bp) -- (1567bp,259bp) -- cycle;
+  \draw (1473bp,299bp) node {\cellss{Coefficients of capacity}    {\begin{pmatrix}Q_1\\\vdots\\ Q_n\end{pmatrix} =       \begin{pmatrix} q_{11} & \cdots & q_{1n} \\        \vdots &        & \vdots \\        q_{n1} & \cdots & q_{nn} \end{pmatrix}        \begin{pmatrix}V_1 \\ \vdots \\ V_n \end{pmatrix}}        {q_{ij} = q_{ji}}};
+\end{scope}
+  % Node: electric_potential_easy
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1311bp,665bp) -- (1247bp,665bp) -- (1247bp,629bp) -- (1311bp,629bp) -- cycle;
+  \draw (1279bp,647bp) node {\cell{$E = \frac {V} {d}$}};
+\end{scope}
+  % Node: magnetic_field_strength
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (2350bp,1191bp) -- (2350bp,1211bp) -- (2310bp,1226bp) -- (2254bp,1226bp) -- (2214bp,1211bp) -- (2214bp,1191bp) -- (2254bp,1177bp) -- (2310bp,1177bp) -- cycle;
+  \draw (2282bp,1201bp) node {\cells {Magnetic field strength}      {\mathbf H = \frac {\mathbf B} {\mu_0} - \mathbf M} };
+\end{scope}
+  % Node: electromotive_force1
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1482bp,1191bp) -- (1482bp,1211bp) -- (1444bp,1226bp) -- (1390bp,1226bp) -- (1352bp,1211bp) -- (1352bp,1191bp) -- (1390bp,1177bp) -- (1444bp,1177bp) -- cycle;
+  \draw (1417bp,1201bp) node {\cells{Electoromotive force I}      {e = \oint_C \frac{\mathbf F}{q}\cdot \dd\mathbf s}};
+\end{scope}
+  % Node: magnetic_body
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (2436bp,1117bp) -- (2322bp,1117bp) -- (2322bp,1067bp) -- (2436bp,1067bp) -- cycle;
+  \draw (2379bp,1092bp) node {\cellss{Magnetic body}      {\mathbf M = \chi \mathbf H}      {\mathbf B = \mu \mathbf H = \mu_s \mu_0 \mathbf H}};
+\end{scope}
+  % Node: elec_field_mult
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1052bp,867bp) -- (856bp,867bp) -- (856bp,815bp) -- (1052bp,815bp) -- cycle;
+  \draw (954bp,841bp) node {\cells{Electric field (multiple point charges)}  { \mathbf E = \frac {1} {4\pi\varepsilon_0} \sum_i \frac{\mathbf r_0 - \mathbf r_i}{{\abs{\mathbf r_0 - \mathbf r_i}}^3} Q_i }};
+\end{scope}
+  % Node: divj
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (2010bp,762bp) -- (1876bp,762bp) -- (1876bp,724bp) -- (2010bp,724bp) -- cycle;
+  \draw (1943bp,743bp) node {\cells{Kirchhoff's current law}      {\diver \mathbf J_f = 0}};
+\end{scope}
+  % Node: potential_Q
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1534bp,767bp) -- (1328bp,767bp) -- (1328bp,719bp) -- (1534bp,719bp) -- cycle;
+  \draw (1431bp,743bp) node {\cells{ Electric potential due to a point charge }  { V = \frac {Q} {4\pi\varepsilon_0 r}} };
+\end{scope}
+  % Node: laplaces_equation
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1427bp,494bp) -- (1313bp,494bp) -- (1313bp,455bp) -- (1427bp,455bp) -- cycle;
+  \draw (1370bp,474bp) node {\cells{ Laplace's equation }  { \nabla ^ 2 V = 0 }};
+\end{scope}
+  % Node: greens_relation
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1446bp,418bp) -- (1294bp,418bp) -- (1294bp,376bp) -- (1446bp,376bp) -- cycle;
+  \draw (1370bp,397bp) node {\cells{Green's reciprocal relations}      {\sum Q_iV_i' = \sum Q_i'V_i}};
+\end{scope}
+  % Node: gauss_law_magnetism
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1334bp,1232bp) -- (1184bp,1232bp) -- (1184bp,1171bp) -- (1334bp,1171bp) -- cycle;
+  \draw (1259bp,1201bp) node {\cellss{Gauss's law for magnetism}      {\diver \mathbf B = 0}      { \Phi = \oint_S \mathbf B \cdot \dd \mathbf S = 0} };
+\end{scope}
+  % Node: electromagnetic_force
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (659bp,1290bp) -- (659bp,1316bp) -- (622bp,1334bp) -- (568bp,1334bp) -- (531bp,1316bp) -- (531bp,1290bp) -- (568bp,1273bp) -- (622bp,1273bp) -- cycle;
+  \draw (595bp,1303bp) node {\cellss{Electromagnetic force}      {\delta \mathbf F = I \delta \mathbf s \times \mathbf B}      {\mathbf F = \int_C I \dd \mathbf s \times \mathbf B}};
+\end{scope}
+  % Node: elec_field
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (967bp,990bp) -- (847bp,990bp) -- (847bp,939bp) -- (967bp,939bp) -- cycle;
+  \draw (907bp,964bp) node {\cells{Electric field}  { \mathbf E = \frac {Q_1} {4\pi\varepsilon_0} \frac{\mathbf r_0 - \mathbf r_1}{{\abs{\mathbf r_0 - \mathbf r_1}}^3}  } };
+\end{scope}
+  % Node: capacitor
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (2031bp,998bp) -- (1883bp,998bp) -- (1883bp,931bp) -- (2031bp,931bp) -- cycle;
+  \draw (1957bp,964bp) node {\cellss{Capacitor}      {V=Ed \quad D = \sigma \quad E = \frac D \varepsilon }      {V = \frac{Qd}{\varepsilon S} \quad C = \frac Q V = \frac {\varepsilon S} {d}}};
+\end{scope}
+  % Node: gauss_law
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1613bp,682bp) -- (1431bp,682bp) -- (1431bp,613bp) -- (1613bp,613bp) -- cycle;
+  \draw (1522bp,647bp) node {\cellss{ Gauss's law }  { \text {Electric flux } \mathrm {\Phi}_E = \oint_S \mathbf E \cdot \dd \mathbf {S}= \frac Q {\varepsilon_0} }  { \diver \mathbf E = \frac {\rho} {\varepsilon_0}} };
+\end{scope}
+  % Node: displacement_field
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1928bp,1193bp) -- (1928bp,1209bp) -- (1881bp,1220bp) -- (1815bp,1220bp) -- (1768bp,1209bp) -- (1768bp,1193bp) -- (1815bp,1182bp) -- (1881bp,1182bp) -- cycle;
+  \draw (1848bp,1201bp) node {\cells {Electric displacement field $\mathbf D$}      {\mathbf D = \varepsilon_0 \mathbf E + \mathbf P} };
+\end{scope}
+  % Node: coefficients
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1361bp,340bp) -- (1173bp,340bp) -- (1173bp,259bp) -- (1361bp,259bp) -- cycle;
+  \draw (1267bp,299bp) node {\cellss{Coefficients of potential}  {\begin{pmatrix}V_1\\\vdots\\ V_n\end{pmatrix} =     \begin{pmatrix} p_{11} & \cdots & p_{1n} \\      \vdots &        & \vdots \\      p_{n1} & \cdots & p_{nn} \end{pmatrix}      \begin{pmatrix}Q_1 \\ \vdots \\ Q_n \end{pmatrix}}      {p_{ij} = p_{ji}}};
+\end{scope}
+  % Node: speed_electromotive_force
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1468bp,1111bp) -- (1366bp,1111bp) -- (1366bp,1073bp) -- (1468bp,1073bp) -- cycle;
+  \draw (1417bp,1092bp) node {\cells{Speed EMF (?)}      {\mathbf E_s = \mathbf v \times \mathbf B}};
+\end{scope}
+  % Node: maxwell_option
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1622bp,1082bp) -- (1622bp,1102bp) -- (1583bp,1117bp) -- (1529bp,1117bp) -- (1490bp,1102bp) -- (1490bp,1082bp) -- (1529bp,1067bp) -- (1583bp,1067bp) -- cycle;
+  \draw (1626bp,1079bp) -- (1626bp,1105bp) -- (1584bp,1121bp) -- (1528bp,1121bp) -- (1486bp,1105bp) -- (1486bp,1079bp) -- (1528bp,1063bp) -- (1584bp,1063bp) -- cycle;
+  \draw (1556bp,1092bp) node {\cellss{Homogeneous material}      {\mathbf D = \varepsilon \mathbf E}      {\mathbf B = \mu \mathbf H} };
+\end{scope}
+  % Node: inductance_neumann
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (305bp,1001bp) -- (159bp,1001bp) -- (159bp,927bp) -- (305bp,927bp) -- cycle;
+  \draw (232bp,964bp) node {\cellss{Neumann formula}      {M = \frac {\mu}{4\pi} \oint_{C_1} \oint_{C_2} \frac {\dd\mathbf s_1 \cdot \dd \mathbf s_2} r}       {L = \frac {\mu}{4\pi} \oint_{C} \oint_{C} \frac {\dd\mathbf s \cdot \dd \mathbf {s'}} r}};
+\end{scope}
+  % Node: magnetic_energy
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (2464bp,993bp) -- (2294bp,993bp) -- (2294bp,935bp) -- (2464bp,935bp) -- cycle;
+  \draw (2379bp,964bp) node {\cellss{Energy stored in magnetic field}      {\omega_m = \frac 1 2 \mathbf H \cdot \mathbf B}      {\dd\omega_m = \mathbf H \cdot \dd \mathbf B} };
+\end{scope}
+  % Node: magnetic_flux
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (2616bp,1293bp) -- (2616bp,1313bp) -- (2588bp,1328bp) -- (2550bp,1328bp) -- (2522bp,1313bp) -- (2522bp,1293bp) -- (2550bp,1279bp) -- (2588bp,1279bp) -- cycle;
+  \draw (2569bp,1303bp) node {\cells{Magnetic flux }      {\Phi = \int_S \mathbf B \cdot \dd \mathbf S}};
+\end{scope}
+  % Node: vector_potential
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (842bp,1122bp) -- (696bp,1122bp) -- (696bp,1063bp) -- (842bp,1063bp) -- cycle;
+  \draw (769bp,1092bp) node {\cellss{Magnetic vector potential}      {\mathbf B = \curl \mathbf A \quad \diver \mathbf A = 0}      {\mathbf E = - \grad \mathbf V - \frac {\partial \mathbf A} {\partial t}}};
+\end{scope}
+  % Node: mutual_inductance
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (156bp,1082bp) -- (156bp,1102bp) -- (110bp,1117bp) -- (46bp,1117bp) -- (0bp,1102bp) -- (0bp,1082bp) -- (46bp,1067bp) -- (110bp,1067bp) -- cycle;
+  \draw (78bp,1092bp) node {\cellss {Mutual inductance}      {\Phi_{12} = M_{12} I_2 \quad \Phi_{21} = M_{21} I_1}      {M = M_{12} = M_{21}}};
+\end{scope}
+  % Node: potential_diff
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1310bp,768bp) -- (1128bp,768bp) -- (1128bp,718bp) -- (1310bp,718bp) -- cycle;
+  \draw (1219bp,743bp) node {\cellss { Electric field is conservative }  { \curl \mathbf E = 0 \text{ Kirchhoff's voltage law} }  { \mathbf E = -\grad V }};
+\end{scope}
+  % Node: elec_field_point
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1553bp,865bp) -- (1391bp,865bp) -- (1391bp,817bp) -- (1553bp,817bp) -- cycle;
+  \draw (1472bp,841bp) node {\cells{Electric field (a point charge)}  { \mathbf E = \frac {Q} {4\pi\varepsilon_0} \frac{1}{{r}^2}  } };
+\end{scope}
+  % Node: isotropic_dielectric
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1968bp,1117bp) -- (1854bp,1117bp) -- (1854bp,1067bp) -- (1968bp,1067bp) -- cycle;
+  \draw (1911bp,1092bp) node {\cellss{Isotropic dielectric}      {\mathbf P = \chi \mathbf E = \chi_s \varepsilon_0 \mathbf E}      {\mathbf D = \varepsilon \mathbf E = \varepsilon_0 \varepsilon_s \mathbf E}};
+\end{scope}
+  % Node: coulombs_law
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (1110bp,1081bp) -- (1110bp,1103bp) -- (1068bp,1118bp) -- (1008bp,1118bp) -- (966bp,1103bp) -- (966bp,1081bp) -- (1008bp,1067bp) -- (1068bp,1067bp) -- cycle;
+  \draw (1038bp,1092bp) node {\cells{ Coulomb's law }               { \mathbf F = \frac 1 {4\pi\varepsilon_0} \frac{\mathbf r_0 - \mathbf r_1}{{\abs{\mathbf r_0 - \mathbf r_1}}^3}  Q_0Q_1 }};
+\end{scope}
+  % Node: lorentz_force
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (652bp,1193bp) -- (652bp,1209bp) -- (619bp,1220bp) -- (571bp,1220bp) -- (538bp,1209bp) -- (538bp,1193bp) -- (571bp,1182bp) -- (619bp,1182bp) -- cycle;
+  \draw (595bp,1201bp) node {\cells{Lorentz force}      {\mathbf F = q (\mathbf E + \mathbf v \times \mathbf B)} };
+\end{scope}
+%
+\end{tikzpicture}
+% End of code
+
+%
+\end{document}
+%
+
+
+

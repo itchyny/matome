@@ -1,0 +1,46 @@
+\documentclass[a4j,8pt]{jarticle}
+\def\defi#1#2#3{#1\quad$\displaystyle #2 \unit{[#3]}$}
+\setlength{\hoffset}{-0.75in}
+\setlength{\voffset}{-0.7in}
+\def\const{\mathrm{const}}
+\def\uni#1{[\unit{#1}]}
+\def\cell#1#2{#1\uni{#2}}
+\def\dottedhole#1{\ar@{--}[#1]|!{[ld];[lu]}\hole}
+\def\dotted#1{\ar@{--}[#1]}
+\def\arrow#1#2#3{\ar[#1]|-(.4){\uni{#2}}_(.3){#3}}
+\def\arroww#1#2#3{\ar[#1]|-(.3){\uni{#2}}^(.4){#3}|!{[ll];[ru]}\hole}
+\def\arrowu#1#2#3{\ar[#1]|-(.4){\uni{#2}}^(.4){#3}}
+\def\arrowx#1#2#3{\ar[#1]|-(.6){\uni{#2}}^(.6){#3}}
+\def\arrowy#1#2#3{\ar@/^3pc/[#1]|-(.7){\uni{#2}}^(.7){#3}}
+\def\arrowyy#1#2#3#4#5{\ar@/_3pc/@{<->}[#1]|-(0.2){\uni{#4}}^(0.2){#5}|-(.75){\uni{#2}}_(.75){#3}}
+\def\arrowz#1#2#3{\ar@/^2pc/[#1]|-(.7){\uni{#2}}_(.6){#3}}
+\def\arrowzz#1#2#3{\ar@/^2pc/[#1] |!{[rr];[rrdd]}\hole |-(.8){\uni{#2}}_(.8){#3\quad}}
+%\def\arrowp#1#2#3{\ar[#1]|-(.5){\uni{#2}}_(.3){#3\quad}|!{[uu];[uuu]}\hole|!{[luuu];[ruuu]}\hole|!{[luuu];[rruuuu]}\hole}
+%\def\arrowp#1#2#3{\ar[#1] _(.3){#3} |!{[ru];[lu]}\hole |-{\uni{#2}} |!{[luuu];[ruuu]}\hole |!{[luuu];[ruuuru]}\hole }
+\def\arrowp#1#2#3{\ar@{->}[#1] _(.3){#3} |!{[u];[u]}\hole |-(0.4){\uni{#2}} |!{[uu];[uu]}\hole |!{[uuu];[uuu]}\hole |!{[luuu];[ruuuru]}\hole} % これだと, luuu->ruuuruでの計算で, 座標が右のほうに行ってしまって最後が表示されない(推測) {-->}にすると表示されるのは謎い. 仕方ないので, Φのほうから下に降ろす線も描いてる
+%\def\arrowp#1#2#3{\ar[#1] _(.3){#3} |\hole |-{\uni{#2}} }
+
+\usepackage{bm}
+\def\theorem#1#2{#1\quad$\displaystyle#2$}
+\usepackage{booktabs}
+\usepackage{prelude}
+\usepackage[all]{xy}
+\pagestyle{empty}
+\begin{document}
+
+\[\xymatrix@=0.75in{
+                                                                                                                                                                                             & \cell{\Phi, q_m}{Wb}\dotted{rr}\ar @{-}[d]|!{[ld];[rr]}\hole     &                                                                                                                                        & \cell{Q}{C}\\
+ \cell V V\arrowu{ur}{s}{e=-\fracpd\Phi t}\arrowx{rrru}{F}{C=\frac Q V}                                                                                                                      &                                                                  & \cell I A\arrowu{ll}{O}{V=RI}\arroww{ur}{s}{I=\diff Q t}\arroww{lu}{H}{\Phi=LI}                                                        & \\
+                                                                                                                                                                                             &                                                                  &                                                                                                                                        & \dottedhole{ll}\dotted{ld}\\
+ \cell{\bm E}{Vm^{-1}}\arrow{uu}{m}{\bm E=\grad V}\dotted{rr}\dotted{ru}\arrowzz{rrrd}{Fm^{-1}}{\bm D=\varepsilon\bm E}\arrowyy{rrdd}{O^{-1}m^{-1}}{\bm J=\sigma\bm E}{Om}{\bm E=\rho\bm J } &                                                                  & \cell{\bm H,\bm M}{Am^{-1}}\arrow{uu}{m}{\oint_C\bm H\cdot\dd s=I_f}\arrowz{dl}{Hm^{-1}}{\bm B=\mu\bm H}                               & \\
+                                                                                                                                                                                             & \cell{\bm B}{T}\arrowp{uuuu}{m^2}{\Phi=\int_S\bm B\cdot\dd\bm S} &                                                                                                                                        & \cell{\bm D,\bm P}{Cm^{-2}}\arrow{uuuu}{m^2}{\oint_S\bm D\cdot\dd\bm{S}=Q}\dottedhole{ll}\dotted{ld}\\
+ {{\curl\bm E=-\frac{\partial\bm B}{\partial t}} ,{\diver\bm E=\frac\rho\varepsilon_0}}\dotted{uu}\dotted{rr}\dotted{ru}                                                                     &                                                                  & \cell{\bm J}{Am^{-2}}\arrow{uu}{m}{\curl\bm H=\bm J +\frac{\partial\bm D}{\partial t}}\arrowy{uuuu}{m^2}{I=\int_S\bm J\cdot\dd\bm S}\\
+                                                                                                                                                                                             & \cell{\rho_m}{Wbm^{-3}}\ar@{--}[uu]|!{[u];[u]}\hole              &                                                                                                                                        & \cell{\rho}{Cm^{-3}}\arrow{uu}{m}{\diver\bm D=\rho}\arrowy{uuuuuu}{m^3}{Q=\int_v\rho\dd v}\dottedhole{ll}\dotted{ld}\\
+ \dotted{uu}\dotted{rr}\dotted{ru}                                                                                                                                                           &                                                                  & \diver\bm J +\frac{\partial\rho}{\partial t}=0\dotted{uu}                                                                              & \\
+                                                                                                                                                                                             &                                                                  &                                                                                                                                        & \\
+                                                                                                                                                                                             &                                                                  & *=0{}\ar[u]|-{\uni{m}}\ar[ru]|-{\uni{s}}\ar[l]|-{\uni{O}}\\
+ }\]
+
+\end{document}
+
+

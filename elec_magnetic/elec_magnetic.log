@@ -1,0 +1,116 @@
+This is pTeX, Version 3.141592-p3.1.10 (utf8.euc) (Web2C 7.5.4) (format=platex 2011.10.12)  23 OCT 2011 10:04
+**elec_magnetic.tex
+(./elec_magnetic.tex
+pLaTeX2e <2006/11/10>+0 (based on LaTeX2e <2003/12/01> patch level 0)
+(/opt/local/share/texmf/ptex/platex/base/jarticle.cls
+Document Class: jarticle 2006/06/27 v1.6 Standard pLaTeX class
+\c@@paper=\count81
+(/opt/local/share/texmf/ptex/platex/base/jsize10.clo
+File: jsize10.clo 2006/06/27 v1.6 Standard pLaTeX file (size option)
+)
+\c@part=\count82
+\c@section=\count83
+\c@subsection=\count84
+\c@subsubsection=\count85
+\c@paragraph=\count86
+\c@subparagraph=\count87
+\c@figure=\count88
+\c@table=\count89
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\symmincho=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 601.
+\toclineskip=\dimen118
+\@lnumwidth=\dimen119
+\bibindent=\dimen120
+\heisei=\count90
+)
+(/opt/local/share/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2004/02/26 v1.1c Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup5
+\symboldletters=\mathgroup6
+\symboldsymbols=\mathgroup7
+\symboldmincho=\mathgroup8
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 137.
+LaTeX Info: Redefining \bm on input line 203.
+)
+(/opt/local/share/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2003/03/28 v1.618 publication quality tables
+\heavyrulewidth=\dimen121
+\lightrulewidth=\dimen122
+\cmidrulewidth=\dimen123
+\belowrulesep=\dimen124
+\belowbottomsep=\dimen125
+\aboverulesep=\dimen126
+\abovetopsep=\dimen127
+\cmidrulesep=\dimen128
+\cmidrulekern=\dimen129
+\defaultaddspace=\dimen130
+\@cmidla=\count91
+\@cmidlb=\count92
+\@aboverulesep=\dimen131
+\@belowrulesep=\dimen132
+\@thisruleclass=\count93
+\@lastruleclass=\count94
+\@thisrulewidth=\dimen133
+) (./prelude.sty
+(/opt/local/share/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen134
+\WF@size=\dimen135
+\c@WF@wrappedlines=\count95
+\WF@box=\box41
+\WF@everypar=\toks15
+Package: wrapfig 2003/01/31  v 3.6
+)
+\c@q=\count96
+)
+
+LaTeX Warning: Unused global option(s):
+    [8pt].
+
+(./elec_magnetic.aux)
+\openout1 = `elec_magnetic.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 15.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 15.
+
+Overfull \hbox (118.62415pt too wide) in paragraph at lines 15--80
+[][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 86.3779pt on input line 80.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[1] (./elec_magnetic.aux) ) 
+Here is how much of TeX's memory you used:
+ 514 strings out of 94682
+ 5399 string characters out of 1177970
+ 64602 words of memory out of 1500000
+ 3861 multiletter control sequences out of 10000+50000
+ 10268 words of font info for 40 fonts, out of 1200000 for 2000
+ 566 hyphenation exceptions out of 8191
+ 22i,11n,19p,275b,356s stack positions out of 5000i,500n,6000p,200000b,5000s
+
+Output written on elec_magnetic.dvi (1 page, 7848 bytes).

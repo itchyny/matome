@@ -1,0 +1,62 @@
+%\usepackage{amssymb,amsmath}
+%\usepackage[dvipdfm]{graphicx}
+%\usepackage[dvipdfm]{color}
+%\usepackage{amssymb,amsmath}
+\usepackage{wrapfig}
+%\usepackage{pstricks}
+%\usepackage{pgf,tikz}
+%\usetikzlibrary{arrows}
+%\usepackage[stable,perpage]{footmisc}
+\newcommand{\inputfig}[2]{\begin{figure}[!ht]\centering\input{#1.tex}\caption{#2}\label{fig:#1}\end{figure}}
+%\newcommand{\inputpng}[2]{\begin{figure}[!ht]\centering\includegraphics[width=15cm]{#1.png}\caption{#2}\label{fig:#1}\end{figure}}
+%\newcommand{\inputcircuit}[2]{\begin{figure}[!ht]\centering\includegraphics[width=7cm]{#1.png}\caption{#2}\label{fig:#1}\end{figure}}
+\def\inputpngwrap[#1]#2#3{\begin{wrapfigure}{r}{0.5\textwidth}\vspace*{-\intextsep}\begin{center}\includegraphics[width=#1cm]{#2.png}\caption{#3}\label{fig:#2}\end{center}\end{wrapfigure}}
+\makeatletter
+\def\inputpng{\@ifnextchar[{\@inputpng}{\@inputpng[15]}}
+\def\@inputpng[#1]#2#3{\begin{figure}[!th]\centering\includegraphics[width=#1cm]{#2.png}\caption{#3}\label{fig:#2}\end{figure}}
+\makeatother
+%\newcommand{\inputpng}[2]{\begin{tikzpicture}[!ht]\includegraphics[width=15cm]{#1.png}\end{tikzpicture}}
+%\makeatletter\def\tbcaption{\def\@captype{table}\caption}\def\figcaption{\def\@captype{figure}\caption}\makeatother\newcommand{%\inputfig}[2]{\begin{center}\input{#1.tex}\nobreak\figcaption{#2}\label{fig:#1}\end{center}}
+\def\unit#1{\def\O{\mbox{O}}\def\u{\mbox{u}}\mathcode`\u=\mu\mathcode`\O=\Omega \,\mathrm{#1}}
+\def\abs#1{\left|#1\right|}
+\def\sub#1{_{\mathrm{#1}}}
+\def\ii{{\mathrm{i}}}
+\def\jj{\,\mathrm{j}}
+\def\dd{\mathrm{d}}
+\def\ee{{\mathrm{e}}}
+\def\temperature{\mbox{$^\circ \mathrm{C}$}}
+\def\degree{\mbox{$^\circ $}}
+\def\Re{\mathop{\mathrm{Re}}}
+\def\Im{\mathop{\mathrm{Im}}}
+\def\cc{\mbox{c.c.}}
+\def\Hc{\mbox{H.c.}}
+\def\bra#1{\langle #1|}
+\def\ket#1{|\mbox{$#1$}\rangle}
+\def\bracket#1{\langle\mbox{$#1$}\rangle}
+\def\bracketi#1#2{\langle\mbox{$#1$}|\mbox{$#2$}\rangle}
+\def\bracketii#1#2#3{\langle\mbox{$#1$}|\mbox{$#2$}|\mbox{$#3$}\rangle}
+\def\diver{\mathop{\mathrm{div}}}
+\def\curl{\mathop{\mathrm{curl}}}
+\def\rot{\mathop{\mathrm{rot}}}
+\def\grad{\mathop{\mathrm{grad}}}
+\def\sub#1{_{\mbox{\scriptsize#1}}}
+\def\sur#1{^{\mbox{\scriptsize#1}}}
+\def\vct#1{{\mathchoice{\mbox{\boldmath$#1$}}{\mbox{\boldmath$#1$}}{\mbox{\scriptsize\boldmath$#1$}}{\mbox{\scriptsize\boldmath$#1$}}}}
+\def\defeq{\stackrel{\rm def}{=}}
+\def\ph#1{\tilde{#1}}                   % phasor
+\def\fracpd#1#2{\frac{\partial#1}{\partial#2}}
+\def\paren#1{\left(#1\right)}
+\def\diff#1#2{\frac{\dd #1}{\dd #2}}
+%\let\stdsubsection\subsection       % subsectionで新しいページに
+%\renewcommand\subsection{\clearpage\newpage\stdsubsection}
+% TODO: 日本語がムリポ eucで保存するのも癪だし
+\def\figref#1{図\ref{fig:#1}}
+%\def\question#1{\subsubsection{問題#1}}
+\def\kadai#1{\textbf{(課題#1)}}
+\newcounter{q}
+\newcommand{\q}[1]{\refstepcounter{q}{\label{#1}}{\bf 問題{\theq}}}
+
+
+\def\text#1{\mathrm{#1}}
+
+
