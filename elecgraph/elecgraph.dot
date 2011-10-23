@@ -4,7 +4,6 @@
 // open ./elec.jpg
 // http://www.fauskes.net/code/dot2tex/documentation/
 
-
 digraph elec {
   d2ttikzedgelabels = true;
   d2tstyleonly = true;
