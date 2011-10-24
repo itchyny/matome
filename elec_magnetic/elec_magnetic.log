@@ -1,4 +1,4 @@
-This is pTeX, Version 3.141592-p3.1.10 (utf8.euc) (Web2C 7.5.4) (format=platex 2011.10.12)  23 OCT 2011 10:04
+This is pTeX, Version 3.141592-p3.1.10 (utf8.euc) (Web2C 7.5.4) (format=platex 2011.10.12)  24 OCT 2011 01:13
 **elec_magnetic.tex
 (./elec_magnetic.tex
 pLaTeX2e <2006/11/10>+0 (based on LaTeX2e <2003/12/01> patch level 0)
@@ -100,9 +100,6 @@ Overfull \hbox (118.62415pt too wide) in paragraph at lines 15--80
 
 LaTeX Warning: Float too large for page by 86.3779pt on input line 80.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 [1] (./elec_magnetic.aux) ) 
 Here is how much of TeX's memory you used:
  514 strings out of 94682
@@ -111,6 +108,6 @@ Here is how much of TeX's memory you used:
  3861 multiletter control sequences out of 10000+50000
  10268 words of font info for 40 fonts, out of 1200000 for 2000
  566 hyphenation exceptions out of 8191
- 22i,11n,19p,275b,356s stack positions out of 5000i,500n,6000p,200000b,5000s
+ 22i,11n,19p,272b,356s stack positions out of 5000i,500n,6000p,200000b,5000s
 
 Output written on elec_magnetic.dvi (1 page, 7848 bytes).

@@ -11,72 +11,70 @@
 \usepackage{prelude}
 \pagestyle{empty}
 \begin{document}
-\begin{table}[h!]
+\begin{table}[htbp]
 \begin{tabular}{cc}
-
 \toprule
-静電界& 静磁界 \\ \hline\hline
-真空中& 真空中 \\ \hline
-\defi{真空の誘電率}{\varepsilon_0=8.854\times 10^{-12}}{Fm^{-1}}& \defi{真空の透磁率}{\mu_0={4\pi} / {10^7}}{Hm^{-1}} \\ 
+静電界                                                         & 静磁界 \\ \hline\hline
+真空中                                                         & 真空中 \\ \hline
+\defi{真空の誘電率}{\varepsilon_0=8.854\times 10^{-12}}{Fm^{-1}}                               & \defi{真空の透磁率}{\mu_0={4\pi}/{10^7}}{Hm^{-1}}\\
 
-\theorem{クーロンの法則}{\bm F = \frac 1 {4\pi\varepsilon_0} \frac{\bm r_0 - \bm r_1}{{\abs{\bm r_0 - \bm r_1}}^3} Q_0Q_1}& \theorem{磁極のクーロンの法則}{\bm F = \frac 1 {4\pi\mu_0} \frac{\bm r_0 - \bm r_1}{{\abs{\bm r_0 - \bm r_1}}^3} q_{m0}q_{m1}} \\ 
+\theorem{クーロンの法則}{\bm F = \frac 1{4\pi\varepsilon_0}\frac{\bm r_0 - \bm r_1}{{\abs{\bm r_0 - \bm r_1}}^3}Q_0Q_1}      & \theorem{磁極のクーロンの法則}{\bm F = \frac 1{4\pi\mu_0}\frac{\bm r_0 - \bm r_1}{{\abs{\bm r_0 - \bm r_1}}^3}q_{m0}q_{m1}}\\
 
-\theorem{ガウスの法則}{\diver \bm E = \frac \rho \varepsilon_0 \quad \oint_S \bm E \cdot \dd \bm {S} = \frac Q \varepsilon_0}& \theorem{磁極の定義より}{\diver \bm H = \frac {\rho_m}{\mu_0} \quad \oint_S \bm H \cdot \dd \bm S = \frac {q_m}{\mu_0}} \\ 
-& \theorem{磁束保存}{\diver \bm B = 0 \text{ (Maxwell 4)} \quad \oint_S \bm B \cdot \dd \bm S = 0} \\ 
+\theorem{ガウスの法則}{\diver \bm E = \frac \rho \varepsilon_0 \quad \oint_S \bm E \cdot \dd \bm{S}= \frac Q \varepsilon_0} & \theorem{磁極の定義より}{\diver \bm H = \frac{\rho_m}{\mu_0}\quad \oint_S \bm H \cdot \dd \bm S = \frac{q_m}{\mu_0}}\\
+                                                            & \theorem{磁束保存}{\diver \bm B = 0 \text{(Maxwell 4)}\quad \oint_S \bm B \cdot \dd \bm S = 0}\\
 
-\theorem{電界保存}{\curl \bm E = 0 (\bm B = \const)}& \theorem{真電流がないなら}{\curl \bm H = 0 (\bm J = 0, \bm D = \const)} \\ 
-
-
-\defi{電界}{\bm E}{NC^{-1},Vm^{-1}}& \defi{磁界の強さ}{\bm H}{Am^{-1}} \\ 
-\defi{電荷密度}{\rho=\lim_{\delta v \to 0}\frac{\delta Q}{\delta v}}{Cm^{-3}}& \defi{磁束密度}{\bm B}{T, Wbm^{-2}} \\ 
-\defi{電荷}{Q=\int_v \rho \dd v}{C}& \theorem{ビオ・サバールの法則} {\delta \bm B = \frac {\mu_0}{4 \pi} \frac {I \dd \bm s \times \bm r}{r^3}} \\ 
-\theorem{電位} { V = - \int _{\infty} ^{p} \bm E \cdot \dd \bm S \unit{V}\quad \bm E = -\grad V }& \theorem{アンペールの法則}{\oint_C \bm B\cdot \dd \bm s = \mu_0 I \quad \curl \bm B = \mu_0 \bm J} \\ 
-\theorem{ポアソン方程式} { \nabla ^ 2 V = - \frac {\rho}{\varepsilon_0}}& \theorem{ローレンツ力} {\bm F = q (\bm E + \bm v \times \bm B)} \\ 
-\defi{静電容量}{C= Q / V}{F,CV^{-1}}& \\ \hline\hline
-
-誘電体& 磁性体 \\ \hline
-& \defi{磁気モーメントの強さ}{\bm m = I \Delta \bm S}{Am^2} \\ 
-\defi{分極の強さ}{\bm P=\rho_0 \delta \bm r}{Cm^{-2}}& \defi{磁化の強さ}{\bm M = \Delta \bm m / \Delta v}{Am^{-1}} \\ 
-\defi{分極電荷の体積密度}{\rho_P=-\diver \bm P}{Cm^{-3}}& \defi{磁極の強さの体積密度}{\rho_m=-\diver (\mu_0 \bm M)}{Wbm^{-3}} \\ 
-\defi{分極電荷}{Q_P=\int_v \rho_P \dd v = -\oint_S \bm P \cdot \dd \bm S} {C,FV}& \defi{磁極の強さ}{q_m = \int_v \rho_m \dd v} {Wb,Tm^2} \\ 
-& \defi{磁界の強さ}{\bm H = \frac {\bm B}{\mu_0} - \bm M}{Am^{-1}} \\ 
-& \defi{磁気分極}{\bm {J_m} = \mu_0 \bm M}{T} \\ 
-\defi{電束密度}{\bm D = \varepsilon_0 \bm E + \bm P}{C m^{-2}}& $\bm B = \mu_0 \bm H + \bm {J_m}$ \\ 
+\theorem{電界保存}{\curl \bm E = 0 (\bm B = \const)}                                         & \theorem{真電流がないなら}{\curl \bm H = 0 (\bm J = 0, \bm D = \const)}\\
 
 
+\defi{電界}{\bm E}{NC^{-1},Vm^{-1}}                                                        & \defi{磁界の強さ}{\bm H}{Am^{-1}}\\
+\defi{電荷密度}{\rho=\lim_{\delta v \to 0}\frac{\delta Q}{\delta v}}{Cm^{-3}}                                             & \defi{磁束密度}{\bm B}{T, Wbm^{-2}}\\
+\defi{電荷}{Q=\int_v \rho \dd v}{C}                                                        & \theorem{ビオ・サバールの法則}{\delta \bm B = \frac{\mu_0}{4 \pi}\frac{I \dd \bm s \times \bm r}{r^3}}\\
+\theorem{電位}{V = - \int _{\infty}^{p}\bm E \cdot \dd \bm S \unit{V}\quad \bm E = -\grad V}                            & \theorem{アンペールの法則}{\oint_C \bm B\cdot \dd \bm s = \mu_0 I \quad \curl \bm B = \mu_0 \bm J}\\
+\theorem{ポアソン方程式}{\nabla ^ 2 V = - \frac{\rho}{\varepsilon_0}}                           & \theorem{ローレンツ力}{\bm F = q (\bm E + \bm v \times \bm B)}\\
+\defi{静電容量}{C= Q / V}{F,CV^{-1}}                                                         & \\ \hline\hline
 
-\theorem{ガウスの法則}{\diver \bm D = \rho \text{ (Maxwell 3)}\quad \oint_S \bm D \cdot \dd \bm {S} = Q}& \theorem{アンペールの法則}{\oint_C \bm H\cdot \dd s = I_f \quad \curl \bm H = \bm {J_f}} \\ 
+誘電体                                                         & 磁性体 \\ \hline
+                                                            & \defi{磁気モーメントの強さ}{\bm m = I \Delta \bm S}{Am^2}\\
+\defi{分極の強さ}{\bm P=\rho_0 \delta \bm r}{Cm^{-2}}                                         & \defi{磁化の強さ}{\bm M = \Delta \bm m / \Delta v}{Am^{-1}}\\
+\defi{分極電荷の体積密度}{\rho_P=-\diver \bm P}{Cm^{-3}}                                          & \defi{磁極の強さの体積密度}{\rho_m=-\diver (\mu_0 \bm M)}{Wbm^{-3}}\\
+\defi{分極電荷}{Q_P=\int_v \rho_P \dd v = -\oint_S \bm P \cdot \dd \bm S}{C,FV}                                           & \defi{磁極の強さ}{q_m = \int_v \rho_m \dd v}{Wb,Tm^2}\\
+                                                            & \defi{磁界の強さ}{\bm H = \frac{\bm B}{\mu_0}- \bm M}{Am^{-1}}\\
+                                                            & \defi{磁気分極}{\bm{J_m}= \mu_0 \bm M}{T}\\
+\defi{電束密度}{\bm D = \varepsilon_0 \bm E + \bm P}{C m^{-2}}                               & $\bm B = \mu_0 \bm H + \bm{J_m}$ \\
+
+
+
+\theorem{ガウスの法則}{\diver \bm D = \rho \text{(Maxwell 3)}\quad \oint_S \bm D \cdot \dd \bm{S}= Q}                       & \theorem{アンペールの法則}{\oint_C \bm H\cdot \dd s = I_f \quad \curl \bm H = \bm{J_f}}\\
 
 
 \hline
-\theorem{等方性誘電体}{\bm P = \chi \bm E = \chi_S \varepsilon_0 \bm E}& \theorem{等方性磁性体}{\bm M = \chi \bm H} \\ 
+\theorem{等方性誘電体}{\bm P = \chi \bm E = \chi_S \varepsilon_0 \bm E}                        & \theorem{等方性磁性体}{\bm M = \chi \bm H}\\
 
-\defi{分極率}{\chi}{C^2N^{-1}m^{-2}}\quad \defi{比分極率}{\chi_s}{-}& \defi{磁化率}{\chi}{-} \\ 
-
-
-$\bm D = \varepsilon \bm E = \varepsilon_0 \varepsilon_s \bm E$& $\bm B = \mu \bm H = \mu_s \mu_0 \bm H$ \\ 
-\defi{誘電体の誘電率}{\varepsilon}{Fm^{-1}}\quad \defi{比誘電率}{\varepsilon_s}{-}& \defi{磁性体の透磁率}{\mu}{Hm^{-1}} \quad \defi{比透磁率}{\mu_s}{-} \\ 
+\defi{分極率}{\chi}{C^2N^{-1}m^{-2}}\quad \defi{比分極率}{\chi_s}{-}                            & \defi{磁化率}{\chi}{-}\\
 
 
-\theorem{電界のエネルギー密度}{\frac 1 2 \bm E \cdot \bm D}& \theorem{磁界のエネルギー密度}{\frac 1 2 \bm H \cdot \bm B} \\ 
-%\theorem{単位面積当たりの力}{f=\frac 1 2 \bm E \cdot \bm D}& \\ 
+$\bm D = \varepsilon \bm E = \varepsilon_0 \varepsilon_s \bm E$                          & $\bm B = \mu \bm H = \mu_s \mu_0 \bm H$ \\
+\defi{誘電体の誘電率}{\varepsilon}{Fm^{-1}}\quad \defi{比誘電率}{\varepsilon_s}{-}                                               & \defi{磁性体の透磁率}{\mu}{Hm^{-1}}\quad \defi{比透磁率}{\mu_s}{-}\\
+
+
+\theorem{電界のエネルギー密度}{\frac 1 2 \bm E \cdot \bm D}                                        & \theorem{磁界のエネルギー密度}{\frac 1 2 \bm H \cdot \bm B}\\
+%\theorem{単位面積当たりの力}{f=\frac 1 2 \bm E \cdot \bm D}                                      & \\
 \midrule\midrule
 
-定常電流界& 磁気回路 \\ \hline
-\theorem{電界は保存的(KVL)}{\curl \bm E = 0}& \theorem{真電流$\bm J$がないなら}{\curl \bm H = 0} \\ 
-\defi{電流}{I = \diff Q t = \int_S \bm J \cdot \dd \bm S}{A,Cs^{-1}}& \defi{磁束}{\Phi = \int_S \bm B \cdot \dd \bm S}{Wb, Tm^2} \\ 
-\theorem{電流連続}{\diver \bm J + \frac{\partial \rho}{\partial t}=0 \to \diver \bm J = 0 \text{ (KCL)}}& \theorem{磁束保存}{\diver \bm B = 0} \\ 
-\theorem{オームの法則}{V = RI \quad \bm J = \sigma \bm E = \frac {\bm E} \rho}& \theorem{}{NI=R_m\Phi}\quad\theorem{}{\bm B = \mu \bm H = \frac {\bm H}{\nu}} \\ 
-\defi{抵抗}{R=\frac{\rho l}{S}=\frac l {\sigma S}}{O,VA^{-1}}& \defi{磁気抵抗}{R_m=\frac l {\mu S}}{A/Wb} \\ 
-\defi{導電率}{\sigma}{O^{-1}m^{-1}}\quad \defi{抵抗率}{\rho}{Om}& \defi{透磁率}{\mu}{Hm^{-1}} \quad \defi{磁気抵抗率}{\nu}{H^{-1}m} \\ 
-\theorem{起電力(ファラデーの電磁誘導の法則)}{e = \oint_C \bm E \cdot \dd \bm s = -\frac{\partial \Phi}{\partial t}\unit{[V]}}& \theorem{起磁力}{NI = \oint_C \bm H \cdot \dd \bm s\unit{[A]}} \\ 
+定常電流界                                                       & 磁気回路 \\ \hline
+\theorem{電界は保存的(KVL)}{\curl \bm E = 0}                                                   & \theorem{真電流$\bm J$がないなら}{\curl \bm H = 0}\\
+\defi{電流}{I = \diff Q t = \int_S \bm J \cdot \dd \bm S}{A,Cs^{-1}}                       & \defi{磁束}{\Phi = \int_S \bm B \cdot \dd \bm S}{Wb, Tm^2}\\
+\theorem{電流連続}{\diver \bm J + \frac{\partial \rho}{\partial t}=0 \to \diver \bm J = 0 \text{(KCL)}}                   & \theorem{磁束保存}{\diver \bm B = 0}\\
+\theorem{オームの法則}{V = RI \quad \bm J = \sigma \bm E = \frac{\bm E}\rho}                                                & \theorem{}{NI=R_m\Phi}\quad\theorem{}{\bm B = \mu \bm H = \frac{\bm H}{\nu}}\\
+\defi{抵抗}{R=\frac{\rho l}{S}=\frac l{\sigma S}}{O,VA^{-1}}                               & \defi{磁気抵抗}{R_m=\frac l{\mu S}}{A/Wb}\\
+\defi{導電率}{\sigma}{O^{-1}m^{-1}}\quad \defi{抵抗率}{\rho}{Om}                               & \defi{透磁率}{\mu}{Hm^{-1}}\quad \defi{磁気抵抗率}{\nu}{H^{-1}m}\\
+\theorem{起電力(ファラデーの電磁誘導の法則)}{e = \oint_C \bm E \cdot \dd \bm s = -\frac{\partial \Phi}{\partial t}\unit{[V]}}         & \theorem{起磁力}{NI = \oint_C \bm H \cdot \dd \bm s\unit{[A]}}\\
 \hline\hline
 \multicolumn{2}{c}{マックスウェル方程式}\\
-\theorem{ファラデーの電磁誘導の法則} {\curl \bm E = - \frac {\partial \bm B}{\partial t}}& \theorem{アンペール+変位電流}{\curl \bm H = \bm J + \frac {\partial \bm D} {\partial t}} \\ 
-\theorem{ガウスの法則} {\diver \bm D = \rho}& \theorem{磁束保存} {\diver \bm B = 0} \\ 
-一様なら$\bm D = \varepsilon \bm E$& 一様なら$\bm B = \mu \bm H$ \\ 
+\theorem{ファラデーの電磁誘導の法則}{\curl \bm E = - \frac{\partial \bm B}{\partial t}}                                            & \theorem{アンペール+変位電流}{\curl \bm H = \bm J + \frac{\partial \bm D}{\partial t}}\\
+\theorem{ガウスの法則}{\diver \bm D = \rho}                                                    & \theorem{磁束保存}{\diver \bm B = 0}\\
+一様なら$\bm D = \varepsilon \bm E$                                                          & 一様なら$\bm B = \mu \bm H$ \\
 \bottomrule
 \end{tabular}
 \end{table}
-
 \end{document}
