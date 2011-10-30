@@ -1,0 +1,126 @@
+\documentclass[a4j,10pt]{jarticle}
+\setlength{\hoffset}{-0.9in}
+% \setlength{\voffset}{-0.9in}
+\usepackage{prelude}
+\usepackage{booktabs}
+\pagestyle{empty}
+\def\F{\mathcal F}
+  \def\Ft{t}
+  \def\Ff{f}
+  \def\Fft{\Ff(\Ft)}
+  \def\Fgt{g(\Ft)}
+  \def\Fw{\omega}
+  \def\FF{F}
+  \def\FFw{\FF(\Fw)}
+  \def\FGw{G(\Fw)}
+  \def\Fof#1{\F\left[#1\right]}
+\def\L{\mathcal L}
+  \def\Lt{t}
+  \def\Lf{f}
+  \def\Lft{\Lf(\Lt)}
+  \def\Lgt{g(\Lt)}
+  \def\Ht{H(\Lt)}
+  \def\Lw{s}
+  \def\LL{L}
+  \def\LLw{\LL(\Lw)}
+  \def\LGw{G(\Lw)}
+  \def\Br{\mathrm{Br}}
+  \def\Lof#1{\L\left[#1\right]}
+\def\Z{\mathcal Z}
+  \def\Zt{n}
+  \def\Zf{x}
+  \def\Zft{\Zf[\Zt]}
+  \def\Zgt{y[\Zt]}
+  \def\Zw{z}
+  \def\ZZw{X(\Zw)}
+  \def\ZGw{Y(\Zw)}
+  \def\Zof#1{\Z\left[#1\right]}
+\def\jj{i}
+\def\ii{i}
+\def\iii#1#2{\int_{-\infty}^\infty#2\dd#1}
+\def\sii#1#2{\sum_{#1=-\infty}^\infty#2}
+\def\izi#1#2{\int_0^\infty#2\dd#1}
+\def\szi#1#2{\sum_{#1=0}^\infty#2}
+\def\dm{\displaystyle}
+\def\convolution#1#2{#1*#2}
+\def\kakeru#1#2{#1#2}
+
+\begin{document}
+\begin{table}[htbp]
+\begin{center}
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{ccc}
+\toprule
+{\Large$\F$} & {\Large$\L$} & {\Large$\Z$} \\\hline\hline
+$\dm \FFw = \iii\Ft{\Fft\ee^{-\jj\Fw\Ft}}$ &
+$\dm \LLw = \izi\Lt{\Lft\ee^{-   \Lw\Lt}}$ &
+$\dm \ZZw = \szi\Zt{\Zft\Zw^{-\Zt}}$ \\
+$\dm \Fft = \frac 1 {2\pi   } \iii\Fw{\FFw\ee^{\jj\Fw\Ft}}$ &
+$\dm \Lft = \frac 1 {2\pi\ii} \int_\Br\LLw\ee^{\Lw\Lt}\dd\Lw$ &
+$\dm \Zft = \frac 1 {2\pi\ii} \oint_C\ZZw\Zw^{\Zt-1}\dd\Zw$ \\\hline
+$\dm $ &
+$\dm \Lft= 0 \;(\Lt < 0)$ &
+$\dm \Zft= 0 \;(\Zt < 0)$
+\\
+$\dm \Fof{\Fft} = \FFw$ &
+$\dm \Lof{\Lft} = \LLw$ &
+$\dm \Zof{\Zft} = \ZZw$
+\\
+$\dm \Fof{\FF(\Ft)} = 2\pi\Ff(-\Fw)$ &&\\
+$\dm \Fof{\Ff(a\Ft)} = \frac 1 {\abs a}\FF\paren{\frac\Fw a}$ &
+$\dm \Lof{\Lf(a\Lt)} = \frac 1 {\abs a}\LL\paren{\frac\Lw a}$ &
+\\
+$\dm \Fof{\Fft\ee^{\jj\Fw_0\Ft}} = \FF\paren{\Fw-\Fw_0}$ &
+$\dm \Lof{\Lft\ee^{   \Lw_0\Lt}} = \LL\paren{\Lw-\Lw_0}$ &
+\\
+$\dm \Fof{\Ff(\Ft-\Ft_0)} = \FFw\ee^{-\jj\Fw\Ft_0}$ &
+$\dm \Lof{\Lf(\Lt-\Lt_0)} = \LLw\ee^{-   \Lt_0\Lw}$ &
+$\dm \Zof{\Zf[\Zt-\Zt_0]} = \ZZw\Zw^{-\Zt_0}$
+\\
+$\dm \Fof{\diffn[n]\Fft\Ft} = \paren{2\pi\jj\Fw}^n\FFw$ &
+$\dm \Lof{\diffn[n]\Lft\Lt} = \Lw^n\LLw-\sum_{k=0}^{n-1}s^{n-k-1}\Ff^{(k)}(+0)$ &
+\\
+$\dm \Fof{\Ft^n\Fft} = \jj^n\diffn[n]\FFw\Fw$ &&\\
+$\dm \Fof{\convolution\Fft\Fgt} = \kakeru\FFw\FGw$ &
+$\dm \Lof{\convolution\Lft\Lgt} = \kakeru\LLw\LGw$ &
+$\dm \Zof{\convolution\Zft\Zgt} = \kakeru\ZZw\ZGw$
+\\
+$\dm \Fof{\kakeru\Fft\Fgt} = \frac 1 {2\pi} \convolution\FFw\FGw$ &&\\\hline
+$\dm \Fof{\delta(\Ft)} = 1$ &
+$\dm \Lof{\delta(\Lt)} = 1$ &
+$\dm \Zof{\delta[\Zt]} = 1$
+\\
+$\dm \Fof{1} = 2\pi\delta(\Fw)$ &
+$\dm \Lof{1} = \frac 1 \Lw$ &
+$\dm \Zof{1} = \frac 1 {1-\Zw^{-1}}$
+\\
+$\dm \Fof{\Ft} = -2\pi\jj\frac{\delta(\Fw)}{\Fw}$ &
+$\dm \Lof{\Lt} = \frac{1}{\Lw^2}$ &
+$\dm \Zof{\Zt T} = \frac{T\Zw^{-1}}{\paren{1-\Zw^{-1}}^2}$
+\\
+$\dm \Fof{\Ft^l} = 2\pi\jj^l\delta^{(l)}(\Fw)$ &
+$\dm \Lof{\Lt^l} = \frac{l!}{\Lw^{l+1}}$ &
+$\dm \Zof{\paren{\Zt T}^l} = \left[ \diffn[l]{}{s}\frac 1 {\paren{1-\Zw^{-1}\ee^{sT}}}\right]\Bigg|_{s=0}$
+\\
+$\dm \Fof{\ee^{\jj\Fw_0\Ft}} = 2\pi\delta(\Fw-\Fw_0)$ &
+$\dm \Lof{\ee^{   \Lw_0\Lt}} = \frac 1 {\Lw-\Lw_0}$ &
+$\dm \Zof{\ee^{\alpha\Zt T}} = \frac 1 {1 - z^{-1}\ee^{\alpha T}}$
+\\
+$\dm \Fof{\sin{\beta\Ft}} = -\jj\pi\paren{\delta\paren{\Fw-\beta}-\delta\paren{\Fw+\beta}}$ &
+$\dm \Lof{\sin{\beta\Lt}} = \frac{\beta}{\Lw^2+\beta^2}$ &
+$\dm \Zof{\sin{\beta\Zt T}} = \frac{\Zw^{-1}\sin{\beta T}}{1-2\Zw^{-1}\cos{\beta T}+\Zw^{-2}}$
+\\
+$\dm \Fof{\cos{\beta\Ft}} = \pi\paren{\delta\paren{\Fw-\beta}+\delta\paren{\Fw+\beta}}$ &
+$\dm \Lof{\cos{\beta\Lt}} = \frac{\Lw}{\Lw^2+\beta^2}$ &
+$\dm \Zof{\cos{\beta\Zt T}} = \frac{1-\Zw^{-1}\cos{\beta T}}{1-2\Zw^{-1}\cos{\beta T}+\Zw^{-2}}$
+\\
+$\dm \Fof{\Pi{\paren{\Ft/T}}} = T{\sin\frac{\Fw T}{2}}\Big/{\frac{\Fw T}{2}}$ &
+$\dm \Lof{\Pi_{T_1}^{T_2}{\paren{\Lt}}} = \frac 1 \Lw \paren{\ee^{-\Lw T_1}-\ee^{-\Lw T_2}}$ &
+\\
+\\\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+\end{document}
+
