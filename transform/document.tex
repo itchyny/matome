@@ -1,39 +1,36 @@
 \documentclass[a4j,10pt]{jarticle}
-\setlength{\hoffset}{-1.6in}
-% \setlength{\voffset}{-0.9in}
+\setlength{\hoffset}{-1.4in}
+\setlength{\voffset}{-0.9in}
 \renewcommand{\arraystretch}{2}
-\renewcommand{\tabcolsep}{-4.0mm}
+\renewcommand{\tabcolsep}{-5.0mm}
 \usepackage{prelude}
 \usepackage{booktabs}
 \pagestyle{empty}
-\def\Fof#1{\simbol\left[#1\right]}
-\def\Fourier{
-  \def\simbol{\mathcal F}
+\def\FTransform#1{\simbol\left[#1\right]}
+\def\Fourier{\def\simbol{\mathcal F}
   \def\t{t} \def\f{f} \def\ft{\f(\t)}
             \def\g{g} \def\gt{\g(\t)}
   \def\w{\omega} \def\F{F} \def\Fw{\F(\w)}
                  \def\G{G} \def\Gw{\G(\w)}
-  \def\of{\Fof}
+  \def\Transform{\FTransform}
 }
-\def\Br{\mathrm{Br}}
-\def\Lof#1{\simbol\left[#1\right]}
-\def\Laplace{
-  \def\simbol{\mathcal L}
+\def\LTransform#1{\simbol\left[#1\right]}
+\def\Laplace{\def\simbol{\mathcal L}
   \def\t{t} \def\f{f} \def\ft{\f(\t)}
             \def\g{g} \def\gt{\g(\t)}
   \def\w{s} \def\F{F} \def\Fw{\F(\w)}
             \def\G{G} \def\Gw{\G(\w)}
-  \def\of{\Lof}
+  \def\Transform{\LTransform}
 }
-\def\Zof#1{\simbol\left[#1\right]}
-\def\Ztrans{
-  \def\simbol{\mathcal Z}
+\def\ZTransform#1{\simbol\left[#1\right]}
+\def\Ztrans{\def\simbol{\mathcal Z}
   \def\t{n} \def\f{x} \def\ft{\f[\t]}
             \def\g{y} \def\gt{\g[\t]}
   \def\w{z} \def\F{X} \def\Fw{\F(\w)}
             \def\G{Y} \def\Gw{\G(\w)}
-  \def\of{\Zof}
+  \def\Transform{\ZTransform}
 }
+\def\Br{\mathrm{Br}}
 \def\jj{i}
 \def\ii{i}
 \def\iii#1#2{\int_{-\infty}^\infty#2\dd#1}
@@ -51,78 +48,101 @@
 \begin{table}[htbp]
 \begin{tabular}{ccc}
 \toprule
-\entry{\Large$\simbol$}
-      {\Large$\simbol$}
-      {\Large$\simbol$}
-      \hline\hline
-\entry{$\ds \Fw = \iii\t{\ft\ee^{-\jj\w\t}}$}
-      {$\ds \Fw = \izi\t{\ft\ee^{-   \w\t}}$}
-      {$\ds \Fw = \szi\t{\ft\w^{-\t}}$}
-\entry{$\ds \ft = \frac 1 {2\pi   } \iii\w{\Fw\ee^{\jj\w\t}}$}
-      {$\ds \ft = \frac 1 {2\pi\ii} \int_\Br\Fw\ee^{\w\t}\dd\w$}
-      {$\ds \ft = \frac 1 {2\pi\ii} \oint_C\Fw\w^{\t-1}\dd\w$}
-      \hline
-\entry{$\ds $}
-      {$\ds \ft= 0 \;(\t < 0)$}
-      {$\ds \ft= 0 \;(\t < 0)$}
-\entry{$\ds \of{\ft} = \Fw$}
-      {$\ds \of{\ft} = \Fw$}
-      {$\ds \of{\ft} = \Fw$}
-\entry{$\ds \of{\linearsum\ft\gt} = \linearsum\Fw\Gw$}
-      {$\ds \of{\linearsum\ft\gt} = \linearsum\Fw\Gw$}
-      {$\ds \of{\linearsum\ft\gt} = \linearsum\Fw\Gw$}
-\entry{$\ds \of{\f(\t-\t_0)} = \Fw\ee^{-\jj\w\t_0}$}
-      {$\ds \of{\f(\t-\t_0)} = \Fw\ee^{-   \t_0\w}$}
-      {$\ds \of{\f[\t-\t_0]} = \Fw\w^{-\t_0}$}
-\entry{$\ds \of{\ft\ee^{\jj\w_0\t}} = \F\paren{\w-\w_0}$}
-      {$\ds \of{\ft\ee^{   \w_0\t}} = \F\paren{\w-\w_0}$}
-      {$\ds \of{\ft{\w_0}^\t} = \F\paren{\w/\w_0}$}
-\entry{$\ds \of{\f(a\t)} = \frac 1 {\abs a}\F\paren{\frac\w a}$}
-      {$\ds \of{\f(a\t)} = \frac 1 {\abs a}\F\paren{\frac\w a}$}
-      {}
-\entry{$\ds \of{\F(\t)} = 2\pi\f(-\w)$}
-      {}
-      {}
-\entry{$\ds \of{\diffn[n]\ft\t} = \paren{\jj\w}^n\Fw$}
-      {$\ds \of{\diffn[n]\ft\t} = \w^n\w-\sum_{k=0}^{n-1}s^{n-k-1}\f^{(k)}(+0)$}
-      {$\ds \of{\f[\t]-\f[\t-1]} = \frac\Fw{1-\w^{-1}}$}
-\entry{$\ds \of{\t^n\ft} = \jj^n\diffn[n]\Fw\w$}
-      {$\ds \of{\t^n\ft} = (-1)^n\diffn[n]\Fw\w$}
-      {$\ds \of{\t\ft} = -\w\diff\Fw\w$ }
-\entry{$\ds \of{\convolution\ft\gt} = \kakeru\Fw\Gw$}
-      {$\ds \of{\convolution\ft\gt} = \kakeru\Fw\Gw$}
-      {$\ds \of{\convolution\ft\gt} = \kakeru\Fw\Gw$}
-\entry{$\ds \of{\kakeru\ft\gt} = \frac 1 {2\pi} \convolution\Fw\Gw$}
-      {$\ds \of{\kakeru\ft\gt} = \frac 1 {2\pi\jj} \lim_{T\to\infty}{\int_{c-iT}^{c+iT}\F(\sigma)\G(\w-\sigma)\dd\sigma}$}
-      {$\ds \of{\kakeru\ft\gt} = \frac 1 {2\pi\jj} {\oint_C\F(\sigma)\G(\w/\sigma)\sigma^{-1}\dd\sigma}$}
-\entry{$\ds \convolution\ft\gt = \iii\tau{\f(\tau)\g(\t-\tau)}$}
-      {$\ds \convolution\ft\gt = \int_0^t{\f(\tau)\g(\t-\tau)}\dd\tau$}
-      {$\ds \convolution\ft\gt = \sii m {\f[m]\g[\t-m]}$}
+\entry
+{\LARGE$\simbol$}
+{\LARGE$\simbol$}
+{\LARGE$\simbol$}
+\hline\hline
+\entry
+{$\ds \Fw = \iii\t{\ft\ee^{-\jj\w\t}}$}
+{$\ds \Fw = \izi\t{\ft\ee^{-   \w\t}}$}
+{$\ds \Fw = \szi\t{\ft\w^{-\t}}$}
+\entry
+{$\ds \ft = \frac 1 {2\pi   } \iii\w{\Fw\ee^{\jj\w\t}}$}
+{$\ds \ft = \frac 1 {2\pi\ii} \int_\Br\Fw\ee^{\w\t}\dd\w$}
+{$\ds \ft = \frac 1 {2\pi\ii} \oint_C\Fw\w^{\t-1}\dd\w$}
 \hline
-\entry{$\ds \of{\delta(\t)} = 1$}
-      {$\ds \of{\delta(\t)} = 1$}
-      {$\ds \of{\delta[\t]} = 1$}
-\entry{$\ds \of{1} = 2\pi\delta(\w)$}
-      {$\ds \of{1} = \frac 1 \w$}
-      {$\ds \of{1} = \frac 1 {1-\w^{-1}}$}
-\entry{$\ds \of{\t} = -2\pi\jj\frac{\delta(\w)}{\w}$}
-      {$\ds \of{\t} = \frac{1}{\w^2}$}
-      {$\ds \of{\t T} = \frac{T\w^{-1}}{\paren{1-\w^{-1}}^2}$}
-\entry{$\ds \of{\t^k} = 2\pi\jj^k\delta^{(k)}(\w)$}
-      {$\ds \of{\t^k} = \frac{k!}{\w^{k+1}}$}
-      {$\ds \of{\paren{\t T}^k} = \left[ \diffn[k]{}{s}\frac 1 {\paren{1-\w^{-1}\ee^{sT}}}\right]\Bigg|_{s=0}$}
-\entry{$\ds \of{\ee^{\jj\w_0\t}} = 2\pi\delta(\w-\w_0)$}
-      {$\ds \of{\ee^{   \w_0\t}} = \frac 1 {\w-\w_0}$}
-      {$\ds \of{\ee^{\alpha\t T}} = \frac 1 {1 - z^{-1}\ee^{\alpha T}}$}
-\entry{$\ds \of{\sin{\beta\t}} = -\jj\pi\paren{\delta\paren{\w-\beta}-\delta\paren{\w+\beta}}$}
-      {$\ds \of{\sin{\beta\t}} = \frac{\beta}{\w^2+\beta^2}$}
-      {$\ds \of{\sin{\beta\t T}} = \frac{\w^{-1}\sin{\beta T}}{1-2\w^{-1}\cos{\beta T}+\w^{-2}}$}
-\entry{$\ds \of{\cos{\beta\t}} = \pi\paren{\delta\paren{\w-\beta}+\delta\paren{\w+\beta}}$}
-      {$\ds \of{\cos{\beta\t}} = \frac{\w}{\w^2+\beta^2}$}
-      {$\ds \of{\cos{\beta\t T}} = \frac{1-\w^{-1}\cos{\beta T}}{1-2\w^{-1}\cos{\beta T}+\w^{-2}}$}
-\entry{$\ds \of{\Pi{\paren{\t/T}}} = T{\sin\frac{\w T}{2}}\Big/{\frac{\w T}{2}}$}
-      {$\ds \of{\Pi_{T_1}^{T_2}{\paren{\t}}} = \frac 1 \w \paren{\ee^{-\w T_1}-\ee^{-\w T_2}}$}
-      {}
+\entry
+{$\ds $}
+{$\ds \ft = 0 \;(\t < 0)$}
+{$\ds \ft = 0 \;(\t < 0)$}
+\entry
+{$\ds \Transform{\ft} = \Fw$}
+{$\ds \Transform{\ft} = \Fw$}
+{$\ds \Transform{\ft} = \Fw$}
+\entry
+{$\ds \Transform{\linearsum\ft\gt} = \linearsum\Fw\Gw$}
+{$\ds \Transform{\linearsum\ft\gt} = \linearsum\Fw\Gw$}
+{$\ds \Transform{\linearsum\ft\gt} = \linearsum\Fw\Gw$}
+\entry
+{$\ds \Transform{\f(\t-\t_0)} = \Fw\ee^{-\jj\w\t_0}$}
+{$\ds \Transform{\f(\t-\t_0)} = \Fw\ee^{-   \t_0\w}$}
+{$\ds \Transform{\f[\t-\t_0]} = \Fw\w^{-\t_0}$}
+\entry
+{$\ds \Transform{\ft\ee^{\jj\w_0\t}} = \F\paren{\w-\w_0}$}
+{$\ds \Transform{\ft\ee^{   \w_0\t}} = \F\paren{\w-\w_0}$}
+{$\ds \Transform{\ft{\w_0}^\t} = \F\paren{\w/\w_0}$}
+\entry
+{$\ds \Transform{\f(a\t)} = \frac 1 {\abs a}\F\paren{\frac\w a}$}
+{$\ds \Transform{\f(a\t)} = \frac 1 {\abs a}\F\paren{\frac\w a}$}
+{}
+\entry
+{$\ds \Transform{\F(\t)} = 2\pi\f(-\w)$}
+{}
+{}
+\entry
+{$\ds \Transform{\diffn[n]\ft\t} = \paren{\jj\w}^n\Fw$}
+{$\ds \Transform{\diffn[n]\ft\t} = \w^n\Fw-\sum_{k=0}^{n-1}s^{n-k-1}\f^{(k)}(+0)$}
+{$\ds \Transform{\f[\t]-\f[\t-1]} = \frac\Fw{1-\w^{-1}}$}
+\entry
+{$\ds \Transform{\t^n\ft} = \jj^n\diffn[n]\Fw\w$}
+{$\ds \Transform{\t^n\ft} = (-1)^n\diffn[n]\Fw\w$}
+{$\ds \Transform{\t\ft} = -\w\diff\Fw\w$ }
+\entry
+{$\ds \Transform{\convolution\ft\gt} = \kakeru\Fw\Gw$}
+{$\ds \Transform{\convolution\ft\gt} = \kakeru\Fw\Gw$}
+{$\ds \Transform{\convolution\ft\gt} = \kakeru\Fw\Gw$}
+\entry
+{$\ds \Transform{\kakeru\ft\gt} = \frac 1 {2\pi} \convolution\Fw\Gw$}
+{$\ds \Transform{\kakeru\ft\gt} = \frac 1 {2\pi\jj} \lim_{T\to\infty}{\int_{c-iT}^{c+iT}\F(\sigma)\G(\w-\sigma)\dd\sigma}$}
+{$\ds \Transform{\kakeru\ft\gt} = \frac 1 {2\pi\jj} {\oint_C\F(\sigma)\G(\w/\sigma)\sigma^{-1}\dd\sigma}$}
+\entry
+{$\ds \convolution\ft\gt = \iii\tau{\f(\tau)\g(\t-\tau)}$}
+{$\ds \convolution\ft\gt = \int_0^t{\f(\tau)\g(\t-\tau)}\dd\tau$}
+{$\ds \convolution\ft\gt = \sii m {\f[m]\g[\t-m]}$}
+\hline
+\entry
+{$\ds \Transform{\delta(\t)} = 1$}
+{$\ds \Transform{\delta(\t)} = 1$}
+{$\ds \Transform{\delta[\t]} = 1$}
+\entry
+{$\ds \Transform{1} = 2\pi\delta(\w)$}
+{$\ds \Transform{1} = \frac 1 \w$}
+{$\ds \Transform{1} = \frac 1 {1-\w^{-1}}$}
+\entry
+{$\ds \Transform{\t} = -2\pi\jj\frac{\delta(\w)}{\w}$}
+{$\ds \Transform{\t} = \frac{1}{\w^2}$}
+{$\ds \Transform{\t T} = \frac{T\w^{-1}}{\paren{1-\w^{-1}}^2}$}
+\entry
+{$\ds \Transform{\t^k} = 2\pi\jj^k\delta^{(k)}(\w)$}
+{$\ds \Transform{\t^k} = \frac{k!}{\w^{k+1}}$}
+{$\ds \Transform{\paren{\t T}^k} = \left[ \diffn[k]{}{s}\frac 1 {\paren{1-\w^{-1}\ee^{sT}}}\right]\Bigg|_{s=0}$}
+\entry
+{$\ds \Transform{\ee^{\jj\w_0\t}} = 2\pi\delta(\w-\w_0)$}
+{$\ds \Transform{\ee^{   \w_0\t}} = \frac 1 {\w-\w_0}$}
+{$\ds \Transform{\ee^{\alpha\t T}} = \frac 1 {1 - z^{-1}\ee^{\alpha T}}$}
+\entry
+{$\ds \Transform{\sin{\beta\t}} = -\jj\pi\paren{\delta\paren{\w-\beta}-\delta\paren{\w+\beta}}$}
+{$\ds \Transform{\sin{\beta\t}} = \frac{\beta}{\w^2+\beta^2}$}
+{$\ds \Transform{\sin{\beta\t T}} = \frac{\w^{-1}\sin{\beta T}}{1-2\w^{-1}\cos{\beta T}+\w^{-2}}$}
+\entry
+{$\ds \Transform{\cos{\beta\t}} = \pi\paren{\delta\paren{\w-\beta}+\delta\paren{\w+\beta}}$}
+{$\ds \Transform{\cos{\beta\t}} = \frac{\w}{\w^2+\beta^2}$}
+{$\ds \Transform{\cos{\beta\t T}} = \frac{1-\w^{-1}\cos{\beta T}}{1-2\w^{-1}\cos{\beta T}+\w^{-2}}$}
+\entry
+{$\ds \Transform{\Pi{\paren{\t/T}}} = T{\sin\frac{\w T}{2}}\Big/{\frac{\w T}{2}}$}
+{$\ds \Transform{\Pi_{T_1}^{T_2}{\paren{\t}}} = \frac 1 \w \paren{\ee^{-\w T_1}-\ee^{-\w T_2}}$}
+{}
 \bottomrule
 \end{tabular}
 \end{table}
