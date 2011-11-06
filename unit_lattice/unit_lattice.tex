@@ -30,7 +30,6 @@
 
 \usepackage{bm}
 \def\theorem#1#2{#1\quad$\displaystyle#2$}
-\usepackage{booktabs}
 \usepackage{prelude}
 \usepackage[all]{xy}
 \pagestyle{empty}
@@ -69,6 +68,7 @@
 \def\tomO{\ar[rr]|-{\uni{O^{-1}}}}
 \def\arrr{\dotted{rr}}
 \def\ardd{\dotted{dd}}
+\def\arddsplit{\dotted{dd}|!{[ld];[rd]}\hole}
 \def\aruu{\dotted{uu}}
 \def\arll{\dotted{ll}}
 \def\arllsplit{\dotted{ll}|!{[ld];[lu]}\hole}
@@ -89,9 +89,9 @@
 \[\xymatrix@=0.50in{
   &&*=0{}&*=0{}&*=0{}&\\
       &      & \cell{\lambda,\r}{m} \tolv \toT &      &      &      & \\
-      &      \cell{L}{H,Os} \arrrsplit\ardd      &      & \cell{t,T}{s}\arrr      &      & \cell{C}{F,O^{-1}s} \ardd      &      \\
+      &      \cell{L}{H,Os} \arrrsplit\arddsplit      &      & \cell{t,T}{s}\arrr\arddsplit      &      & \cell{C}{F,O^{-1}s} \ardd      &      \\
  \cell{R}{O,kg\cdot m^2 s^{-3} A^{-2}}\ardd\arur      &      & *=0{}\arrowyyp\toL\toC\tov\tom\tos\toO\tomO\tomm\toms \arrowzzp \arrowzp      &      & \cell{G}{S,\Omega^{-1}}\arur\ardd      &      & \\
-      &      \cell{\mu}{Hm^{-1}}      &      & *=0{} \aruu\ardl\arll      &      & \cell{\varepsilon}{Fm^{-1}} \arllsplit      &      \\
+      &      \cell{\mu}{Hm^{-1}}      &      & *=0{} \ardl\arll      &      & \cell{\varepsilon}{Fm^{-1}} \arllsplit      &      \\
  *=0{} \arur      &      & \cell{k,\nabla}{m^{-1}} \arll\tof      &      & \cell{\sigma}{O^{-1}s^{-1}}\arll\arur      &      & \\
  }\]
 \end{document}
