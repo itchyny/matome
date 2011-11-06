@@ -1,11 +1,12 @@
+filename = document.tex
 UNAME = "${shell uname}"
-elec_magnetic.pdf : elec_magnetic.tex
-	platex elec_magnetic.tex
-	dvipdfmx elec_magnetic.dvi
-	if [ $(UNAME) = "Darwin" ]; then ( open -a Preview elec_magnetic.pdf ) else ( evince elec_magnetic.pdf ) fi
-	rm elec_magnetic.aux elec_magnetic.dvi elec_magnetic.log
+temp.pdf : $(filename)
+	if [ $(UNAME) = "Darwin" ]; then ( cp $(filename) temp.tex ) else ( nkf -e $(filename) > temp.tex ) fi
+	platex temp.tex
+	if [ $(UNAME) = "Darwin" ]; then ( dvipdfmx temp.dvi && open -a Preview temp.pdf ) else ( dvipdfmx temp.dvi && evince temp.pdf ) fi
+	rm temp.aux temp.dvi temp.log temp.tex
 all:
-	make elec_magnetic.pdf
+	make temp.pdf
 
 
 

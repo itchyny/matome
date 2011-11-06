@@ -1,6 +1,6 @@
-\documentclass[a4j,8pt]{jarticle}
+\documentclass[a4j,10pt]{jarticle}
 \def\defi#1#2#3{#1\quad$\displaystyle #2 \unit{[#3]}$}
-\setlength{\hoffset}{-0.75in}
+\setlength{\hoffset}{-0.80in}
 \setlength{\voffset}{-0.7in}
 \def\const{\mathrm{const}}
 \def\uni#1{[\unit{#1}]}
@@ -76,17 +76,17 @@ $\D = \varepsilon \E = \varepsilon_0 \varepsilon_s \E$                          
 
 定常電流界                                                       & 磁気回路 \\ \hline
 \theorem{電界は保存的(KVL)}{\curl \E = 0}                                                   & \theorem{真電流$\J$がないなら}{\curl \H = 0}\\
-\defi{電流}{I = \diff Q t = \int_S \J \cdot \dd \S}{A,Cs^{-1}}                       & \defi{磁束}{\Phi = \int_S \B \cdot \dd \S}{Wb, Tm^2}\\
+\defi{電流}{I = \diff Q t = \int_S \J \cdot \dd \S}{A,Cs^{-1}}                       & \defi{磁束}{\varPhi = \int_S \B \cdot \dd \S}{Wb, Tm^2}\\
 \theorem{電流連続}{\diver \J + \frac{\partial \rho}{\partial t}=0 \to \diver \J = 0 \text{(KCL)}}                   & \theorem{磁束保存}{\diver \B = 0}\\
-\theorem{オームの法則}{V = RI \quad \J = \sigma \E = \frac{\E}\rho}                                                & \theorem{}{NI=R_m\Phi}\quad\theorem{}{\B = \mu \H = \frac{\H}{\nu}}\\
+\theorem{オームの法則}{V = RI \quad \J = \sigma \E = \frac{\E}\rho}                                                & \theorem{}{NI=R_m\varPhi}\quad\theorem{}{\B = \mu \H = \frac{\H}{\nu}}\\
 \defi{抵抗}{R=\frac{\rho l}{S}=\frac l{\sigma S}}{O,VA^{-1}}                               & \defi{磁気抵抗}{R_m=\frac l{\mu S}}{A/Wb}\\
 \defi{導電率}{\sigma}{O^{-1}m^{-1}}\quad \defi{抵抗率}{\rho}{Om}                               & \defi{透磁率}{\mu}{Hm^{-1}}\quad \defi{磁気抵抗率}{\nu}{H^{-1}m}\\
-\theorem{起電力(ファラデーの電磁誘導の法則)}{e = \oint_C \E \cdot \dd \s = -\frac{\partial \Phi}{\partial t}\unit{[V]}}         & \theorem{起磁力}{NI = \oint_C \H \cdot \dd \s\unit{[A]}}\\
+\theorem{起電力(ファラデーの電磁誘導の法則)}{e = \oint_C \E \cdot \dd \s = -\frac{\partial \varPhi}{\partial t}\unit{[V]}}         & \theorem{起磁力}{NI = \oint_C \H \cdot \dd \s\unit{[A]}}\\
 \hline\hline
 \multicolumn{2}{c}{マックスウェル方程式}\\
 \theorem{ファラデーの電磁誘導の法則}{\curl \E = - \frac{\partial \B}{\partial t}}                                            & \theorem{アンペール+変位電流}{\curl \H = \J + \frac{\partial \D}{\partial t}}\\
 \theorem{ガウスの法則}{\diver \D = \rho}                                                    & \theorem{磁束保存}{\diver \B = 0}\\
-一様なら$\D = \varepsilon \E$                                                          & 一様なら$\B = \mu \H$ \\
+一様なら$\D = \varepsilon \E$, $\B = \mu \H$                                                & 一様なら$\J = \sigma \E$ \\
 \bottomrule
 \end{tabular}
 \end{table}

@@ -1,22 +1,4 @@
-%\usepackage{amssymb,amsmath}
-%\usepackage[dvipdfm]{graphicx}
-%\usepackage[dvipdfm]{color}
-%\usepackage{amssymb,amsmath}
-\usepackage{wrapfig}
-%\usepackage{pstricks}
-%\usepackage{pgf,tikz}
-%\usetikzlibrary{arrows}
-%\usepackage[stable,perpage]{footmisc}
-\newcommand{\inputfig}[2]{\begin{figure}[!ht]\centering\input{#1.tex}\caption{#2}\label{fig:#1}\end{figure}}
-%\newcommand{\inputpng}[2]{\begin{figure}[!ht]\centering\includegraphics[width=15cm]{#1.png}\caption{#2}\label{fig:#1}\end{figure}}
-%\newcommand{\inputcircuit}[2]{\begin{figure}[!ht]\centering\includegraphics[width=7cm]{#1.png}\caption{#2}\label{fig:#1}\end{figure}}
-\def\inputpngwrap[#1]#2#3{\begin{wrapfigure}{r}{0.5\textwidth}\vspace*{-\intextsep}\begin{center}\includegraphics[width=#1cm]{#2.png}\caption{#3}\label{fig:#2}\end{center}\end{wrapfigure}}
-\makeatletter
-\def\inputpng{\@ifnextchar[{\@inputpng}{\@inputpng[15]}}
-\def\@inputpng[#1]#2#3{\begin{figure}[!th]\centering\includegraphics[width=#1cm]{#2.png}\caption{#3}\label{fig:#2}\end{figure}}
-\makeatother
-%\newcommand{\inputpng}[2]{\begin{tikzpicture}[!ht]\includegraphics[width=15cm]{#1.png}\end{tikzpicture}}
-%\makeatletter\def\tbcaption{\def\@captype{table}\caption}\def\figcaption{\def\@captype{figure}\caption}\makeatother\newcommand{%\inputfig}[2]{\begin{center}\input{#1.tex}\nobreak\figcaption{#2}\label{fig:#1}\end{center}}
+\usepackage{amssymb,amsmath}
 \def\unit#1{\def\O{\mbox{O}}\def\u{\mbox{u}}\mathcode`\u=\mu\mathcode`\O=\Omega \,\mathrm{#1}}
 \def\abs#1{\left|#1\right|}
 \def\sub#1{_{\mathrm{#1}}}

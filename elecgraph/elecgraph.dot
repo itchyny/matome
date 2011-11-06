@@ -49,7 +49,7 @@ digraph elec {
   line_of_force [ texlbl = "\cells { Line of force }\
   {Q/\varepsilon_0\text{ lines from charge }Q}" ];
   gauss_law [ texlbl = "\cellss{ Gauss's law }\
-  { \text {Electric flux } \mathrm {\Phi}_E = \oint_S \mathbf E \cdot \dd \mathbf {S}= \frac Q {\varepsilon_0} }\
+  { \text {Electric flux } \mathrm {\varPhi}_E = \oint_S \mathbf E \cdot \dd \mathbf {S}= \frac Q {\varepsilon_0} }\
   { \diver \mathbf E = \frac {\rho} {\varepsilon_0}} " ];
   poissons_equation [ texlbl = "\cells{ Poisson's equation }\
   { \nabla ^ 2 V = - \frac {\rho}{\varepsilon_0}}" ];
@@ -114,10 +114,10 @@ digraph elec {
       {\oint_C \mathbf B \cdot \dd \mathbf s = \mu_0 I}\
       {\curl \mathbf B = \mu_0 \mathbf J}" ];
       magnetic_flux [ shape = octagon, texlbl = "\cells{Magnetic flux }\
-      {\Phi = \int_S \mathbf B \cdot \dd \mathbf S}" ];
+      {\varPhi = \int_S \mathbf B \cdot \dd \mathbf S}" ];
       gauss_law_magnetism [ texlbl = "\cellss{Gauss's law for magnetism}\
       {\diver \mathbf B = 0}\
-      { \Phi = \oint_S \mathbf B \cdot \dd \mathbf S = 0} " ];
+      { \varPhi = \oint_S \mathbf B \cdot \dd \mathbf S = 0} " ];
       vector_potential [ texlbl = "\cellss{Magnetic vector potential}\
       {\mathbf B = \curl \mathbf A \quad \diver \mathbf A = 0}\
       {\mathbf E = - \grad \mathbf V - \frac {\partial \mathbf A} {\partial t}}" ];
@@ -185,7 +185,7 @@ digraph elec {
 
 
       faraday [ shape = octagon, texlbl = "\cells{Faraday's law of induction}\
-      {e = -\frac{\dd \Phi} {\dd t} = - N \frac {\dd\phi} {\dd t}}"];
+      {e = -\frac{\dd \varPhi} {\dd t} = - N \frac {\dd\varphi} {\dd t}}"];
       //                            {\curl \mathbf E = - \frac {\partial \mathbf B} {\partial t}}" ];
 
       // Two definitions of electromotive force
@@ -209,11 +209,11 @@ digraph elec {
 
 
       self_inductance [ shape = octagon, texlbl = "\cellss{Self inductance}\
-      {\Phi = L I} {e = -\frac{\dd\Phi}{\dd t} = -L\frac{\dd I}{\dd t}} " ];
+      {\varPhi = L I} {e = -\frac{\dd\varPhi}{\dd t} = -L\frac{\dd I}{\dd t}} " ];
       faraday -> self_inductance;
 
       mutual_inductance [ shape = octagon, texlbl = "\cellss {Mutual inductance}\
-      {\Phi_{12} = M_{12} I_2 \quad \Phi_{21} = M_{21} I_1}\
+      {\varPhi_{12} = M_{12} I_2 \quad \varPhi_{21} = M_{21} I_1}\
       {M = M_{12} = M_{21}}"];
       faraday -> mutual_inductance;
 
