@@ -17,7 +17,7 @@
 \def\dotted#1{\ar@{--}[#1]}
 \def\arrow#1#2#3{\ar[#1]|-(.4){\uni{#2}}_(.3){#3}}
 \def\arroww#1#2#3{\ar[#1]|-(.25){\uni{#2}}^(.4){#3}|!{[ll];[ru]}\hole}
-\def\arrowu#1#2#3{\ar[#1]|-(.4){\uni{#2}}^(.45){#3}}
+\def\arrowu#1#2#3{\ar[#1]|-(.4){\uni{#2}}^(.40){#3}}
 \def\arrowx#1#2#3{\ar[#1]|-(.6){\uni{#2}}^(.6){#3}}
 \def\arrowy#1#2#3{\ar@/^3pc/[#1]|-(.7){\uni{#2}}^(.7){#3}}
 \def\arrowyy#1#2#3#4#5{\ar@/_3pc/@{<->}[#1]|-(0.2){\uni{#4}}^(0.2){#5}|-(.75){\uni{#2}}_(.75){#3}}
@@ -59,40 +59,45 @@
  *=0{} \dotted{uu}\dotted{rr}\dotted{ru}           &          & \diver\J +\frac{\partial\rho}{\partial t}=0\dotted{uu}      & \\
 }\]
 
+
+
+\def\cell#1#2{#1\,\unit{[#2]}}
+\def\uni#1{}
 \vspace{-10mm}
-\def\tom{\ar[uu]|-{\uni{m}}}
-\def\tos{\ar[ur]|-{\uni{s}}}
-\def\toO{\ar[ll]|-{\uni{O}}}
+\def\tom{\ar@{->}[uu]|-{\unit{[m]}}}
+\def\tos{\ar@{->}[ur]|-{\unit{[s]}}}
+\def\toO{\ar@{->}[ll]|!{[]+(-20,-13);[]+(-20,13)}\hole|-{\unit{[O]}}}
 \def\tomm{\ar[dd]|-{\uni{m^{-1}}}}
 \def\toms{\ar@{->}+(-20,-13)*{\cell{f,\omega}{s^{-1}}}|-{\uni{s^{-1}}}}
 \def\tomO{\ar[rr]|-{\uni{O^{-1}}}}
 \def\arrr{\dotted{rr}}
 \def\ardd{\dotted{dd}}
-\def\arddsplit{\dotted{dd}|!{[ld];[rd]}\hole}
+\def\arddsplit{\dotted{dd}|!{[ld];[rr]}\hole|!{[ld];[rd]}\hole}
 \def\aruu{\dotted{uu}}
 \def\arll{\dotted{ll}}
 \def\arllsplit{\dotted{ll}|!{[ld];[lu]}\hole}
-\def\arrrsplit{\dotted{rr}|!{[rd];[ru]}\hole}
+\def\arllsplitp{\dotted{ll}|!{[]+(-20,-13);[]+(-20,13)}\hole}
+\def\arrrsplit{\dotted{rr}|!{[rd];[ru]+(-20,-13)}\hole|!{[rd];[ru]}\hole}
 \def\ard{\dotted{d}}
 \def\arur{\dotted{ur}}
 \def\ardr{\dotted{dr}}
 \def\ardl{\dotted{dl}}
-\def\arrowzp{\ar@/^2pc/[dl]|-(0.4){\uni{Hm^{-1}}}}
+\def\arrowzp{\ar@/^2pc/[dl]|-(0.4){\uni{Hm^{-1}}}|!{[]+(-20,-13);[]+(-20,13)}\hole}
 \def\arrowzzp{\ar@/_2pc/[rrrd]|-(0.25){\uni{Fm^{-1}}}|!{[rr];[rrdd]}\hole }
-\def\tolv{\ar@{--}'+(-20,-13)*{\cell{v}{ms^{-1}}}'[dd]+(-20,-13)}
+\def\tolv{\ar@{--}'+(-20,-13)*{\cell{v}{m\cdot s^{-1}}}'[dd]+(-20,-13)}
 \def\tov{\ar@{->}[uu]+(-20,-13)+(3,-2)}
-\def\toL{\ar@{->}[ul]|-{\uni{H,Os}}}
+\def\toL{\ar@{->}[ul]|-{\uni{H,Os}}|!{+(-20,-12);+(-20,12)}\hole}
 \def\toC{\ar@{->}[urrr]|-{\uni{F,O^{-1}s}}}
 \def\arrowyyp{\ar@/_3pc/@{->}[rrdd]|-(0.7){\uni{O^{-1}m^{-1}}}}
 \def\tof{\ar@{--}'+(-20,-13)'[uu]+(-20,-13)}
 \def\toT{\ar@{--}'[ur]'[dr]}
 \[\xymatrix@=0.50in{
-  &&*=0{}&*=0{}&*=0{}&\\
+  &&*=0{}& *=0{} &\\
       &      & \cell{\lambda,\r}{m} \tolv \toT &      &      &      & \\
       &      \cell{L}{H,Os} \arrrsplit\arddsplit      &      & \cell{t,T}{s}\arrr\arddsplit      &      & \cell{C}{F,O^{-1}s} \ardd      &      \\
  \cell{R}{O,kg\cdot m^2 s^{-3} A^{-2}}\ardd\arur      &      & *=0{}\arrowyyp\toL\toC\tov\tom\tos\toO\tomO\tomm\toms \arrowzzp \arrowzp      &      & \cell{G}{S,\Omega^{-1}}\arur\ardd      &      & \\
-      &      \cell{\mu}{Hm^{-1}}      &      & *=0{} \ardl\arll      &      & \cell{\varepsilon}{Fm^{-1}} \arllsplit      &      \\
- *=0{} \arur      &      & \cell{k,\nabla}{m^{-1}} \arll\tof      &      & \cell{\sigma}{O^{-1}s^{-1}}\arll\arur      &      & \\
+      &      \cell{\mu}{Hm^{-1}}      &      & \sqrt{\mu\varepsilon}\ardl\arll      &      & \cell{\varepsilon}{Fm^{-1}} \arllsplit      &      \\
+ *=0{} \arur      &      & \cell{k,\nabla}{m^{-1}} \arllsplitp\tof      &      & \cell{\sigma}{O^{-1}s^{-1}}\arll\arur      &      & \\
  }\]
 \end{document}
 
