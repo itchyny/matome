@@ -17,12 +17,12 @@
 \def\dotted#1{\ar@{--}[#1]}
 \def\arrow#1#2#3{\ar[#1]|-(.4){\uni{#2}}_(.3){#3}}
 \def\arroww#1#2#3{\ar[#1]|-(.25){\uni{#2}}^(.4){#3}|!{[ll];[ru]}\hole}
-\def\arrowu#1#2#3{\ar[#1]|-(.4){\uni{#2}}^(.40){#3}}
+\def\arrowu#1#2#3{\ar[#1]|-(.4){\uni{#2}}^(.45){#3}}
 \def\arrowx#1#2#3{\ar[#1]|-(.6){\uni{#2}}^(.6){#3}}
 \def\arrowy#1#2#3{\ar@/^3pc/[#1]|-(.7){\uni{#2}}^(.7){#3}}
 \def\arrowyy#1#2#3#4#5{\ar@/_3pc/@{<->}[#1]|-(0.2){\uni{#4}}^(0.2){#5}|-(.75){\uni{#2}}_(.75){#3}}
 \def\arrowz#1#2#3{\ar@/^2pc/[#1]|-(.7){\uni{#2}}_(.6){#3}}
-\def\arrowzz#1#2#3{\ar@/^2pc/[#1] |!{[rr];[rrdd]}\hole |-(.8){\uni{#2}}_(.8){#3\quad}}
+\def\arrowzz#1#2#3{\ar@/^2.2pc/[#1] |!{[rr];[rrdd]}\hole |-(.8){\uni{#2}}_(.8){#3\quad}}
 %\def\arrowp#1#2#3{\ar[#1]|-(.5){\uni{#2}}_(.3){#3\quad}|!{[uu];[uuu]}\hole|!{[luuu];[ruuu]}\hole|!{[luuu];[rruuuu]}\hole}
 %\def\arrowp#1#2#3{\ar[#1] _(.3){#3} |!{[ru];[lu]}\hole |-{\uni{#2}} |!{[luuu];[ruuu]}\hole |!{[luuu];[ruuuru]}\hole }
 \def\arrowp#1#2#3{\ar@{->}[#1] _(.3){#3} |!{[u];[u]}\hole |-(0.4){\uni{#2}} |!{[uuu];[uuu]}\hole |!{[luuu];[ruuuru]}\hole} % これだと, luuu->ruuuruでの計算で, 座標が右のほうに行ってしまって最後が表示されない(推測) {-->}にすると表示されるのは謎い. 仕方ないので, Φのほうから下に降ろす線も描いてる
