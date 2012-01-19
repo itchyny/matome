@@ -1,0 +1,128 @@
+#define STR(s) #s
+#define NODE(a,n, ...) a [ texlbl = STR (\tab{##n##}) ,##__VA_ARGS__ ];
+#define EDGE(a,b,l, ...) a -> b [ label = " ", texlbl = STR (\lab{##l##}) ,##__VA_ARGS__ ];
+#define IMPORTANT peripheries = 2
+#define NULLNODE(a) a [ shape = circle, fixedsize = true, label = "", width = 0, height = 0 ]
+
+digraph algebra {
+#include "dotinit.dot"
+
+
+  NODE (set, \structure{Set}{S})
+
+  NODE (magma, \structure{Magma}{S\comma \binary})
+  EDGE (set, magma, 
+    \property{Closure}{\quantify{\forall a\comma b \iin S} a \binary b \in S})
+
+  NODE (semigroup, \structure{Semigroup}{S\comma \binary})
+  EDGE (magma, semigroup, 
+    \property{Associativity}{\quantify{\forall a\comma b\comma c \iin S} (a \binary b)\binary c = a \binary (b \binary c) \iin S})
+
+  NODE (monoid, \structure{Monoid}{S\comma \binary\comma \identity})
+  EDGE (semigroup, monoid,
+    \property{Identity element}{\quantify{\exists \identity \iin S \forall a \iin S}\identity \binary a = a \binary \identity = a})
+
+  NODE (group, \structure{Group}{G \comma \binary \comma \inverse {} \comma \identity})
+  EDGE (monoid, group,
+    \property{Inverse element}{\quantify{\forall a \iin G \exists b \iin G } a \binary b = b \binary a = \identity \comma b := \inverse a})
+
+  NODE (commutative_semigroup, \structure{Commutative Semigroup}{S \comma \binary})
+  EDGE (semigroup, commutative_semigroup,
+    \property{Commutative}{\quantify{\forall a \comma b \iin S} a \binary b = b \binary a}, weight = 10)
+
+  NODE (commutative_monoid, \structure{Commutative Monoid}{S \comma \binary \comma \identity})
+  EDGE (monoid, commutative_monoid,
+    \property{Commutative}{\quantify{\forall a \comma b \iin S} a \binary b = b \binary a})
+
+  EDGE (commutative_semigroup, commutative_monoid,
+    \property{Identity element}{\quantify {\exists \identity \iin S \forall a \iin S} \identity \binary a = a \binary \identity = a}, weight = 10)
+
+  NODE (commutative_group, \structure{Abelian Group}{G \comma \binary \comma \inverse {} \comma \identity})
+  EDGE (commutative_monoid, commutative_group,
+    \property{Inverse element}{\quantify{\forall a \iin G \exists b \iin G} a \binary b = b \binary a = \identity \comma b := \inverse a})
+  EDGE (group, commutative_group,
+    \property{Commutative}{\quantify{\forall a \comma b \iin G} a \binary b = b \binary a})
+
+  NULLNODE (pre_ring)
+  NODE (ring, \structure{Ring}{R \comma \plus \comma \minus \comma \mult \comma \zero \comma \one})
+  EDGE (monoid, pre_ring, \paren{ R \comma \mult \comma \one })
+  EDGE (commutative_group, pre_ring, \paren{ R \comma \plus \comma \minus \comma \zero })
+  EDGE (pre_ring, ring,
+   \propertyy{Distributive}
+     {\quantify{\forall a \comma b \comma c \iin R} a \mult (b \plus c) = a \mult b \plus a \mult c }
+     {(b \plus c) \mult a = b \mult a \plus c \mult a})
+
+  NODE (commutative_ring, \structure{Commutative Ring}{R \comma \plus \comma \minus \comma \mult \comma \zero \comma \one})
+  EDGE (ring, commutative_ring,
+    \property{Commutative}{\quantify{\forall a \comma b \iin R} a \mult b = b \mult a})
+  NULLNODE (pre_commutative_ring)
+  EDGE (commutative_monoid, pre_commutative_ring,\paren{ R \comma \mult \comma \one } )
+  EDGE (commutative_group, pre_commutative_ring,\paren{ R \comma \plus \comma \minus \comma \zero } )
+  EDGE (pre_commutative_ring, commutative_ring, \text{Distributive})
+
+  NODE (field, \structure{Skew Field}{K \comma \plus \comma \minus \comma \mult \comma \divi \comma \zero \comma \one})
+  EDGE (ring, field,
+    \property{Inverse element of $\mult$}{\quantify{\forall a \neq 0 \iin K \exists b \iin K } a \mult b = b \mult a = \one })
+
+  NODE (commutative_field, \structure{Field}{K \comma \plus \comma \minus \comma \mult \comma \divi \comma \zero \comma \one})
+  EDGE (field, commutative_field,
+    \property{Commutative}{\quantify{\forall a \comma b \iin R} a \mult b = b \mult a})
+
+  NODE (integral_domain, \structure{Integral Domain}{R \comma \plus \comma \minus \comma \mult \comma \zero \comma \one})
+  EDGE (commutative_ring, integral_domain, \text{no zero divisors for }\mult)
+    /* en.wikipedia.org/wiki/Integral_domain */
+    /* Commutative rings ⊃ integral domains ⊃ integrally closed domains ⊃ unique factorization domains ⊃ principal ideal domains ⊃ Euclidean domains ⊃ fields */
+
+  EDGE (integral_domain, commutative_field, \text{inverse element of }\mult)
+
+  NULLNODE (pre_lattice)
+  NODE (lattice, \structure{Lattice}{L \comma \vee (join) \comma \wedge (meet)})
+  EDGE (commutative_semigroup, pre_lattice, \paren{L \comma \vee})
+  EDGE (commutative_semigroup, pre_lattice, \paren{L \comma \wedge})
+  EDGE (pre_lattice, lattice,
+    \propertyy{Absorption}
+      {\quantify{\forall a \comma b \iin L} a \vee (a \wedge b) = a}
+      {a \wedge (a \vee b) = a})
+  EDGE (lattice, lattice, \propertyy{Idempotence}{\quantify{\forall a \iin L} a \vee a = a }{ a \wedge a = a})
+
+  NODE (modular_lattice, \structure{Modular Lattice}{L \comma \vee \comma \wedge})
+  EDGE (lattice, modular_lattice,
+    \property{Modularity}
+      {\quantify{\forall a \comma b \comma c \iin L}{a \le c \Rightarrow a \vee (b \wedge c) = (a \vee b) \wedge c}})
+
+  NODE (distributive_lattice, \structure{Distributive lattice}{L \comma \vee \comma \wedge})
+  EDGE (lattice, distributive_lattice,
+    \propertyy{Distributive}
+     {\quantify{\forall a \comma b \comma c \iin L} a \vee (b \wedge c) = (a \vee b) \wedge (a \vee c) }
+     {a \wedge (b \vee c) = (a \wedge b) \vee (a \wedge c) })
+  EDGE (modular_lattice, distributive_lattice, )
+
+  NULLNODE (pre_boolean_lattice)
+  NODE (boolean_lattice, \structure{Boolean Lattice}{B \comma \lor \comma \land \comma \lnot \comma \false \comma \true})
+  EDGE (commutative_monoid, pre_boolean_lattice, \paren{B \comma \lor \comma \false})
+  EDGE (commutative_monoid, pre_boolean_lattice, \paren{B \comma \land \comma \true})
+  EDGE (pre_boolean_lattice, boolean_lattice,
+    \propertyy{Distributive ...}{\text{Complemented }}{{\quantify{\florall a \iin B} a \lor (\lnot a) = \true \comma a \land (\lnot a) = \false}}, weight = 10)
+  EDGE (distributive_lattice, boolean_lattice,, weight = 5)
+  EDGE (boolean_lattice, boolean_lattice,
+    \propertyy{De Morgan's laws}
+      {\quantify{\forall a \comma b \iin B} \lnot (a \lor b) = (\lnot a) \land (\lnot b)}
+      {\lnot (a \land b) = (\lnot a) \lor (\lnot b)})
+
+
+
+
+  {rank = same; semigroup; commutative_semigroup; }
+  {rank = same; monoid; commutative_monoid; }
+  {rank = same; group; commutative_group; }
+  {rank = same; ring; commutative_ring; }
+  {rank = same; field; commutative_field; }
+  {rank = same; lattice; commutative_monoid; }
+
+}
+
+// bounded lattice
+// complemented lattice
+
+/* en.wikipedia.org/wiki/Algebraic_structure */
+

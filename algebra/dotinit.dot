@@ -1,0 +1,91 @@
+
+  d2ttikzedgelabels = true;
+  d2tstyleonly = true;
+  d2tdocpreamble = "\setlength{\paperwidth}{400mm}    \
+                    \setlength{\paperheight}{420mm}    \
+                    \setlength{\topmargin}{0mm} \
+                    \setlength{\oddsidemargin}{0mm} \
+                    \ifx\pdfoutput\undefined\else  \
+                    \setlength{\pdfpagewidth}{\paperwidth}  \
+                    \setlength{\pdfpageheight}{\paperheight}  \
+                    \fi  \
+                    \makeatletter \
+                    \def\diff{\@ifnextchar[{\diffn}{\diffn[]}} \
+                    \def\diffsq#1#2{\diffn[2]{#1}{#2}} \
+                    \def\diffn[#1]#2#3{\frac{\dd^{#1}{#2}}{\dd{#3}^{#1}}} \
+                    \def\fracpd{\@ifnextchar[{\fracpdn}{\fracpdn[]}} \
+                    \def\fracpdsq#1#2{\fracpdn[2]{#1}{#2}} \
+                    \def\fracpdn[#1]#2#3{\frac{\partial^{#1}{#2}}{\partial{#3}^{#1}}} \
+                    \makeatother \
+                    \usepackage{bm}  \
+                    \def\ds{\displaystyle} \
+                    \def\tab#1{\begin{tabular}{c}#1\end{tabular}} \
+                    \def\cell#1{\tab{#1}}    \
+                    \def\cells#1#2{\tab{#1\\$\ds#2$}}    \
+                    \def\cellss#1#2#3{\tab{#1\\$\ds#2$\\$\ds#3$}}    \
+                    \def\cellsss#1#2#3#4{\tab{#1\\$\ds#2$\\$\ds#3$\\$\ds#4$}}    \
+                    \def\cellssss#1#2#3#4#5{\tab{#1\\$\ds#2$\\$\ds#3$\\$\ds#4$\\$\ds#5$}}    \
+                    \def\cellsssss#1#2#3#4#5#6{\tab{#1\\$\ds#2$\\$\ds#3$\\$\ds#4$\\$\ds#5$\\$\ds#6$}}    \
+                    \def\cellssssss#1#2#3#4#5#6#7{\tab{#1\\$\ds#2$\\$\ds#3$\\$\ds#4$\\$\ds#5$\\$\ds#6$\\$\ds#7$}}    \
+                    \def\cellsssssss#1#2#3#4#5#6#7#8{\tab{#1\\$\ds#2$\\$\ds#3$\\$\ds#4$\\$\ds#5$\\$\ds#6$\\$\ds#7$\\$\ds#8$}}    \
+                    \def\lab#1{$\ds#1$} \
+                    \def\cas#1{\begin{cases}\ds#1\end{cases}} \
+                    \def\dd{\mathrm{d}}    \
+                    \def\abs#1{\left|#1\right|}    \
+                    \def\curl{\nabla\times}    \
+                    \def\curlsq{\nabla^2}    \
+                    \def\grad{\nabla}    \
+                    \def\diver{\nabla\cdot}  \
+                    \def\jj{\,\mathrm{j}} \
+                    \def\ee{\,\mathrm{e}} \
+                    \def\H{\bm H}  \
+                    \def\E{\bm E}  \
+                    \def\J{\bm J}  \
+                    \def\D{\bm D}  \
+                    \def\B{\bm B}  \
+                    \def\S{\bm S}  \
+                    \def\P{\bm P}  \
+                    \def\k{\bm k}  \
+                    \def\r{\bm r}  \
+                    \def\n{\bm n}  \
+\def\jj{{\,\mathrm{j}}} \
+\def\ee{{\mathrm{e}}} \
+\def\Re{\mathop{\mathrm{Re}}} \
+\def\Im{\mathop{\mathrm{Im}}} \
+\def\paren#1{\left(#1\right)} \
+\def\structure#1#2{{#1} $\left(#2\right)$} \
+\def\binary{\bullet} \
+\def\identity{e} \
+\def\inverse#1{#1^{-1}} \
+\def\property#1#2{\tab{{#1}\\{$#2$}}} \
+\def\propertyy#1#2#3{\tab{{#1}\\{$#2$}\\{$#3$}}} \
+\def\iin#1{\in#1} \
+\def\quantify#1{#1:} \
+\def\quantify#1{} \
+\def\mult{\times} \
+\def\divi{/} \
+\def\minus{-} \
+\def\plus{+} \
+\def\zero{0} \
+\def\one{1} \
+\def\false{0} \
+\def\true{1} \
+\def\lor{\vee} \
+\def\land{\wedge} \
+\def\comma{,\;} \
+\makeatletter \
+\makeatother";
+  graph [
+    concentrate = true
+  ];
+  node [
+    /*shape=box,*/
+    labelfloat = false
+  ];
+  edge [
+    lblstyle="fill=black!10,inner sep=1pt,sloped",
+    arrowsize = 2
+  ];
+
+  node [shape=ellipse, style="fill=blue!20"];
+
