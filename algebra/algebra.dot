@@ -102,7 +102,7 @@ digraph algebra {
   EDGE (commutative_monoid, pre_boolean_lattice, \paren{B \comma \lor \comma \false})
   EDGE (commutative_monoid, pre_boolean_lattice, \paren{B \comma \land \comma \true})
   EDGE (pre_boolean_lattice, boolean_lattice,
-    \propertyy{Distributive ...}{\text{Complemented }}{{\quantify{\florall a \iin B} a \lor (\lnot a) = \true \comma a \land (\lnot a) = \false}}, weight = 10)
+    \propertyyy{Distributive ...}{\text{Complemented }}{\quantify{\florall a \iin B} a \lor (\lnot a) = \true}{a \land (\lnot a) = \false}, weight = 10)
   EDGE (distributive_lattice, boolean_lattice,, weight = 5)
   EDGE (boolean_lattice, boolean_lattice,
     \propertyy{De Morgan's laws}

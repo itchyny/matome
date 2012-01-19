@@ -57,8 +57,9 @@
 \def\binary{\bullet} \
 \def\identity{e} \
 \def\inverse#1{#1^{-1}} \
-\def\property#1#2{\tab{{#1}\\{$#2$}}} \
-\def\propertyy#1#2#3{\tab{{#1}\\{$#2$}\\{$#3$}}} \
+\def\property#1#2{\tab{#1\\$#2$}} \
+\def\propertyy#1#2#3{\tab{#1\\$#2$\\$#3$}} \
+\def\propertyyy#1#2#3#4{\tab{#1\\$#2$\\$#3$\\$#4$}} \
 \def\iin#1{\in#1} \
 \def\quantify#1{#1:} \
 \def\quantify#1{} \
