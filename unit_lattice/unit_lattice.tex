@@ -14,18 +14,23 @@
 \def\uni#1{[\unit{#1}]}
 \def\cell#1#2{#1\,\uni{#2}}
 \def\dottedhole#1{\ar@{--}[#1]|!{[ld];[lu]}\hole}
+\def\dottedholea#1{\ar@{--}[#1]|!{[ld];[lu]}\hole |!{+(-9.5,-10);+(-9.5,10)}\hole }
 \def\dotted#1{\ar@{--}[#1]}
+\def\dotteda#1{\ar@{--}[#1] |!{+(11.5,-50);+(11.5,50)}\hole}
 \def\arrow#1#2#3{\ar[#1]|-(.4){\uni{#2}}_(.3){#3}}
+\def\arrowq#1#2#3{\ar[#1]|-(.4){\uni{#2}}_(.35){#3}}
 \def\arroww#1#2#3{\ar[#1]|-(.25){\uni{#2}}^(.4){#3}|!{[ll];[ru]}\hole}
-\def\arrowu#1#2#3{\ar[#1]|-(.4){\uni{#2}}^(.45){#3}}
+\def\arrowu#1#2#3{\ar[#1]|-(.4){\uni{#2}}^(.4){#3}}
+\def\arrowuu#1#2#3{\ar[#1]|-(.4){\uni{#2}}^(.5){#3}}
 \def\arrowx#1#2#3{\ar[#1]|-(.6){\uni{#2}}^(.6){#3}}
-\def\arrowy#1#2#3{\ar@/^3pc/[#1]|-(.7){\uni{#2}}^(.7){#3}}
+\def\arrowy#1#2#3{\ar@/^3pc/[#1]|-(.7){\uni{#2}}^(.72){#3}}
 \def\arrowyy#1#2#3#4#5{\ar@/_3pc/@{<->}[#1]|-(0.2){\uni{#4}}^(0.2){#5}|-(.75){\uni{#2}}_(.75){#3}}
-\def\arrowz#1#2#3{\ar@/^2pc/[#1]|-(.7){\uni{#2}}_(.6){#3}}
-\def\arrowzz#1#2#3{\ar@/^2.2pc/[#1] |!{[rr];[rrdd]}\hole |-(.8){\uni{#2}}_(.8){#3\quad}}
+\def\arrowz#1#2#3{\ar@/^2pc/[#1] |!{+(-10,-10);+(-10,10)}\hole|-(.7){\uni{#2}}_(.6){#3}}
+% \def\arrowzz#1#2#3{\ar@/^2.2pc/[#1] |!{[ru];[rd]}\hole |!{+(71.3,-10);+(71.3,10)}\hole |!{[rr];[rrdd]}\hole |-(.8){\uni{#2}}_(.8){#3\quad}}
+\def\arrowzz#1#2#3{\ar@/^2.2pc/[#1] |!{[ru];[rd]}\hole |!{+(39,-10);+(39,10)}\hole |!{[rr];[rrdd]}\hole |-(.8){\uni{#2}}_(.8){#3\quad}}
 %\def\arrowp#1#2#3{\ar[#1]|-(.5){\uni{#2}}_(.3){#3\quad}|!{[uu];[uuu]}\hole|!{[luuu];[ruuu]}\hole|!{[luuu];[rruuuu]}\hole}
 %\def\arrowp#1#2#3{\ar[#1] _(.3){#3} |!{[ru];[lu]}\hole |-{\uni{#2}} |!{[luuu];[ruuu]}\hole |!{[luuu];[ruuuru]}\hole }
-\def\arrowp#1#2#3{\ar@{->}[#1] _(.3){#3} |!{[u];[u]}\hole |-(0.4){\uni{#2}} |!{[uuu];[uuu]}\hole |!{[luuu];[ruuuru]}\hole} % これだと, luuu->ruuuruでの計算で, 座標が右のほうに行ってしまって最後が表示されない(推測) {-->}にすると表示されるのは謎い. 仕方ないので, Φのほうから下に降ろす線も描いてる
+\def\arrowp#1#2#3{\ar@{->}[#1] _(.35){#3} |!{[u];[u]}\hole |-(0.4){\uni{#2}} |!{[uuu];[uuu]}\hole |!{[luuu];[ruuuru]}\hole} % これだと, luuu->ruuuruでの計算で, 座標が右のほうに行ってしまって最後が表示されない(推測) {-->}にすると表示されるのは謎い. 仕方ないので, Φのほうから下に降ろす線も描いてる
 %\def\arrowp#1#2#3{\ar[#1] _(.3){#3} |\hole |-{\uni{#2}} }
 
 \usepackage{bm}
@@ -50,13 +55,13 @@
 
 \[\xymatrix@=0.70in{
  & \cell{\varPhi, q_m}{Wb}\dotted{rr}\ar @{-}[d]|!{[ld];[rr]}\hole     &        & \cell{Q}{C}\\
- \cell V V\arrowu{ur}{s}{e=-\fracpd\varPhi t}\arrowx{rrru}{F}{C=\frac Q V}      &          & \cell I A\arrowu{ll}{O}{V=RI}\arroww{ur}{s}{I=\diff Q t}\arroww{lu}{H}{\varPhi=LI}        & \\
- & *=0{}         & *=0{}       & \dottedhole{ll}\dotted{ld}\\
- \cell{\E}{Vm^{-1}}\arrow{uu}{m}{\E=\grad V}\dotted{rr}\dotted{ru}\arrowzz{rrrd}{Fm^{-1}}{\D=\varepsilon\E}\arrowyy{rrdd}{O^{-1}m^{-1}}{\J=\sigma\E}{Om}{\E=\rho\J } &          & \cell{\H,\M}{Am^{-1}}\arrow{uu}{m}{\oint_C\H\cdot\dd s=I_f}\arrowz{dl}{Hm^{-1}}{\B=\mu\H}       & \\
- & \cell{\B}{T}\arrowp{uuuu}{m^2}{\varPhi=\int_S\B\cdot\dd\S} &        & \cell{\D,\P}{Cm^{-2}}\arrow{uuuu}{m^2}{\oint_S\D\cdot\dd\bm{S}=Q}\dottedhole{ll}\dotted{ld}\\
- {{\curl\E=-\frac{\partial\B}{\partial t}} ,{\diver\E=\frac\rho\varepsilon_0}}\dotted{uu}\dotted{rr}\dotted{ru}     &          & \cell{\J}{Am^{-2}}\arrow{uu}{m}{\curl\H=\J +\frac{\partial\D}{\partial t}}\arrowy{uuuu}{m^2}{I=\int_S\J\cdot\dd\S}\\
- & \cell{\rho_m}{Wbm^{-3}}\ar@{--}[uu]|!{[u];[u]}\hole      &        & \cell{\rho}{Cm^{-3}}\arrow{uu}{m}{\diver\D=\rho}\arrowy{uuuuuu}{m^3}{Q=\int_v\rho\dd v}\dottedhole{ll}\dotted{ld}\\
- *=0{} \dotted{uu}\dotted{rr}\dotted{ru}           &          & \diver\J +\frac{\partial\rho}{\partial t}=0\dotted{uu}      & \\
+ \cell V V\arrowuu{ur}{s}{e=-\fracpd\varPhi t}\arrowx{rrru}{F}{Q=CV}      &          & \cell I A\arrowu{ll}{O}{V=RI}\arroww{ur}{s}{I=\diff Q t}\arroww{lu}{H}{\varPhi=LI}        & \\
+ & *=0{}         & *=0{}       & \dottedholea{ll}\dotted{ld}\\
+ \cell{\E}{Vm^{-1}}\arrow{uu}{m}{\E=\grad V}\dotted{rr} |!{+(20,-10);+(20,10)}\hole |!{+(32.5,-10);+(32.5,10)}\hole \dotted{ru}\arrowzz{rrrd}{Fm^{-1}}{\D=\varepsilon\E}\arrowyy{rrdd}{O^{-1}m^{-1}}{\J=\sigma\E}{Om}{\E=\rho\J } &          & \cell{\H,\M}{Am^{-1}}\arrow{uu}{m}{\oint_C\H\cdot\dd s=I_f}\arrowz{dl}{Hm^{-1}}{\B=\mu\H}       & \\
+ & \cell{\B}{T}\arrowp{uuuu}{m^2}{\varPhi=\int_S\B\cdot\dd\S} &        & \cell{\D,\P}{Cm^{-2}}\arrowq{uuuu}{m^2}{\oint_S\D\cdot\dd\bm{S}=Q}\dottedhole{ll}\dotted{ld}\\
+ {{\rot\E=-\frac{\partial\B}{\partial t}} ,{\diver\E=\frac\rho\varepsilon_0}}\dotted{uu}\dotted{rr}\dotteda{ru}     &          & \cell{\J}{Am^{-2}}\arrow{uu}{m}{\rot\H=\J +\frac{\partial\D}{\partial t}}\arrowy{uuuu}{m^2}{I=\int_S\J\cdot\dd\S}\\
+ & \cell{\rho_m}{Wbm^{-3}}\ar@{--}[uu]|!{[u];[u]}\hole |!{[u]+(-10,12);[u]+(10,12)}\hole      &        & \cell{\rho}{Cm^{-3}}\arrow{uu}{m}{\diver\D=\rho}\arrowy{uuuuuu}{m^3}{Q=\int_v\rho\dd v}\dottedhole{ll}\dotted{ld}\\
+ *=0{} \dotted{uu}\dotted{rr}\dotted{ru}           &          & \diver\J +\frac{\partial\rho}{\partial t}=0\dotted{uu} |!{+(-10,-10);(10,-10)}\hole      & \\
 }\]
 
 
@@ -68,7 +73,7 @@
 \def\tos{\ar@{->}[ur]|-{\unit{[s]}}}
 \def\toO{\ar@{->}[ll]|!{[]+(-20,-13);[]+(-20,13)}\hole|-{\unit{[O]}}}
 \def\tomm{\ar[dd]|-{\uni{m^{-1}}}}
-\def\toms{\ar@{->}+(-20,-13)*{\cell{f,\omega}{s^{-1}}}|-{\uni{s^{-1}}}}
+\def\toms{\ar@{->}+(-20,-13)*{\cell{f,\omega, \dd/\dd t}{s^{-1}}}|-{\uni{s^{-1}}}}
 \def\tomO{\ar[rr]|-{\uni{O^{-1}}}}
 \def\arrr{\dotted{rr}}
 \def\ardd{\dotted{dd}}
@@ -81,23 +86,23 @@
 \def\ard{\dotted{d}}
 \def\arur{\dotted{ur}}
 \def\ardr{\dotted{dr}}
-\def\ardl{\dotted{dl}}
+\def\ardl{\dotted{dl} |!{+(-8,-30);+(-8,30)}\hole}
 \def\arrowzp{\ar@/^2pc/[dl]|-(0.4){\uni{Hm^{-1}}}|!{[]+(-20,-13);[]+(-20,13)}\hole}
 \def\arrowzzp{\ar@/_2pc/[rrrd]|-(0.25){\uni{Fm^{-1}}}|!{[rr];[rrdd]}\hole }
-\def\tolv{\ar@{--}'+(-20,-13)*{\cell{v}{m\cdot s^{-1}}}'[dd]+(-20,-13)}
+\def\tolv{\ar@{--}'+(-20,-13)*{\cell{v}{m s^{-1}}}'[dd]+(-20,-13)}
 \def\tov{\ar@{->}[uu]+(-20,-13)+(3,-2)}
-\def\toL{\ar@{->}[ul]|-{\uni{H,Os}}|!{+(-20,-12);+(-20,12)}\hole}
+\def\toL{\ar@{->}[ul]|-{\uni{H,Os}}|!{+(-12,-12);+(-12,12)}\hole}
 \def\toC{\ar@{->}[urrr]|-{\uni{F,O^{-1}s}}}
 \def\arrowyyp{\ar@/_3pc/@{->}[rrdd]|-(0.7){\uni{O^{-1}m^{-1}}}}
-\def\tof{\ar@{--}'+(-20,-13)'[uu]+(-20,-13)}
+\def\tof{\ar@{--}'+(-20,-13)'[uu]+(-20,-13) |!{+(-10,-8);+(10,-8)}\hole}
 \def\toT{\ar@{--}'[ur]'[dr]}
 \[\xymatrix@=0.50in{
   &&*=0{}& *=0{} &\\
-      &      & \cell{\lambda,\r}{m} \tolv \toT &      &      &      & \\
+      &      & \cell{x, \lambda,\r}{m} \tolv \toT &      &      &      & \\
       &      \cell{L}{H,Os} \arrrsplit\arddsplit      &      & \cell{t,T}{s}\arrr\arddsplit      &      & \cell{C}{F,O^{-1}s} \ardd      &      \\
  \cell{R}{O,kg\cdot m^2 s^{-3} A^{-2}}\ardd\arur      &      & *=0{}\arrowyyp\toL\toC\tov\tom\tos\toO\tomO\tomm\toms \arrowzzp \arrowzp      &      & \cell{G}{S,\Omega^{-1}}\arur\ardd      &      & \\
       &      \cell{\mu}{Hm^{-1}}      &      & \sqrt{\mu\varepsilon}\ardl\arll      &      & \cell{\varepsilon}{Fm^{-1}} \arllsplit      &      \\
- *=0{} \arur      &      & \cell{k,\nabla}{m^{-1}} \arllsplitp\tof      &      & \cell{\sigma}{O^{-1}s^{-1}}\arll\arur      &      & \\
+ *=0{} \arur      &      & \cell{k,\dd/\dd x, \nabla}{m^{-1}} \arllsplitp\tof      &      & \cell{\sigma}{O^{-1}s^{-1}}\arll\arur      &      & \\
  }\]
 \end{document}
 

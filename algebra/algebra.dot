@@ -4,6 +4,20 @@
 #define IMPORTANT peripheries = 2
 #define NULLNODE(a) a [ shape = circle, fixedsize = true, label = "", width = 0, height = 0 ]
 
+/*#define HASH #*/
+/*#define NULLNODE(a) \*/
+/*  HASH define NODE##a 1 NEWLINE\*/
+/*  a  [ shape = circle, fixedsize = true, label = "", width = 0, height = 0 ]; NEWLINE*/
+/*#define NODE(a,n, ...) \*/
+/*  HASH define NODE##a 1 NEWLINE\*/
+/*  a [ texlbl = STR (\tab{##n##}) ,##__VA_ARGS__ ]; NEWLINE*/
+/*#define EDGE(a,b,l, ...) \*/
+/*  HASH ifdef NODE##a NEWLINE\*/
+/*  HASH ifdef NODE##b NEWLINE\*/
+/*  a -> b [ label = " ", texlbl = STR (\lab{##l##}) ,##__VA_ARGS__ ]; NEWLINE\*/
+/*  HASH endif NEWLINE \*/
+/*  HASH endif NEWLINE*/
+
 digraph algebra {
 #include "dotinit.dot"
 
@@ -118,6 +132,7 @@ digraph algebra {
   {rank = same; ring; commutative_ring; }
   {rank = same; field; commutative_field; }
   {rank = same; lattice; commutative_monoid; }
+
 
 }
 
