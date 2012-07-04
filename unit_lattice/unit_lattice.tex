@@ -11,24 +11,37 @@
 \setlength{\hoffset}{-1in}
 \setlength{\voffset}{-0.5in}
 \def\const{\mathrm{const}}
-\def\uni#1{[\unit{#1}]}
+\def\uni#1{[\!\unit{#1}]}
 \def\cell#1#2{#1\,\uni{#2}}
 \def\dottedhole#1{\ar@{--}[#1]|!{[ld];[lu]}\hole}
 \def\dottedholea#1{\ar@{--}[#1]|!{[ld];[lu]}\hole |!{+(-9.5,-10);+(-9.5,10)}\hole }
 \def\dotted#1{\ar@{--}[#1]}
 \def\dotteda#1{\ar@{--}[#1] |!{+(11.5,-50);+(11.5,50)}\hole}
-\def\arrow#1#2#3{\ar[#1]|-(.4){\uni{#2}}_(.3){#3}}
-\def\arrowq#1#2#3{\ar[#1]|-(.4){\uni{#2}}_(.35){#3}}
-\def\arrowqq#1#2{\ar[#1]|-(.3){\uni{#2}}|-(.3)\hole|-(.5)\hole}
-\def\arroww#1#2#3{\ar[#1]|-(.25){\uni{#2}}^(.4){#3}|!{[ll];[ru]}\hole}
-\def\arrowu#1#2#3{\ar[#1]|-(.4){\uni{#2}}^(.4){#3}}
-\def\arrowuu#1#2#3{\ar[#1]|-(.4){\uni{#2}}^(.5){#3}}
-\def\arrowx#1#2#3{\ar[#1]|-(.6){\uni{#2}}^(.6){#3}}
-\def\arrowy#1#2#3{\ar@/^3pc/[#1]|-(.55){\uni{#2}}^(.58){#3}}
-\def\arrowyyyyy#1#2#3{\ar@/^3pc/[#1]|-(.5){\uni{#2}}^(.52){#3}}
-\def\arrowyyy#1#2#3{\ar@/^3pc/[#1] |-(0.24)\hole |-(0.25){} |-(0.42)\hole|-(.55){\uni{#2}}^(.58){#3}|!{[luuu];[uuur]}\hole  |-(.766)\hole |-(.77){} |-(.835)\hole}
+\def\arr#1#2#3#4#5{\ar[#1] |-(#2){\uni{#3}} _(#4){#5}}
+\def\arruu#1#2#3#4{\arr{uu}{#1}{#2}{#3}{#4}}
+\def\arruubefore#1{\arruu{0.4}{m}{0.33}{#1}}
+\def\arruubeforemiddlehole{\arruubefore{}|-(0.5)\hole}
+\def\arruumiddle#1{\arruu{0.5}{m}{0.45}{#1}}
+\def\arrbefore#1#2#3{\arr{#1}{0.4}{#2}{0.35}{#3}}
+\def\arrmiddle#1#2#3{\arr{#1}{0.5}{#2}{0.45}{#3}}
+\def\arruuuu#1#2#3#4{\arr{uuuu}{#1}{#2}{#3}{#4}}
+\def\arruuuubefore#1{\arruuuu{0.4}{m^2}{0.33}{#1}}
+\def\arrup#1#2#3#4#5{\ar[#1] |-(#2){\uni{#3}}^(#4){#5}}
+\def\arrupuu#1#2#3#4{\arrup{uu}{#1}{#2}{#3}{#4}}
+\def\arrupuubeforemiddlehole{\arrupuubefore{}|-(0.5)\hole}
+\def\arrupuumiddle#1{\arrupuu{0.5}{m}{0.45}{#1}}
+\def\arrupuuuu#1#2#3#4{\arrup{uuuu}{#1}{#2}{#3}{#4}}
+\def\arrupuuuubefore#1{\arrupuuuu{0.4}{m^2}{0.33}{#1}}
+\def\arrupbefore#1#2#3{\arrup{#1}{0.4}{#2}{0.4}{#3}}
+\def\arrupmiddle#1#2#3{\arrup{#1}{0.5}{#2}{0.45}{#3}}
+\def\arrupbeforebefore#1#2#3{\arrup{#1}{0.4}{#2}{0.35}{#3}}
+\def\arrupuuafter#1{\arrupuu{0.6}{m^2}{0.55}{#1}}
+\def\arrcv#1#2#3#4#5{\ar@/^3pc/[#1]|-(#2){\uni{#3}}^(#4){#5}}
+\def\arrcvafter#1#2#3{\arrcv{#1}{0.6}{#2}{0.65}{#3}}
+% \def\arrowy#1#2#3{\ar@/^3pc/[#1]|-(.55){\uni{#2}}^(.58){#3}}
+% \def\arrowyyyyy#1#2#3{\ar@/^3pc/[#1]|-(.5){\uni{#2}}^(.52){#3}}
+\def\arrowyyy#1#2#3{\ar@/^3pc/[#1] |-(0.24)\hole |-(0.25){} |-(0.42)\hole|-(.55){\uni{#2}}^(.58){#3}|!{[luuu];[uuur]}\hole  |-(.768)\hole |-(.78){} |-(.836)\hole}
 % |-(0.24)\hole |-(0.42)\hole だと, なぜかその間が切れてしまう. (0.2), (0.4)だと切れない. 謎い. これを回避するために, 空の(0.25){}を入れてる.
-\def\arrowyyyy#1{\ar@{-}@/_3pc/[#1] |!{[ld];[rr]}\hole |!{[ld];[rd]}\hole |-(.45)\hole |!{[lddd];[dd]}\hole |!{[lddd];[rddd]}\hole}
 \def\arrowyy#1#2#3#4#5{\ar@/_3pc/@{<->}[#1]|-(0.2){\uni{#4}}^(0.2){#5}|-(.75){\uni{#2}}_(.75){#3}}
 \def\arrowz#1#2#3{\ar@/^2pc/[#1] |!{+(-10,-10);+(-10,10)}\hole|-(.7){\uni{#2}}_(.6){#3}}
 % \def\arrowzz#1#2#3{\ar@/^2.2pc/[#1] |!{[ru];[rd]}\hole |!{+(71.3,-10);+(71.3,10)}\hole |!{[rr];[rrdd]}\hole |-(.8){\uni{#2}}_(.8){#3\quad}}
@@ -56,18 +69,51 @@
 \def\M{\bm M}
 \def\r{\bm r}
 \def\s{\bm s}
-\def\v{\bm v}
 \def\m{\bm m}
 \begin{document}
+\[\xymatrix@=0.50in{
+  & & \cell{V}{m^3} \dotted{d} \\
+  & & \cell{S}{m^2} \dotted{d} \\
+  \cell{\bm a,g}{ms^{-2}} \dotted{r}\dotted{d} & \cell{\bm v,u,c}{ms^{-1}} \dotted{r}\dotted{d} & \cell{x,\bm r,\lambda}{m} \dotted{r} & *=0{}\dotted{d} \\
+  \cell{\alpha}{s^{-2}}\dotted{d}\dotted{r} & \cell{f,\nu,\omega,\dd/\dd t}{Hz,s^{-1}} \dotted{r}\dotted{d} & *=0{} \arrmiddle{u}{m}{}\arrmiddle{r}{s}{}\dotted{d} & \cell{t,T}{s} \dotted{d} \\
+  *=0{}\dotted{rr} & & \cell{k,\dd/\dd x,\nabla}{m^{-1}} \dotted{r} & *=0{}
+}\]
+
+\def\mtop{\ar@{->}[lu]_(.5){\bm p=m\bm v}}
+\def\mtoF{\ar@/^1pc/[llu]^(.5){\bm F=m\bm a}}
+\def\mtoE{\ar@/^1pc/[lluu]^(.5){\begin{smallmatrix}E=mc^2,\frac12m\abs{\bm v}^2\\E=mgh\end{smallmatrix}}}
+\def\ItoE{\ar@/_2.5pc/[ll]_(.5){E=\frac12I\omega^2}}
+\def\mtoI{\ar@/^2pc/[uu]^(.6){I=mr^2}}
+\def\ktoE{\ar@/^3pc/[uu]^(.6){E=\frac12kx^2}}
+\def\ktoF{\ar@{->}[u]_(.5){F=kx}}
+\def\ptoF{\ar@{<->}[l]^(.5){\bm F=\dd \bm p/\dd t}_(.5){\bm I = \int \bm F \dd t}}
+\def\ItoL{\ar@{->}[l]_(.5){\bm L=I\bm\omega}}
+\def\ptoL{\ar@{->}[u]_(.5){\begin{smallmatrix}\bm L=\bm r \times \bm p(\text{angular\ momentum})\\\Delta x \Delta p \ge \hbar / 2\end{smallmatrix}}}
+\def\WtoP{\ar@{->}[l]^(.6){P={\dd W}/{\dd t}}}
+\def\LtoN{\ar@{->}[l]_(.45){\begin{smallmatrix}\bm N = \dd \bm L / \dd t{(\text{torque})}\\E=\hbar\omega\end{smallmatrix}}^(.4){S=\int L\dd t}}
+\def\FtoN{\ar@{->}[u]_(.5){\begin{smallmatrix}\bm N = \bm r \times \bm F\\ W = F s\end{smallmatrix}}}
+\def\rhotoP{\ar@{->}[uull]^(.5){P=\rho g h}}
+\def\mtorho{\ar@{<->}[ddd]^(.5){\begin{smallmatrix}\rho=m/V\\m=\int_V \rho(\bm r)\dd V\end{smallmatrix}}}
+\def\FtoP{\ar@/^3pc/[dd]^(.6){P=F/S}}
+\def\NtoE{\ar@{->}@(ul,ur)^(.5){E=\abs{\bm N}\abs\theta}}
+\def\mutotau{\ar@{->}[l]_(.5){\tau=\mu \partial u / \partial y}}
+\[\xymatrix@=0.80in{
+  \cell{P}{W,Jm^{-1}} \dotted{dd} & \cell{W,E,H,L,\bm N}{J,N m} \NtoE\WtoP & \cell{\hbar,S,\bm L,\bm S}{Js} \LtoN & \cell{I}{kgm^2}\ItoE\ItoL\dotted{r}\dotted{d} & *=0{}\dotted{dd} & \\
+  \dotted{r} & \cell{\bm F}{N} \FtoN\FtoP & \cell{\bm p,\bm I}{Ns} \ptoL\ptoF\dotted{r}\dotted{d} & \dotted{r} &  \\
+  *=0{} \dotted{r} & \cell{k}{Nm^{-1}} \ktoE\ktoF\dotted{rr} & & \cell{m}{kg}\mtop\mtoF\mtoE\mtorho\mtoI \arrmiddle{u}{m}{}\arrmiddle{r}{s}{} & *=0{} & \\
+  & \cell{P,\tau}{Pa,Nm^{-2}} \dotted{u} & \cell{\mu(\mathrm{viscosity})}{Pa\cdot s}\dotted{u}\dotted{r}\dotted{dd}\mutotau & \\
+  & \dotted{u}\dotted{rr} && \\
+  & *=0{}\dotted{u}\dotted{rr} && \cell{\rho}{kgm^{-3}} \rhotoP \\
+ }\]
 
 \[\xymatrix@=0.70in{
-  & \cell{\varPhi, q_m}{Wb}\dotted{rr}\ar @{-}[d]|!{[ld];[rr]}\hole \if0\arrowyyyy{dddd}\fi     &        & \cell{Q}{C}\\
- \cell V V\arrowuu{ur}{s}{e=-\fracpd\varPhi t}\arrowx{rrru}{F}{Q=CV}      &          & \cell I A\arrowu{ll}{O}{V=RI}\arroww{ur}{s}{I=\diff Q t}\arroww{lu}{H}{\varPhi=LI}        & \\
- & {\A}{} \arrowqq{uu}{m}  |!{[lu];[ruru]}\hole       & *=0{}       & \dottedholea{ll}\dotted{ld}\\
- \cell{\E}{Vm^{-1}}\arrow{uu}{m}{\E=\grad V}\dotted{rr} |!{+(20,-10);+(20,10)}\hole |!{+(32.5,-10);+(32.5,10)}\hole \dotted{ru}\arrowzz{rrrd}{Fm^{-1}}{\D=\varepsilon\E}\arrowyy{rrdd}{O^{-1}m^{-1}}{\J=\sigma\E}{Om}{\E=\rho\J } &          & \cell{\H,\M}{Am^{-1}}\arrow{uu}{m}{\oint_C\H\cdot\dd s=I_f}\arrowz{dl}{Hm^{-1}}{\B=\mu\H}       & \\
- & \cell{\B}{T}\arrowqq{uu}{m} \arrowyyy{uuuu}{m^2}{\varPhi=\int_S\B\cdot\dd\S} &        & \cell{\D,\P}{Cm^{-2}}\arrowq{uuuu}{m^2}{\oint_S\D\cdot\dd\bm{S}=Q}\dottedhole{ll}\dotted{ld}\\
- {{\rot\E=-\frac{\partial\B}{\partial t}} }\dotted{uu}\dotted{rr}\dotteda{ru}     &          & \cell{\J}{Am^{-2}}\arrow{uu}{m}{\rot\H=\J +\frac{\partial\D}{\partial t}}\arrowy{uuuu}{m^2}{I=\int_S\J\cdot\dd\S}\\
- & \cell{\rho_m}{Wbm^{-3}}\ar@{--}[uu]|!{[u];[u]}\hole |-(.73)\hole      &        & \cell{\rho}{Cm^{-3}}\arrow{uu}{m}{\diver\D=\rho}\arrowyyyyy{uuuuuu}{m^3}{Q=\int_v\rho\dd v}\dottedhole{ll}\dotted{ld}\\
+  & \cell{\varPhi, q_m}{Wb}\dotted{rr}\ar@{-}[d]|!{[ld];[rr]}\hole   &        & \cell{Q}{C}\\
+ \cell V V\arrupmiddle{ur}{s}{e=-\fracpd\varPhi t}\arrupbefore{rrru}{F}{Q=CV}      &          & \cell I A\arrupbeforebefore{ll}{O}{V=RI}\arrmiddle{ur}{s}{I=\diff Q t}\arrupbefore{lu}{H}{\varPhi=LI}|-(0.5)\hole        & \\
+ & \cell{\A}{Wbm^{-1}} \arruubeforemiddlehole|!{[lu];[ruru]}\hole       & *=0{}       & \dottedholea{ll}\dotted{ld}\\
+ \cell{\E}{Vm^{-1}}\arruumiddle{\E=\grad V}\dotted{rr} |!{+(20,-10);+(20,10)}\hole |!{+(32.5,-10);+(32.5,10)}\hole \dotted{ru}\arrowzz{rrrd}{Fm^{-1}}{\D=\varepsilon\E}\arrowyy{rrdd}{O^{-1}m^{-1}}{\J=\sigma\E}{Om}{\E=\rho\J } &          & \cell{\H,\M}{Am^{-1}}\arruubefore{\oint_C\H\cdot\dd s=I_f}\arrowz{dl}{Hm^{-1}}{\B=\mu\H}       & \\
+ & \cell{\B}{T}\arruubeforemiddlehole \arrowyyy{uuuu}{m^2}{\varPhi=\int_S\B\cdot\dd\S} &        & \cell{\D,\P}{Cm^{-2}}\arruuuubefore{\oint_S\D\cdot\dd\bm{S}=Q}\dottedhole{ll}\dotted{ld}\\
+ {\rot\E=-\frac{\partial\B}{\partial t}}\dotted{uu}\dotted{rr}\dotteda{ru}     &          & \cell{\J}{Am^{-2}}\arruubefore{\rot\H=\J +\frac{\partial\D}{\partial t}}\arrcvafter{uuuu}{m^2}{I=\int_S\J\cdot\dd\S}\\
+ & \cell{\rho_m}{Wbm^{-3}}\ar@{--}[uu]|!{[u];[u]}\hole |-(.73)\hole      &        & \cell{\rho}{Cm^{-3}}\arruumiddle{\diver\D=\rho}\arrcvafter{uuuuuu}{m^3}{Q=\int_v\rho\dd v}\dottedhole{ll}\dotted{ld}\\
  *=0{} \dotted{uu}\dotted{rr}\dotted{ru}           &          & \diver\J +\frac{\partial\rho}{\partial t}=0\dotted{uu} |!{+(-10,-10);(10,-10)}\hole      & \\
 }\]
 
@@ -105,81 +151,13 @@
 \def\toT{\ar@{--}'[ur]'[dr]}
 \[\xymatrix@=0.50in{
   &&*=0{}& *=0{} &\\
-      &      & \cell{x, \lambda,\r}{m} \tolv \toT &      &      &      & \\
+      &      & \cell{x,\bm r, \lambda}{m} \tolv \toT &      &      &      & \\
       &      \cell{L}{H,Os} \arrrsplit\arddsplit      &      & \cell{t,T}{s}\arrr\arddsplit      &      & \cell{C}{F,O^{-1}s} \ardd      &      \\
  \cell{R}{O,kg\cdot m^2 s^{-3} A^{-2}}\ardd\arur      &      & *=0{}\arrowyyp\toL\toC\tov\tom\tos\toO\tomO\tomm\toms \arrowzzp \arrowzp      &      & \cell{G}{S,\Omega^{-1}}\arur\ardd      &      & \\
       &      \cell{\mu}{Hm^{-1}}      &      & \sqrt{\mu\varepsilon}\ardl\arll      &      & \cell{\varepsilon}{Fm^{-1}} \arllsplit      &      \\
  *=0{} \arur      &      & \cell{k,\dd/\dd x, \nabla}{m^{-1}} \arllsplitp\tof      &      & \cell{\sigma}{O^{-1}s^{-1}}\arll\arur      &      & \\
  }\]
-% \if0
-\vspace{20mm}
-\def\const{\mathrm{const}}
-\def\uni#1{[\unit{#1}]}
-\begin{tabular}{cc}
-\toprule
-静電界                                                         & 静磁界 \\ \hline\hline
-真空中                                                         & 真空中 \\ \hline
-\defi{真空の誘電率}{{\varepsilon_0}=8.854\times 10^{-12}}{Fm^{-1}}                               & \defi{真空の透磁率}{\mu_0={4\pi}/{10^7}}{Hm^{-1}}\\
 
-\theorem{クーロンの法則}{\F = \frac 1{4\pi{\varepsilon_0}}\frac{\r_0 - \r_1}{{\abs{\r_0 - \r_1}}^3}Q_0Q_1}      & \theorem{磁極のクーロンの法則}{\F = \frac 1{4\pi\mu_0}\frac{\r_0 - \r_1}{{\abs{\r_0 - \r_1}}^3}q_{m0}q_{m1}}\\
-
-\theorem{ガウスの法則}{\diver \E = \frac \rho {\varepsilon_0} \quad \oint_S \E \cdot \dd \bm{S}= \frac Q {\varepsilon_0}} & \theorem{磁極の定義より}{\diver \H = \frac{\rho_m}{\mu_0}\quad \oint_S \H \cdot \dd \S = \frac{q_m}{\mu_0}}\\
-                                                            & \theorem{磁束保存}{\diver \B = 0 \text{(Maxwell 4)}\quad \oint_S \B \cdot \dd \S = 0}\\
-
-\theorem{電界保存}{\rot \E = 0 (\B = \const)}                                         & \theorem{真電流がないなら}{\rot \H = 0 (\J = 0, \D = \const)}\\
-
-
-\defi{電界}{\E}{NC^{-1},Vm^{-1}}                                                        & \defi{磁界の強さ}{\H}{Am^{-1}}\\
-\defi{電荷密度}{\rho=\lim_{\delta v \to 0}\frac{\delta Q}{\delta v}}{Cm^{-3}}                                             & \defi{磁束密度}{\B}{T, Wbm^{-2}}\\
-\defi{電荷}{Q=\int_v \rho \dd v}{C}                                                        & \theorem{ビオ・サバールの法則}{\delta \B = \frac{\mu_0}{4 \pi}\frac{I \dd \s \times \r}{r^3}}\\
-\theorem{電位}{V = - \int _{\infty}^{p}\E \cdot \dd \S \unit{V}\quad \E = -\grad V}                            & \theorem{アンペールの法則}{\oint_C \B\cdot \dd \s = \mu_0 I \quad \rot \B = \mu_0 \J}\\
-\theorem{ポアソン方程式}{\nabla ^ 2 V = - \frac{\rho}{{\varepsilon_0}}}                           & \theorem{ローレンツ力}{\F = q (\E + \v \times \B)}\\
-\defi{静電容量}{C= Q / V}{F,CV^{-1}}                                                         & \\ \hline\hline
-
-誘電体                                                         & 磁性体 \\ \hline
-                                                            & \defi{磁気モーメントの強さ}{\m = I \Delta \S}{Am^2}\\
-\defi{分極の強さ}{\P=\rho_0 \delta \r}{Cm^{-2}}                                         & \defi{磁化の強さ}{\M = \Delta \m / \Delta v}{Am^{-1}}\\
-\defi{分極電荷の体積密度}{\rho_P=-\diver \P}{Cm^{-3}}                                          & \defi{磁極の強さの体積密度}{\rho_m=-\diver (\mu_0 \M)}{Wbm^{-3}}\\
-\defi{分極電荷}{Q_P=\int_v \rho_P \dd v = -\oint_S \P \cdot \dd \S}{C,FV}                                           & \defi{磁極の強さ}{q_m = \int_v \rho_m \dd v}{Wb,Tm^2}\\
-                                                            & \defi{磁界の強さ}{\H = \frac{\B}{\mu_0}- \M}{Am^{-1}}\\
-                                                            & \defi{磁気分極}{\bm{J_m}= \mu_0 \M}{T}\\
-\defi{電束密度}{\D = {\varepsilon_0} \E + \P}{C m^{-2}}                               & $\B = \mu_0 \H + \bm{J_m}$ \\
-
-
-
-\theorem{ガウスの法則}{\diver \D = \rho \text{(Maxwell 3)}\quad \oint_S \D \cdot \dd \bm{S}= Q}                       & \theorem{アンペールの法則}{\oint_C \H\cdot \dd s = I_f \quad \rot \H = \bm{J_f}}\\
-
-
-\hline
-\theorem{等方性誘電体}{\P = \chi \E = \chi_S {\varepsilon_0} \E}                        & \theorem{等方性磁性体}{\M = \chi \H}\\
-
-\defi{分極率}{\chi}{C^2N^{-1}m^{-2}}\quad \defi{比分極率}{\chi_s}{-}                            & \defi{磁化率}{\chi}{-}\\
-
-
-$\D = \varepsilon \E = {\varepsilon_0} \varepsilon_s \E$                          & $\B = \mu \H = \mu_s \mu_0 \H$ \\
-\defi{誘電体の誘電率}{\varepsilon}{Fm^{-1}}\quad \defi{比誘電率}{\varepsilon_s}{-}                                               & \defi{磁性体の透磁率}{\mu}{Hm^{-1}}\quad \defi{比透磁率}{\mu_s}{-}\\
-
-
-\theorem{電界のエネルギー密度}{\frac 1 2 \E \cdot \D}                                        & \theorem{磁界のエネルギー密度}{\frac 1 2 \H \cdot \B}\\
-%\theorem{単位面積当たりの力}{f=\frac 1 2 \E \cdot \D}                                      & \\
-\midrule\midrule
-
-定常電流界                                                       & 磁気回路 \\ \hline
-\theorem{電界は保存的(KVL)}{\rot \E = 0}                                                   & \theorem{真電流$\J$がないなら}{\rot \H = 0}\\
-\defi{電流}{I = \diff Q t = \int_S \J \cdot \dd \S}{A,Cs^{-1}}                       & \defi{磁束}{\varPhi = \int_S \B \cdot \dd \S}{Wb, Tm^2}\\
-\theorem{電流連続}{\diver \J + \frac{\partial \rho}{\partial t}=0 \to \diver \J = 0 \text{(KCL)}}                   & \theorem{磁束保存}{\diver \B = 0}\\
-\theorem{オームの法則}{V = RI \quad \J = \sigma \E = \frac{\E}\rho}                                                & \theorem{}{NI=R_m\varPhi}\quad\theorem{}{\B = \mu \H = \frac{\H}{\nu}}\\
-\defi{抵抗}{R=\frac{\rho l}{S}=\frac l{\sigma S}}{O,VA^{-1}}                               & \defi{磁気抵抗}{R_m=\frac l{\mu S}}{A/Wb}\\
-\defi{導電率}{\sigma}{O^{-1}m^{-1}}\quad \defi{抵抗率}{\rho}{Om}                               & \defi{透磁率}{\mu}{Hm^{-1}}\quad \defi{磁気抵抗率}{\nu}{H^{-1}m}\\
-\theorem{起電力(ファラデーの電磁誘導の法則)}{e = \oint_C \E \cdot \dd \s = -\frac{\partial \varPhi}{\partial t}\unit{[V]}}         & \theorem{起磁力}{NI = \oint_C \H \cdot \dd \s\unit{[A]}}\\
-\hline\hline
-\multicolumn{2}{c}{マックスウェル方程式}\\
-\theorem{ファラデーの電磁誘導の法則}{\rot \E = - \frac{\partial \B}{\partial t}}                                            & \theorem{アンペール+変位電流}{\rot \H = \J + \frac{\partial \D}{\partial t}}\\
-\theorem{ガウスの法則}{\diver \D = \rho}                                                    & \theorem{磁束保存}{\diver \B = 0}\\
-一様なら$\D = \varepsilon \E$, $\B = \mu \H$                                                & 一様なら$\J = \sigma \E$ \\
-\bottomrule
-\end{tabular}
-% \fi
 \end{document}
 
 
