@@ -1,5 +1,4 @@
 \documentclass[a4j,10pt]{jarticle}
-\def\defi#1#2#3{#1\quad$\displaystyle #2 \unit{[#3]}$}
 \setlength{\topmargin}{0mm}
 \setlength{\oddsidemargin}{5mm}
 \setlength{\evensidemargin}{5mm}
@@ -33,22 +32,20 @@
 \def\arrupuuuu#1#2#3#4{\arrup{uuuu}{#1}{#2}{#3}{#4}}
 \def\arrupuuuubefore#1{\arrupuuuu{0.4}{m^2}{0.33}{#1}}
 \def\arrupbefore#1#2#3{\arrup{#1}{0.4}{#2}{0.4}{#3}}
+\def\arrupbeforebeforebefore#1#2#3{\arrup{#1}{0.3}{#2}{0.3}{#3}}
 \def\arrupmiddle#1#2#3{\arrup{#1}{0.5}{#2}{0.45}{#3}}
 \def\arrupbeforebefore#1#2#3{\arrup{#1}{0.4}{#2}{0.35}{#3}}
 \def\arrupuuafter#1{\arrupuu{0.6}{m^2}{0.55}{#1}}
 \def\arrcv#1#2#3#4#5{\ar@/^3pc/[#1]|-(#2){\uni{#3}}^(#4){#5}}
 \def\arrcvafter#1#2#3{\arrcv{#1}{0.6}{#2}{0.65}{#3}}
-% \def\arrowy#1#2#3{\ar@/^3pc/[#1]|-(.55){\uni{#2}}^(.58){#3}}
-% \def\arrowyyyyy#1#2#3{\ar@/^3pc/[#1]|-(.5){\uni{#2}}^(.52){#3}}
 \def\arrowyyy#1#2#3{\ar@/^3pc/[#1] |-(0.24)\hole |-(0.25){} |-(0.42)\hole|-(.55){\uni{#2}}^(.58){#3}|!{[luuu];[uuur]}\hole  |-(.768)\hole |-(.78){} |-(.836)\hole}
 % |-(0.24)\hole |-(0.42)\hole だと, なぜかその間が切れてしまう. (0.2), (0.4)だと切れない. 謎い. これを回避するために, 空の(0.25){}を入れてる.
 \def\arrowyy#1#2#3#4#5{\ar@/_3pc/@{<->}[#1]|-(0.2){\uni{#4}}^(0.2){#5}|-(.75){\uni{#2}}_(.75){#3}}
 \def\arrowz#1#2#3{\ar@/^2pc/[#1] |!{+(-10,-10);+(-10,10)}\hole|-(.7){\uni{#2}}_(.6){#3}}
-% \def\arrowzz#1#2#3{\ar@/^2.2pc/[#1] |!{[ru];[rd]}\hole |!{+(71.3,-10);+(71.3,10)}\hole |!{[rr];[rrdd]}\hole |-(.8){\uni{#2}}_(.8){#3\quad}}
 \def\arrowzz#1#2#3{\ar@/^2pc/[#1] |-(.2)\hole|-(.3)\hole |-(.545)\hole |-(.625)\hole|!{[rr];[rrdd]}\hole |-(.8){\uni{#2}}_(.8){#3\quad}}
 %\def\arrowp#1#2#3{\ar[#1]|-(.5){\uni{#2}}_(.3){#3\quad}|!{[uu];[uuu]}\hole|!{[luuu];[ruuu]}\hole|!{[luuu];[rruuuu]}\hole}
 %\def\arrowp#1#2#3{\ar[#1] _(.3){#3} |!{[ru];[lu]}\hole |-{\uni{#2}} |!{[luuu];[ruuu]}\hole |!{[luuu];[ruuuru]}\hole }
-\def\arrowp#1#2#3{\ar@{->}[#1] _(.35){#3} |!{[u];[u]}\hole |-(0.4){\uni{#2}} |!{[uuu];[uuu]}\hole |!{[luuu];[ruuuru]}\hole} % これだと, luuu->ruuuruでの計算で, 座標が右のほうに行ってしまって最後が表示されない(推測) {-->}にすると表示されるのは謎い. 仕方ないので, Φのほうから下に降ろす線も描いてる
+% \def\arrowp#1#2#3{\ar@{->}[#1] _(.35){#3} |!{[u];[u]}\hole |-(0.4){\uni{#2}} |!{[uuu];[uuu]}\hole |!{[luuu];[ruuuru]}\hole} % これだと, luuu->ruuuruでの計算で, 座標が右のほうに行ってしまって最後が表示されない(推測) {-->}にすると表示されるのは謎い. 仕方ないので, Φのほうから下に降ろす線も描いてる
 %\def\arrowp#1#2#3{\ar[#1] _(.3){#3} |\hole |-{\uni{#2}} }
 
 \usepackage{bm}
@@ -56,7 +53,7 @@
 \def\theorem#1#2{#1\quad$\displaystyle#2$}
 \usepackage{prelude}
 \usepackage[all]{xy}
-\pagestyle{empty}
+% \pagestyle{empty}
 \def\B{\bm B}
 \def\A{\bm A}
 \def\D{\bm D}
@@ -71,52 +68,54 @@
 \def\s{\bm s}
 \def\m{\bm m}
 \begin{document}
-\[\xymatrix@=0.50in{
+\[\xymatrix@=0.60in{
   & & \cell{V}{m^3} \dotted{d} \\
   & & \cell{S}{m^2} \dotted{d} \\
   \cell{\bm a,g}{ms^{-2}} \dotted{r}\dotted{d} & \cell{\bm v,u,c}{ms^{-1}} \dotted{r}\dotted{d} & \cell{x,\bm r,\lambda}{m} \dotted{r} & *=0{}\dotted{d} \\
-  \cell{\alpha}{s^{-2}}\dotted{d}\dotted{r} & \cell{f,\nu,\omega,\dd/\dd t}{Hz,s^{-1}} \dotted{r}\dotted{d} & *=0{} \arrmiddle{u}{m}{}\arrmiddle{r}{s}{}\dotted{d} & \cell{t,T}{s} \dotted{d} \\
-  *=0{}\dotted{rr} & & \cell{k,\dd/\dd x,\nabla}{m^{-1}} \dotted{r} & *=0{}
+  \cell{\bm\alpha}{s^{-2}}\dotted{d}\dotted{r} & \cell{f,\nu,\bm\omega,\dd/\dd t}{Hz} \dotted{r}\dotted{d} & *=0{} \arrmiddle{u}{m}{}\arrmiddle{r}{s}{}\dotted{d} & \cell{t,T}{s} \dotted{d} \\
+  *=0{}\dotted{rr} & & \cell{\bm k,\dd/\dd x,\nabla}{m^{-1}} \dotted{r} & *=0{}
 }\]
+\vspace{1cm}
 
 \def\mtop{\ar@{->}[lu]_(.5){\bm p=m\bm v}}
 \def\mtoF{\ar@/^1pc/[llu]^(.5){\bm F=m\bm a}}
 \def\mtoE{\ar@/^1pc/[lluu]^(.5){\begin{smallmatrix}E=mc^2,\frac12m\abs{\bm v}^2\\E=mgh\end{smallmatrix}}}
-\def\ItoE{\ar@/_2.5pc/[ll]_(.5){E=\frac12I\omega^2}}
+\def\ItoE{\ar@/_2.5pc/[ll]_(.5){\begin{smallmatrix}E=\frac12I\omega^2\\\bm N=\sf I \cdot \bm\alpha+\bm\omega\times(\sf I\cdot \bm \omega)\end{smallmatrix}}}
 \def\mtoI{\ar@/^2pc/[uu]^(.6){I=mr^2}}
-\def\ktoE{\ar@/^3pc/[uu]^(.6){E=\frac12kx^2}}
+\def\ktoE{\ar@/^2pc/[uu]^(.6){E=\frac12kx^2}}
 \def\ktoF{\ar@{->}[u]_(.5){F=kx}}
 \def\ptoF{\ar@{<->}[l]^(.5){\bm F=\dd \bm p/\dd t}_(.5){\bm I = \int \bm F \dd t}}
-\def\ItoL{\ar@{->}[l]_(.5){\bm L=I\bm\omega}}
-\def\ptoL{\ar@{->}[u]_(.5){\begin{smallmatrix}\bm L=\bm r \times \bm p(\text{angular\ momentum})\\\Delta x \Delta p \ge \hbar / 2\end{smallmatrix}}}
+\def\ItoL{\ar@{->}[l]_(.5){\bm L=\sf I\cdot\bm\omega}}
+\def\ptoL{\ar@{->}[u]_(.5){\begin{smallmatrix}\bm L=\bm r \times \bm p\\\Delta x \Delta p \ge \hbar / 2\end{smallmatrix}}}
 \def\WtoP{\ar@{->}[l]^(.6){P={\dd W}/{\dd t}}}
-\def\LtoN{\ar@{->}[l]_(.45){\begin{smallmatrix}\bm N = \dd \bm L / \dd t{(\text{torque})}\\E=\hbar\omega\end{smallmatrix}}^(.4){S=\int L\dd t}}
-\def\FtoN{\ar@{->}[u]_(.5){\begin{smallmatrix}\bm N = \bm r \times \bm F\\ W = F s\end{smallmatrix}}}
+\def\LtoN{\ar@{<->}[l]_(.45){\begin{smallmatrix}\bm N = \dd \bm L / \dd t\\E=\hbar\omega\end{smallmatrix}}^(.4){S=\int L\dd t}}
+\def\FtoN{\ar@{->}[u]_(.5){\begin{smallmatrix}\bm N = \bm r \times \bm F\\ W = F s\\\bm F=-\grad V\end{smallmatrix}}}
 \def\rhotoP{\ar@{->}[uull]^(.5){P=\rho g h}}
 \def\mtorho{\ar@{<->}[ddd]^(.5){\begin{smallmatrix}\rho=m/V\\m=\int_V \rho(\bm r)\dd V\end{smallmatrix}}}
-\def\FtoP{\ar@/^3pc/[dd]^(.6){P=F/S}}
-\def\NtoE{\ar@{->}@(ul,ur)^(.5){E=\abs{\bm N}\abs\theta}}
+\def\FtoP{\ar@/^2pc/[dd]|-(.22)\hole^(.6){P=F/S}}
+\def\NtoE{\ar@{->}@(ul,ur)^(.5){\begin{smallmatrix}E=\abs{\bm N}\abs\theta\\W_{A-B}=V_A-V_B\\H=T+V\end{smallmatrix}}}
 \def\mutotau{\ar@{->}[l]_(.5){\tau=\mu \partial u / \partial y}}
+\def\footnote#1{}
+\begin{center}
 \[\xymatrix@=0.80in{
-  \cell{P}{W,Jm^{-1}} \dotted{dd} & \cell{W,E,H,L,\bm N}{J,N m} \NtoE\WtoP & \cell{\hbar,S,\bm L,\bm S}{Js} \LtoN & \cell{I}{kgm^2}\ItoE\ItoL\dotted{r}\dotted{d} & *=0{}\dotted{dd} & \\
+  \cell{P}{W,Jm^{-1}} \dotted{dd} & \cell{E,W,V,H,T,L,\bm N\footnote{torque}}{J,N m} \NtoE\WtoP & \cell{\hbar,S,\bm L\footnote{ angular momentum },\bm S}{Js} \LtoN & \cell{\sf I}{kgm^2}\ItoE\ItoL\dotted{r}\dotted{d} & *=0{}\dotted{dd} & \\
   \dotted{r} & \cell{\bm F}{N} \FtoN\FtoP & \cell{\bm p,\bm I}{Ns} \ptoL\ptoF\dotted{r}\dotted{d} & \dotted{r} &  \\
   *=0{} \dotted{r} & \cell{k}{Nm^{-1}} \ktoE\ktoF\dotted{rr} & & \cell{m}{kg}\mtop\mtoF\mtoE\mtorho\mtoI \arrmiddle{u}{m}{}\arrmiddle{r}{s}{} & *=0{} & \\
-  & \cell{P,\tau}{Pa,Nm^{-2}} \dotted{u} & \cell{\mu(\mathrm{viscosity})}{Pa\cdot s}\dotted{u}\dotted{r}\dotted{dd}\mutotau & \\
+  & \cell{P,\tau}{Pa,Nm^{-2}} \dotted{u} & \cell{\mu}{Pa\cdot s}\dotted{u}\dotted{r}\dotted{dd}\mutotau & \\
   & \dotted{u}\dotted{rr} && \\
   & *=0{}\dotted{u}\dotted{rr} && \cell{\rho}{kgm^{-3}} \rhotoP \\
- }\]
-
+}\]
 \[\xymatrix@=0.70in{
   & \cell{\varPhi, q_m}{Wb}\dotted{rr}\ar@{-}[d]|!{[ld];[rr]}\hole   &        & \cell{Q}{C}\\
- \cell V V\arrupmiddle{ur}{s}{e=-\fracpd\varPhi t}\arrupbefore{rrru}{F}{Q=CV}      &          & \cell I A\arrupbeforebefore{ll}{O}{V=RI}\arrmiddle{ur}{s}{I=\diff Q t}\arrupbefore{lu}{H}{\varPhi=LI}|-(0.5)\hole        & \\
+ \cell V V\arrupmiddle{ur}{s}{e=-\fracpd\varPhi t}\arrupbefore{rrru}{F}{Q=CV}      &          & \cell I A\arrupbeforebefore{ll}{O}{V=RI}\arrmiddle{ur}{s}{I=\diff Q t}\arrupbeforebeforebefore{lu}{H}{\varPhi=LI}|-(0.5)\hole        & \\
  & \cell{\A}{Wbm^{-1}} \arruubeforemiddlehole|!{[lu];[ruru]}\hole       & *=0{}       & \dottedholea{ll}\dotted{ld}\\
- \cell{\E}{Vm^{-1}}\arruumiddle{\E=\grad V}\dotted{rr} |!{+(20,-10);+(20,10)}\hole |!{+(32.5,-10);+(32.5,10)}\hole \dotted{ru}\arrowzz{rrrd}{Fm^{-1}}{\D=\varepsilon\E}\arrowyy{rrdd}{O^{-1}m^{-1}}{\J=\sigma\E}{Om}{\E=\rho\J } &          & \cell{\H,\M}{Am^{-1}}\arruubefore{\oint_C\H\cdot\dd s=I_f}\arrowz{dl}{Hm^{-1}}{\B=\mu\H}       & \\
- & \cell{\B}{T}\arruubeforemiddlehole \arrowyyy{uuuu}{m^2}{\varPhi=\int_S\B\cdot\dd\S} &        & \cell{\D,\P}{Cm^{-2}}\arruuuubefore{\oint_S\D\cdot\dd\bm{S}=Q}\dottedhole{ll}\dotted{ld}\\
+ \cell{\E}{Vm^{-1}}\arruumiddle{\E=-\grad V-\frac{\partial\bm A}{\partial t}}\dotted{rr} |!{+(20,-10);+(20,10)}\hole |!{+(32.5,-10);+(32.5,10)}\hole \dotted{ru}\arrowzz{rrrd}{Fm^{-1}}{\D=\varepsilon\E}\arrowyy{rrdd}{O^{-1}m^{-1}}{\J=\sigma\E}{Om}{\E=\rho\J } &          & \cell{\H,\M}{Am^{-1}}\arruubefore{\oint_C\H\cdot\dd s=I_f}\arrowz{dl}{Hm^{-1}}{\B=\mu\H}       & \\
+ & \cell{\B}{T}\arruubeforemiddlehole_(.3){\bm B=\rot \bm A} \arrowyyy{uuuu}{m^2}{\varPhi=\int_S\B\cdot\dd\S} &        & \cell{\D,\P}{Cm^{-2}}\arruuuubefore{\oint_S\D\cdot\dd\bm{S}=Q}\dottedhole{ll}\dotted{ld}\\
  {\rot\E=-\frac{\partial\B}{\partial t}}\dotted{uu}\dotted{rr}\dotteda{ru}     &          & \cell{\J}{Am^{-2}}\arruubefore{\rot\H=\J +\frac{\partial\D}{\partial t}}\arrcvafter{uuuu}{m^2}{I=\int_S\J\cdot\dd\S}\\
  & \cell{\rho_m}{Wbm^{-3}}\ar@{--}[uu]|!{[u];[u]}\hole |-(.73)\hole      &        & \cell{\rho}{Cm^{-3}}\arruumiddle{\diver\D=\rho}\arrcvafter{uuuuuu}{m^3}{Q=\int_v\rho\dd v}\dottedhole{ll}\dotted{ld}\\
  *=0{} \dotted{uu}\dotted{rr}\dotted{ru}           &          & \diver\J +\frac{\partial\rho}{\partial t}=0\dotted{uu} |!{+(-10,-10);(10,-10)}\hole      & \\
 }\]
-
+\end{center}
 
 
 \def\cell#1#2{#1\,\unit{[#2]}}
@@ -126,7 +125,7 @@
 \def\tos{\ar@{->}[ur]|-{\unit{[s]}}}
 \def\toO{\ar@{->}[ll]|!{[]+(-20,-13);[]+(-20,13)}\hole|-{\unit{[O]}}}
 \def\tomm{\ar[dd]|-{\uni{m^{-1}}}}
-\def\toms{\ar@{->}+(-20,-13)*{\cell{f,\omega, \dd/\dd t}{s^{-1}}}|-{\uni{s^{-1}}}}
+\def\toms{\ar@{->}+(-20,-13)*{\cell{f,\omega, \dd/\dd t}{Hz}}|-{\uni{s^{-1}}}}
 \def\tomO{\ar[rr]|-{\uni{O^{-1}}}}
 \def\arrr{\dotted{rr}}
 \def\ardd{\dotted{dd}}
@@ -155,9 +154,6 @@
       &      \cell{L}{H,Os} \arrrsplit\arddsplit      &      & \cell{t,T}{s}\arrr\arddsplit      &      & \cell{C}{F,O^{-1}s} \ardd      &      \\
  \cell{R}{O,kg\cdot m^2 s^{-3} A^{-2}}\ardd\arur      &      & *=0{}\arrowyyp\toL\toC\tov\tom\tos\toO\tomO\tomm\toms \arrowzzp \arrowzp      &      & \cell{G}{S,\Omega^{-1}}\arur\ardd      &      & \\
       &      \cell{\mu}{Hm^{-1}}      &      & \sqrt{\mu\varepsilon}\ardl\arll      &      & \cell{\varepsilon}{Fm^{-1}} \arllsplit      &      \\
- *=0{} \arur      &      & \cell{k,\dd/\dd x, \nabla}{m^{-1}} \arllsplitp\tof      &      & \cell{\sigma}{O^{-1}s^{-1}}\arll\arur      &      & \\
+ *=0{} \arur      &      & \cell{\bm k,\dd/\dd x, \nabla}{m^{-1}} \arllsplitp\tof      &      & \cell{\sigma}{O^{-1}s^{-1}}\arll\arur      &      & \\
  }\]
-
 \end{document}
-
-
