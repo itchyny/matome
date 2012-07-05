@@ -24,6 +24,7 @@
 \def\arruubeforemiddlehole{\arruubefore{}|-(0.5)\hole}
 \def\arruumiddle#1{\arruu{0.5}{m}{0.45}{#1}}
 \def\arrbefore#1#2#3{\arr{#1}{0.4}{#2}{0.35}{#3}}
+\def\arrbeforeafter#1#2#3{\arr{#1}{0.4}{#2}{0.40}{#3}}
 \def\arrmiddle#1#2#3{\arr{#1}{0.5}{#2}{0.45}{#3}}
 \def\arruuuu#1#2#3#4{\arr{uuuu}{#1}{#2}{#3}{#4}}
 \def\arruuuubefore#1{\arruuuu{0.4}{m^2}{0.33}{#1}}
@@ -55,7 +56,7 @@
 \def\theorem#1#2{#1\quad$\displaystyle#2$}
 \usepackage{prelude}
 \usepackage[all]{xy}
-% \pagestyle{empty}
+\pagestyle{empty}
 \def\B{\bm B}
 \def\A{\bm A}
 \def\D{\bm D}
@@ -70,6 +71,8 @@
 \def\s{\bm s}
 \def\m{\bm m}
 \begin{document}
+\begin{center}
+
 \[\xymatrix@=0.60in{
   % & & \cell{V}{m^3} \dotted{d} \\
   % & & \cell{S}{m^2} \dotted{d} \\
@@ -77,15 +80,14 @@
   \cell{\bm\alpha}{s^{-2}}\dotted{d}\dotted{r} & \cell{f,\nu,\bm\omega,\dd/\dd t}{Hz} \dotted{r}\dotted{d} & *=0{} \arrmiddle{u}{m}{}\arrmiddle{r}{s}{}\dotted{d} & \cell{t,T}{s} \dotted{d} \\
   *=0{}\dotted{rr} & & \cell{\bm k,\dd/\dd x,\nabla}{m^{-1}} \dotted{r} & *=0{}
 }\]
-% \vspace{1cm}
 
-\def\mtop{\ar@{->}[lu]_(.5){\bm p=m\bm v}}
+\def\mtop{\ar@/^1pc/[lu]^(.5){\bm p=m\bm v}}
 \def\mtoF{\ar@/^1pc/[llu]^(.5){\bm F=m\bm a}}
-\def\mtoE{\ar@/^1pc/[lluu]^(.5){\begin{smallmatrix}E=mc^2,\frac12m\abs{\bm v}^2\\E=mgh\end{smallmatrix}}}
+\def\mtoE{\ar@/_2pc/[lluu]|-(.68){\begin{smallmatrix}E=mc^2\\E=\frac12m\abs{\bm v}^2\\E=mgh\end{smallmatrix}}}
 \def\ItoE{\ar@/_2.5pc/[ll]_(.5){\begin{smallmatrix}E=\frac12I\omega^2\\\bm \tau=\sf I \cdot \bm\alpha+\bm\omega\times(\sf I\cdot \bm \omega)\end{smallmatrix}}}
 \def\mtoI{\ar@/^2pc/[uu]^(.6){I=mr^2}}
 \def\ktoE{\ar@/^2pc/[uu]^(.6){E=\frac12kx^2}}
-\def\ktoF{\ar@{->}[u]_(.5){F=-kx}}
+\def\ktoF{\ar@{->}[u]|-(.5){F=-kx}}
 \def\ptoF{\ar@{<->}[l]^(.5){\bm F=\dd \bm p/\dd t}_(.5){\bm I = \int \bm F \dd t}}
 \def\ItoL{\ar@{->}[l]_(.5){\bm L=\sf I\cdot\bm\omega}}
 \def\ptoL{\ar@{->}[u]_(.5){\begin{smallmatrix}\bm L=\bm r \times \bm p\\\Delta x \Delta p \ge \hbar / 2\end{smallmatrix}}}
@@ -94,48 +96,47 @@
 \def\FtoN{\ar@{->}[u]_(.5){\begin{smallmatrix}\bm \tau = \bm r \times \bm F\\ W = \int_C \bm F \cdot \dd \bm x\\\bm F=-\grad V\end{smallmatrix}}}
 \def\rhotoP{\ar@{->}[uull]^(.5){P=\rho g h}}
 \def\mtorho{\ar@{<->}[ddd]^(.5){\begin{smallmatrix}\rho=m/V\\m=\int_V \rho(\bm r)\dd V\end{smallmatrix}}}
-\def\FtoP{\ar@/^2pc/[dd]|-(.22)\hole^(.6){P=F/S}}
+\def\FtoP{\ar@/^2pc/[dd]^(.6){P=F/S}}
 \def\NtoE{\ar@{->}@(ul,ur)^(.5){\begin{smallmatrix}E=\abs{\bm \tau}\abs\theta\\W_{A-B}=V_A-V_B\\\hat H=\hat T+\hat V\end{smallmatrix}}}
+\def\ptoI{\ar@{->}@(l,ld)_(.6){\Delta \bm p = \bm I}}
 \def\mutotau{\ar@{->}[l]_(.5){\tau=\mu \partial u / \partial y}}
-\begin{center}
 \[\xymatrix@=0.70in{
   \cell{P}{W,Jm^{-1}} \dotted{dd} & \cell{E,W,V,H,T,L,\bm \tau}{J,N m} \NtoE\WtoP & \cell{\hbar,S,\bm L,\bm S}{Js} \LtoN & \cell{\sf I}{kgm^2}\ItoE\ItoL\dotted{r}\dotted{d} & *=0{}\dotted{dd} & \\
-  \dotted{r} & \cell{\bm F}{N} \FtoN\FtoP & \cell{\bm p,\bm I}{Ns} \ptoL\ptoF\dotted{r}\dotted{d} & \dotted{r} &  \\
+  \dotted{r} & \cell{\bm F}{N} \FtoN\FtoP & \cell{\bm p,\bm I}{Ns} \ptoI\ptoL\ptoF\dotted{r}\dotted{d} & \dotted{r} &  \\
   *=0{} \dotted{r} & \cell{k}{Nm^{-1}} \ktoE\ktoF\dotted{rr} & & \cell{m}{kg}\mtop\mtoF\mtoE\mtorho\mtoI \arrmiddle{u}{m}{}\arrmiddle{r}{s}{} & *=0{} & \\
   & \cell{P,\tau}{Pa,Nm^{-2}} \dotted{u} & \cell{\mu}{Pa\cdot s}\dotted{u}\dotted{r}\dotted{dd}\mutotau & \\
   & \dotted{u}\dotted{rr} && \\
   & *=0{}\dotted{u}\dotted{rr} && \cell{\rho}{kgm^{-3}} \rhotoP \\
 }\]
-  \begin{tabular}{cc|cc|cc||cc}
-    $x,\bm r$&position&$m$&mass&$E$&energy&$V$&voltage\\
-    $\lambda$&wavelength&$k$&spring constant&$W$&amount of work&$I$&electric current\\
-    $\bm v, u$&velocity&$\bm p$&momentum&$V$&scalar potential&$\varPhi$&magnetic flux\\
-    $c$&speed of light&$\bm I$&impulse&$H$&Hamiltonian&$Q$&electric charge\\
-    $\bm a$&accelaration&$\bm F$&force&$T$&kinetic energy&$\bm E$&electric field\\
-    $g$&gravity&$\sf I$&moment of inertia&$L$&Lagrangian&$\bm D$&electric displacement field\\
-    $t$&time&$\hbar$&reduced Planck constant&$\bm \tau$&torque&$\bm P$&polarization density\\
-    $T$&period&$S$&action&$\rho$&mass density&$\bm H$&magnetic field strength\\
-    $\bm k$&wavenumber&$\bm L$&angular momentum&$\mu$&viscosity&$\bm B$&magnetic flux density\\
-    $f,\nu$&frequency&$\bm S$&spin angular momentum&$P$&pressure&$\bm M$&magnetization\\
-    $\bm \omega$&angular frequency&$P$&power&$\tau$&shear stress&$\bm A$&magnetic (vector) potential\\
-    $\bm \alpha$&angular acceleration&&&&&$\bm J$&current density\\
-    &&&&&&$\rho$&charge density\\
-    &&&&&&$R$&electrical resistance\\
-    &&&&&&$G$&conductance\\
-    &&&&&&$C$&capacitance\\
-    &&&&&&$L$&reactance\\
-    &&&&&&$\sigma$&conductivity\\
-    &&&&&&$\varepsilon$&permittivity\\
-    &&&&&&$\mu$&permeability\\
-  \end{tabular}
 
-
+\begin{tabular}{cc|cc|cc||cc}
+  $x,\bm r$&position&$m$&mass&$E$&energy&$V$&voltage\\
+  $\lambda$&wavelength&$k$&spring constant&$W$&amount of work&$I$&electric current\\
+  $\bm v, u$&velocity&$\bm p$&momentum&$V$&scalar potential&$\varPhi$&magnetic flux\\
+  $c$&speed of light&$\bm I$&impulse&$H$&Hamiltonian&$Q$&electric charge\\
+  $\bm a$&accelaration&$\bm F$&force&$T$&kinetic energy&$\bm E$&electric field\\
+  $g$&gravity&$\sf I$&moment of inertia&$L$&Lagrangian&$\bm D$&electric displacement field\\
+  $t$&time&$\hbar$&reduced Planck constant&$\bm \tau$&torque&$\bm P$&polarization density\\
+  $T$&period&$S$&action&$\rho$&mass density&$\bm H$&magnetic field strength\\
+  $\bm k$&wavenumber&$\bm L$&angular momentum&$\mu$&viscosity&$\bm B$&magnetic flux density\\
+  $f,\nu$&frequency&$\bm S$&spin angular momentum&$P$&pressure&$\bm M$&magnetization\\
+  $\bm \omega$&angular frequency&$P$&power&$\tau$&shear stress&$\bm A$&magnetic (vector) potential\\
+  $\bm \alpha$&angular acceleration&&&&&$\bm J$&current density\\
+  &&&&&&$\rho$&charge density\\
+  &&&&&&$R$&electrical resistance\\
+  &&&&&&$G$&conductance\\
+  &&&&&&$C$&capacitance\\
+  &&&&&&$L$&reactance\\
+  &&&&&&$\sigma$&conductivity\\
+  &&&&&&$\varepsilon$&permittivity\\
+  &&&&&&$\mu$&permeability\\
+\end{tabular}
 
 
 
 \[\xymatrix@=0.70in{
   & \cell{\varPhi, q_m}{Wb}\dotted{rr}\ar@{-}[d]|!{[ld];[rr]}\hole   &        & \cell{Q}{C}\\
- \cell V V\arrupmiddle{ur}{s}{e=-\fracpd\varPhi t}\arrupbefore{rrru}{F}{Q=CV}      &          & \cell I A\arrupbeforebefore{ll}{O}{V=RI}\arrmiddle{ur}{s}{I=\diff Q t}\arrupbeforebeforebefore{lu}{H}{\varPhi=LI}|-(0.5)\hole        & \\
+ \cell V V\arrupmiddle{ur}{s}{e=-\fracpd\varPhi t}\arrbeforeafter{rrru}{F}{Q=CV}      &          & \cell I A\arrupbeforebefore{ll}{O}{V=RI}\arrmiddle{ur}{s}{I=\diff Q t}\arrupbeforebeforebefore{lu}{H}{\varPhi=LI}|-(0.5)\hole        & \\
  & \cell{\A}{Wbm^{-1}} \arruubeforemiddlehole|!{[lu];[ruru]}\hole       & *=0{}       & \dottedholea{ll}\dotted{ld}\\
  \cell{\E}{Vm^{-1}}\arruumiddle{\E=-\grad V-\frac{\partial\bm A}{\partial t}}\dotted{rr} |!{+(20,-10);+(20,10)}\hole |!{+(32.5,-10);+(32.5,10)}\hole \dotted{ru}\arrowzz{rrrd}{Fm^{-1}}{\D=\varepsilon\E}\arrowyy{rrdd}{O^{-1}m^{-1}}{\J=\sigma\E}{Om}{\E=\rho\J } &          & \cell{\H,\M}{Am^{-1}}\arruubefore{\oint_C\H\cdot\dd s=I_f}\arrowz{dl}{Hm^{-1}}{\B=\mu\H}       & \\
  & \cell{\B}{T}\arruubeforemiddlehole_(.3){\bm B=\rot \bm A} \arrowyyy{uuuu}{m^2}{\varPhi=\int_S\B\cdot\dd\S} &        & \cell{\D,\P}{Cm^{-2}}\arruuuubefore{\oint_S\D\cdot\dd\bm{S}=Q}\dottedhole{ll}\dotted{ld}\\
@@ -143,7 +144,6 @@
  & \cell{\rho_m}{Wbm^{-3}}\ar@{--}[uu]|!{[u];[u]}\hole |-(.73)\hole      &        & \cell{\rho}{Cm^{-3}}\arruumiddle{\diver\D=\rho}\arrcvafter{uuuuuu}{m^3}{Q=\int_v\rho\dd v}\dottedhole{ll}\dotted{ld}\\
  *=0{} \dotted{uu}\dotted{rr}\dotted{ru}           &          & \diver\J +\frac{\partial\rho}{\partial t}=0\dotted{uu} |!{+(-10,-10);(10,-10)}\hole      & \\
 }\]
-\end{center}
 
 \def\cell#1#2{#1\,\unit{[#2]}}
 \def\uni#1{}
@@ -177,10 +177,11 @@
 \def\toT{\ar@{--}'[ur]'[dr]}
 \[\xymatrix@=0.50in{
   &&*=0{}& *=0{} &\\
-      &      & \cell{x,\bm r, \lambda}{m} \tolv \toT &      &      &      & \\
-      &      \cell{L}{H,Os} \arrrsplit\arddsplit      &      & \cell{t,T}{s}\arrr\arddsplit      &      & \cell{C}{F,O^{-1}s} \ardd      &      \\
- \cell{R}{O,kg\cdot m^2 s^{-3} A^{-2}}\ardd\arur      &      & *=0{}\arrowyyp\toL\toC\tov\tom\tos\toO\tomO\tomm\toms \arrowzzp \arrowzp      &      & \cell{G}{S,\Omega^{-1}}\arur\ardd      &      & \\
-      &      \cell{\mu}{Hm^{-1}}      &      & \sqrt{\mu\varepsilon}\ardl\arll      &      & \cell{\varepsilon}{Fm^{-1}} \arllsplit      &      \\
- *=0{} \arur      &      & \cell{\bm k,\dd/\dd x, \nabla}{m^{-1}} \arllsplitp\tof      &      & \cell{\sigma}{O^{-1}s^{-1}}\arll\arur      &      & \\
- }\]
+  &      & \cell{x,\bm r, \lambda}{m} \tolv \toT &      &      &      & \\
+  &      \cell{L}{H,Os} \arrrsplit\arddsplit      &      & \cell{t,T}{s}\arrr\arddsplit      &      & \cell{C}{F,O^{-1}s} \ardd      &      \\
+  \cell{R}{O,kg m^2 s^{-3} A^{-2}}\ardd\arur      &      & *=0{}\arrowyyp\toL\toC\tov\tom\tos\toO\tomO\tomm\toms \arrowzzp \arrowzp      &      & \cell{G}{S,\Omega^{-1}}\arur\ardd      &      & \\
+  &      \cell{\mu}{Hm^{-1}}      &      & \sqrt{\mu\varepsilon}\ardl\arll      &      & \cell{\varepsilon}{Fm^{-1}} \arllsplit      &      \\
+  *=0{} \arur      &      & \cell{\bm k,\dd/\dd x, \nabla}{m^{-1}} \arllsplitp\tof      &      & \cell{\sigma}{O^{-1}s^{-1}}\arll\arur      &      & \\
+}\]
+\end{center}
 \end{document}
