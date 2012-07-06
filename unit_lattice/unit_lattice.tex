@@ -1,6 +1,6 @@
 % TODO
 %   tensorize conductivity, permittivity
-\documentclass[a4,10pt]{article}
+\documentclass[a4j,10pt]{jarticle}
 \setlength{\topmargin}{0mm}
 \setlength{\oddsidemargin}{5mm}
 \setlength{\evensidemargin}{5mm}
@@ -10,7 +10,7 @@
 \setlength{\headheight}{0mm}
 \setlength{\topskip}{0mm}
 \setlength{\hoffset}{-1in}
-\setlength{\voffset}{-0.6in}
+\setlength{\voffset}{-0.7in}
 \def\const{\mathrm{const}}
 \def\uni#1{[\!\unit{#1}]}
 \def\cell#1#2{#1\,\uni{#2}}
@@ -51,6 +51,9 @@
 % \def\arrowp#1#2#3{\ar@{->}[#1] _(.35){#3} |!{[u];[u]}\hole |-(0.4){\uni{#2}} |!{[uuu];[uuu]}\hole |!{[luuu];[ruuuru]}\hole} % これだと, luuu->ruuuruでの計算で, 座標が右のほうに行ってしまって最後が表示されない(推測) {-->}にすると表示されるのは謎い. 仕方ないので, Φのほうから下に降ろす線も描いてる
 %\def\arrowp#1#2#3{\ar[#1] _(.3){#3} |\hole |-{\uni{#2}} }
 
+\def\en{0}
+\def\enja#1#2{\ifnum\en=1{#1}\else{#2}\fi}
+
 \usepackage{bm}
 \usepackage{booktabs}
 \def\theorem#1#2{#1\quad$\displaystyle#2$}
@@ -86,7 +89,7 @@
 \def\mtoE{\ar@/_2pc/[lluu]|-(.68){\begin{smallmatrix}E=mc^2\\E=\frac12m\abs{\bm v}^2\\E=mgh\end{smallmatrix}}}
 \def\ItoE{\ar@/_2.5pc/[ll]_(.5){\begin{smallmatrix}E=\frac12I\omega^2\\\bm \tau=\sf I \cdot \bm\alpha+\bm\omega\times(\sf I\cdot \bm \omega)\end{smallmatrix}}}
 \def\mtoI{\ar@/^2pc/[uu]^(.6){I=mr^2}}
-\def\ktoE{\ar@/^2pc/[uu]^(.6){E=\frac12kx^2}}
+\def\ktoE{\ar@/^2pc/[uu]|-(.6){E=\frac12kx^2}}
 \def\ktoF{\ar@{->}[u]|-(.5){F=-kx}}
 \def\ptoF{\ar@{<->}[l]^(.5){\bm F=\dd \bm p/\dd t}_(.5){\bm I = \int \bm F \dd t}}
 \def\ItoL{\ar@{->}[l]_(.5){\bm L=\sf I\cdot\bm\omega}}
@@ -100,36 +103,38 @@
 \def\NtoE{\ar@{->}@(ul,ur)^(.5){\begin{smallmatrix}E=\abs{\bm \tau}\abs\theta\\W_{A-B}=V_A-V_B\\\hat H=\hat T+\hat V\end{smallmatrix}}}
 \def\ptoI{\ar@{->}@(l,ld)_(.6){\Delta \bm p = \bm I}}
 \def\mutotau{\ar@{->}[l]_(.5){\tau=\mu \partial u / \partial y}}
+\def\ptoH{\ar@/^3pc/[uuu]^(.5){H=U+pV}|-(.73)\hole|-(.75)\hole|-(.76)\hole}
 \[\xymatrix@=0.70in{
   \cell{P}{W,Jm^{-1}} \dotted{dd} & \cell{E,W,V,H,T,L,\bm \tau}{J,N m} \NtoE\WtoP & \cell{\hbar,S,\bm L,\bm S}{Js} \LtoN & \cell{\sf I}{kgm^2}\ItoE\ItoL\dotted{r}\dotted{d} & *=0{}\dotted{dd} & \\
   \dotted{r} & \cell{\bm F}{N} \FtoN\FtoP & \cell{\bm p,\bm I}{Ns} \ptoI\ptoL\ptoF\dotted{r}\dotted{d} & \dotted{r} &  \\
   *=0{} \dotted{r} & \cell{k}{Nm^{-1}} \ktoE\ktoF\dotted{rr} & & \cell{m}{kg}\mtop\mtoF\mtoE\mtorho\mtoI \arrmiddle{u}{m}{}\arrmiddle{r}{s}{} & *=0{} & \\
-  & \cell{P,\tau}{Pa,Nm^{-2}} \dotted{u} & \cell{\mu}{Pa\cdot s}\dotted{u}\dotted{r}\dotted{dd}\mutotau & \\
+  & \cell{P,p,\tau}{Pa,Nm^{-2}} \ptoH\dotted{u} & \cell{\mu}{Pa\cdot s}\dotted{u}\dotted{r}\dotted{dd}\mutotau & \\
   & \dotted{u}\dotted{rr} && \\
   & *=0{}\dotted{u}\dotted{rr} && \cell{\rho}{kgm^{-3}} \rhotoP \\
 }\]
 
+\renewcommand{\arraystretch}{0.8}
 \begin{tabular}{cc|cc|cc||cc}
-  $x,\bm r$&position&$m$&mass&$E$&energy&$V$&voltage\\
-  $\lambda$&wavelength&$k$&spring constant&$W$&amount of work&$I$&electric current\\
-  $\bm v, u$&velocity&$\bm p$&momentum&$V$&scalar potential&$\varPhi$&magnetic flux\\
-  $c$&speed of light&$\bm I$&impulse&$H$&Hamiltonian&$Q$&electric charge\\
-  $\bm a$&accelaration&$\bm F$&force&$T$&kinetic energy&$\bm E$&electric field\\
-  $g$&gravity&$\sf I$&moment of inertia&$L$&Lagrangian&$\bm D$&electric displacement field\\
-  $t$&time&$\hbar$&reduced Planck constant&$\bm \tau$&torque&$\bm P$&polarization density\\
-  $T$&period&$S$&action&$\rho$&mass density&$\bm H$&magnetic field strength\\
-  $\bm k$&wavenumber&$\bm L$&angular momentum&$\mu$&viscosity&$\bm B$&magnetic flux density\\
-  $f,\nu$&frequency&$\bm S$&spin angular momentum&$P$&pressure&$\bm M$&magnetization\\
-  $\bm \omega$&angular frequency&$P$&power&$\tau$&shear stress&$\bm A$&magnetic (vector) potential\\
-  $\bm \alpha$&angular acceleration&&&&&$\bm J$&current density\\
-  &&&&&&$\rho$&charge density\\
-  &&&&&&$R$&electrical resistance\\
-  &&&&&&$G$&conductance\\
-  &&&&&&$C$&capacitance\\
-  &&&&&&$L$&reactance\\
-  &&&&&&$\sigma$&conductivity\\
-  &&&&&&$\varepsilon$&permittivity\\
-  &&&&&&$\mu$&permeability\\
+  $x,\bm r$&\enja{position}{位置}&$m$&\enja{mass}{質量}&$E$&\enja{energy}{エネルギー}&$V$&\enja{voltage}{電位,電圧}\\
+  $\lambda$&\enja{wavelength}{波長}&$k$&\enja{spring constant}{バネ定数}&$W$&\enja{amount of work}{仕事量}&$I$&\enja{electric current}{電流}\\
+  $\bm v, u$&\enja{velocity}{速度}&$\bm p$&\enja{momentum}{運動量}&$V$&\enja{scalar potential}{スカラーポテンシャル}&$\varPhi$&\enja{magnetic flux}{磁束}\\
+  $c$&\enja{speed of light}{光速}&$\bm I$&\enja{impulse}{力積}&$H$&\enja{Hamiltonian}{ハミルトニアン}&$Q$&\enja{electric charge}{電荷}\\
+  $\bm a$&\enja{accelaration}{加速度}&$\bm F$&\enja{force}{力}&$H$&\enja{enthalpy}{エンタルピー}&$\bm E$&\enja{electric field}{電界}\\
+  $g$&\enja{acceleration due to gravity}{重力加速度}&$\sf I$&\enja{moment of inertia}{慣性モーメント}&$T$&\enja{kinetic energy}{運動エネルギー}&$\bm D$&\enja{electric displacement field}{電束密度}\\
+  $t$&\enja{time}{時間}&$\hbar$&\enja{reduced Planck constant}{(換算)プランク定数}&$L$&\enja{Lagrangian}{ラグランジアン}&$\bm P$&\enja{polarization density}{分極の強さ}\\
+  $T$&\enja{period}{周期}&$S$&\enja{action}{作用}&$\bm \tau$&\enja{torque}{トルク}&$\bm H$&\enja{magnetic field strength}{磁場の強さ}\\
+  $\bm k$&\enja{wavenumber}{波数}&$\bm L$&\enja{angular momentum}{角運動量}&$\rho$&\enja{mass density}{質量密度}&$\bm B$&\enja{magnetic flux density}{磁束密度}\\
+  $f,\nu$&\enja{frequency}{周波数}&$\bm S$&\enja{spin angular momentum}{スピン角運動量}&$\mu$&\enja{viscosity}{粘度}&$\bm M$&\enja{magnetization}{磁化の強さ}\\
+  $\bm \omega$&\enja{angular frequency}{角周波数}&$P$&\enja{power}{パワー}&$P$&\enja{pressure}{圧力}&$\bm A$&\enja{magnetic (vector) potential}{ベクトルポテンシャル}\\
+  $\bm \alpha$&\enja{angular acceleration}{角加速度}&&&$\tau$&\enja{shear stress}{剪断応力}&$\bm J$&\enja{current density}{電流密度}\\
+  &&&&&&$\rho$&\enja{charge density}{電荷密度}\\
+  &&&&&&$R$&\enja{electrical resistance}{抵抗}\\
+  &&&&&&$G$&\enja{conductance}{コンダクタンス}\\
+  &&&&&&$C$&\enja{capacitance}{キャパシタンス}\\
+  &&&&&&$L$&\enja{reactance}{リアクタンス}\\
+  &&&&&&$\sigma$&\enja{conductivity}{導電率}\\
+  &&&&&&$\varepsilon$&\enja{permittivity}{誘電率}\\
+  &&&&&&$\mu$&\enja{permeability}{透磁率}\\
 \end{tabular}
 
 
