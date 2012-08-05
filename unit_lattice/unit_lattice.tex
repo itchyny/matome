@@ -40,11 +40,11 @@
 \def\arrupuuafter#1{\arrupuu{0.6}{m^2}{0.55}{#1}}
 \def\arrcv#1#2#3#4#5{\ar@/^3pc/[#1]|-(#2){\uni{#3}}^(#4){#5}}
 \def\arrcvafter#1#2#3{\arrcv{#1}{0.6}{#2}{0.65}{#3}}
-\def\arrowyyy#1#2#3{\ar@/^3pc/[#1] |-(0.24)\hole |-(0.25){} |-(0.42)\hole|-(.55){\uni{#2}}^(.58){#3}|!{[luuu];[uuur]}\hole  |-(.768)\hole |-(.78){} |-(.836)\hole}
+\def\arrowyyy#1#2#3{\ar@/^3pc/[#1] |-(0.23)\hole |-(.25)\hole |-(0.26){} |-(0.42)\hole|-(.55){\uni{#2}}^(.58){#3}|!{[luuu];[uuur]}\hole  |-(.768)\hole |-(.78){} |-(.836)\hole}
 % |-(0.24)\hole |-(0.42)\hole だと, なぜかその間が切れてしまう. (0.2), (0.4)だと切れない. 謎い. これを回避するために, 空の(0.25){}を入れてる.
 \def\arrowyy#1#2#3#4#5{\ar@/_3pc/@{<->}[#1]|-(0.2){\uni{#4}}^(0.2){#5}|-(.75){\uni{#2}}_(.75){#3}}
 \def\arrowz#1#2#3{\ar@/^2pc/[#1] |!{+(-10,-10);+(-10,10)}\hole|-(.7){\uni{#2}}_(.6){#3}}
-\def\arrowzz#1#2#3{\ar@/^2.4pc/[#1] |-(.2)\hole |-(.21){} |-(.35)\hole |-(.38)\hole |-(.40)\hole |-(.44){} |-(.55)\hole |-(.64)\hole |-(.65){} |!{[rr];[rrdd]}\hole |-(.8){\uni{#2}}_(.8){#3\quad}}
+\def\arrowzz#1#2#3{\ar@/^2.4pc/[#1] |-(.35)\hole |-(.38)\hole |-(.40)\hole |-(.44){} |-(.55)\hole |-(.64)\hole |-(.65){} |!{[rr];[rrdd]}\hole |-(.8){\uni{#2}}_(.8){#3\quad}}
 %\def\arrowp#1#2#3{\ar[#1]|-(.5){\uni{#2}}_(.3){#3\quad}|!{[uu];[uuu]}\hole|!{[luuu];[ruuu]}\hole|!{[luuu];[rruuuu]}\hole}
 %\def\arrowp#1#2#3{\ar[#1] _(.3){#3} |!{[ru];[lu]}\hole |-{\uni{#2}} |!{[luuu];[ruuu]}\hole |!{[luuu];[ruuuru]}\hole }
 % \def\arrowp#1#2#3{\ar@{->}[#1] _(.35){#3} |!{[u];[u]}\hole |-(0.4){\uni{#2}} |!{[uuu];[uuu]}\hole |!{[luuu];[ruuuru]}\hole} % これだと, luuu->ruuuruでの計算で, 座標が右のほうに行ってしまって最後が表示されない(推測) {-->}にすると表示されるのは謎い. 仕方ないので, Φのほうから下に降ろす線も描いてる
@@ -145,7 +145,7 @@
   \cell V V\arrupmiddle{ur}{s}{e=-\fracpd\varPhi t}\arrbeforeafter{rrru}{F}{Q=CV} & & \cell I A\arrupbeforebefore{ll}{O}{V=RI}\arrmiddle{ur}{s}{I=\diff Q t}\arrupbeforebeforebefore{lu}{H}{\varPhi=LI}|-(0.5)\hole & \\
   & \cell{\A}{Wbm^{-1}} \arruubeforemiddlehole|!{[lu];[ruru]}\hole & *=0{} & \dottedholea{ll}\dotted{ld}\\
   \cell{\E}{Vm^{-1}}\arruumiddle{\E=-\grad V-\frac{\partial\A}{\partial t}}\dotted{rr} |!{+(20,-10);+(20,10)}\hole |!{+(32.5,-10);+(32.5,10)}\hole \dotted{ru}\arrowzz{rrrd}{Fm^{-1}}{\D=\varepsilon\E}\arrowyy{rrdd}{O^{-1}m^{-1}}{\J=\sigma\E}{Om}{\E=\rho\J } & & \cell{\bm H,\M}{Am^{-1}}\arruubefore{\oint_C\bm H\cdot\dd s=I_f}\arrowz{dl}{Hm^{-1}}{\B=\mu\bm H} & \\
-  & \cell{\B}{T}\arruubeforemiddlehole_(.3){\B=\rot \A}|-(.52)\hole |-(.54){} \arrowyyy{uuuu}{m^2}{\varPhi=\int_S\B\cdot\dd\bm S} & & \cell{\D,\bmP}{Cm^{-2}}\arruuuubefore{\oint_S\D\cdot\dd\bm{S}=Q}\dottedhole{ll}\dotted{ld}\\
+  & \cell{\B}{T}\arruubeforemiddlehole_(.3){\B=\rot \A}|-(.52)\hole |-(.55)\hole |-(.56){} \arrowyyy{uuuu}{m^2}{\varPhi=\int_S\B\cdot\dd\bm S} & & \cell{\D,\bmP}{Cm^{-2}}\arruuuubefore{\oint_S\D\cdot\dd\bm{S}=Q}\dottedhole{ll}\dotted{ld}\\
   {\rot\E=-\frac{\partial\B}{\partial t}}\dotted{uu}\dotted{rr}\dotteda{ru} & & \cell{\J}{Am^{-2}}\arruubefore{\rot\bm H=\J +\frac{\partial\D}{\partial t}}\arrcvafter{uuuu}{m^2}{I=\int_S\J\cdot\dd\bm S}\\
   & \left(\cell{\rho_m}{Wbm^{-3}}\right)\ar@{--}[uu]|!{[u];[u]}\hole |-(.73)\hole & & \cell{\rho}{Cm^{-3}}\arruumiddle{\diver\D=\rho}\arrcvafter{uuuuuu}{m^3}{Q=\int_v\rho\dd v}\dottedhole{ll}\dotted{ld}\\
   *=0{} \dotted{uu}\dotted{rr}\dotted{ru} & & \diver\J +\frac{\partial\rho}{\partial t}=0\dotted{uu} |!{+(-10,-10);(10,-10)}\hole & \\
